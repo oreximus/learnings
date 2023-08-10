@@ -1,6 +1,6 @@
 # Organizing Information
 
-## Source 01: [from Ali Abdal YT](https://www.youtube.com/watch?v=K-ssUVyfn5g)
+## Source 01: [Ali Abdal](https://www.youtube.com/watch?v=K-ssUVyfn5g)
 
 ### How to organize your life - Building a Second Brain
 
