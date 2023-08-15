@@ -6,7 +6,7 @@
 - **Isothermal**: involving or processing a constant temperature.\[2\]
 - **Entropy**: 
     - the measure of a system's thermal energy per unit temperature that is unavailable for doing useful work.\[3\]
-        - From ScienceNotes.org
+        - From ScienceNotes.org \[3\]
         - Entropy is a measure of the randomness or disorder of a system.
         - Its symbol is the capital letter S. Typical units are joules per kelvin (J/K).
         - Change in entropy can have a positive (more disordered) or negative (less disordered) value.
