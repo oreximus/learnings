@@ -24,9 +24,11 @@
     - **Carnot Engine**:\[4\]
         - The carnot engine is a theoretical thermodynamic cycle proposed by Leonard Carnot. It estimates the maximum possible efficiency that a heat engine during the conversion process of heat into work and, conversely, working between two reservoirs can possess.
 
-        - **Carnot Theorem**: Any system working between T<sub>1</sub>
-        
+        - **Carnot Theorem**: Any system working between T<sub>1</sub> (hot reservoir) and T<sub>2</sub> (cold reservoir) can never have more efficiency that the Carnot engine operating between the same reservoirs.
 
+        - Also, the efficiency of this type of engine is independent of the nature of the working substance and is only dependent on the temperature of the hot and cold reservoirs.
+
+        - **Carnot Cycle**: A carnot cycle is defined as an ideal reversible closed thermodynamic cycle, Four successive operations are involved: isothermal expansion, adiabatic expansion, isothermal compression, and adiabatic compression. During these operations, the expansion and compression of the substance can be done up to the desired point and back to the initial state.
 
 ## Sources
 
