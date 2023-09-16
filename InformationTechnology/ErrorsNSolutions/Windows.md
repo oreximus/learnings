@@ -2,7 +2,7 @@
 
 ## Enabling script execution on Windows 11:
 
-[👉**Source of the information**👈:](https://www.makeuseof.com/enable-script-execution-policy-windows-powershell/#:~:text=Open%20the%20Privacy%20%26%20Security%20tab,Require%20signing%20for%20remote%20scripts.)
+[👉**Source of the information**👈](https://www.makeuseof.com/enable-script-execution-policy-windows-powershell/#:~:text=Open%20the%20Privacy%20%26%20Security%20tab,Require%20signing%20for%20remote%20scripts.)
 
 - On Powershell with Admin Privilege:
 ```
