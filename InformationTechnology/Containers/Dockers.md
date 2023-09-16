@@ -32,7 +32,7 @@ docker run -it ubuntu
 docker ps
 ```
 
-- You can also run the container the foreground forever and all of your process within it in the background:
+- You can also run the container in the foreground forever and all of your process within it in the background:
 
 ```
 docker run ubuntu tail -f /dev/null
