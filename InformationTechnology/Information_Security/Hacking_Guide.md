@@ -8,3 +8,16 @@
 
 - **systemctl status** privilege escalation: https://exploit-notes.hdks.org/exploit/linux/privilege-escalation/sudo/sudo-systemctl-privilege-escalation/
 - you can put !sh in the less.
+
+## Tools Usages:
+
+### Ffuf
+
+- **for subdomain enumeration**:
+
+👉[**source**](https://medium.com/quiknapp/fuzz-faster-with-ffuf-c18c031fc480)👈
+```
+ffuf -w subdomains.txt -u http://website.com/ -H “Host: FUZZ.website.com”
+```
+
+
