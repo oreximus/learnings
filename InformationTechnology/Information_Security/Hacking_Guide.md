@@ -20,4 +20,10 @@
 ffuf -w subdomains.txt -u http://website.com/ -H “Host: FUZZ.website.com”
 ```
 
+## Web Application Testing
 
+### Spring Boot Tips:
+
+- Check for the common errors that appeared in Springboot.
+
+- Directory Scanning with spring-boot specific wordlist.
