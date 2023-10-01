@@ -32,6 +32,26 @@ git status
 git add .
 ```
 
+- Before Pushing any changes to the Remote Repository, setup your IDs:
+
+- **for username**
+
+```
+git config --global user.name "oreximus"
+```
+
+- **for email**
+
+```
+git config --global user.name "oreximus"
+```
+
+- Now you can finally Push:
+
+```
+git push
+```
+
 ### Contributing in The Project:
 
 - Fork the Repo
