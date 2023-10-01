@@ -2,7 +2,7 @@
 
 ## Installing Softwares with Chocolatey:
 
-- **Command to be run in Windows powershell
+- **Command to be run in Windows powershell**
 
 ```
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
@@ -11,8 +11,6 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 #### Setting Up Access Token in Github:
 
 - Settings --> Developer Option --> Access Token (Classic)
-
-![img01](imgs/img01.png)
 
 #### Git Basic Commands:
 
