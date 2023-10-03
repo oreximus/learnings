@@ -37,13 +37,13 @@ git add .
 - **for username**
 
 ```
-git config --global user.name "oreximus"
+git config --global user.name "your username"
 ```
 
 - **for email**
 
 ```
-git config --global user.name "oreximus"
+git config --global user.email "your email address"
 ```
 
 - Now you can finally Push:
