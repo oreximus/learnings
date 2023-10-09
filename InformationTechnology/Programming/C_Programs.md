@@ -61,4 +61,6 @@ Then the gross Salary, storing in a variable **gs**:
 gs = s+da+ra;
 ```
 
+## Program to calculate the area of Circle and Rectangle:
+
 
