@@ -39,4 +39,26 @@ now we can create a variable **s** to store the sum value in it:
 
 s = s + a
 
+## Program to calculate the Gross Salary where the Dearness Allowance is 40% of basic salary and house rent allowance is 20% of basic salary.
+
+In varialbe **s** we will store the basic salary.
+
+In varialbe **da** we will store the dearness allowance amount calculating from the basic salary:
+
+```
+da = s*40/100;
+```
+
+In variable **ra** we will store the **rent allowance** amount calculating from the basic salary:
+
+```
+ra = s*20/100;
+```
+
+Then the gross Salary, storing in a variable **gs**:
+
+```
+gs = s+da+ra;
+```
+
 
