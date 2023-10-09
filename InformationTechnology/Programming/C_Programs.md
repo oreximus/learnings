@@ -89,4 +89,14 @@ Other variable **c** will hold conversion value.
 
 ## Program to Calculate the Sum of First and Last Digit of the Entered 4 digit Number:
 
+Take input from the user and stored in a variable **n**
+
+for getting the last digit, and storing it in a variable: l
+l = 4358%10
+
+for getting the first digit, and storing it in a variable: f
+f = 4358/1000
+
+All variables are integer type.
+
 
