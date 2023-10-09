@@ -63,4 +63,30 @@ gs = s+da+ra;
 
 ## Program to calculate the area of Circle and Rectangle:
 
+Making Program to ask of what area to be calculated **Circle** or **Rectangle**.
+
+for circle we need to input the radius:
+
+radius value will stored in variable **r**
+
+for rectangle we need **length** and **breadth** value
+
+in variable **l** and **b**
+
+## Program to Convert Temperature from Degree Farenheit to Degree Celcius:
+
+Formula of Temperature Conversion from Degree Celcius to Farenheit:
+
+C = F - 32 * (5/9)
+
+Formula to Convert Degree Farenheit to Celcius:
+
+F = C + 32 * (9/5)
+
+We take the Degree Farenheit input from the User and stored in variable: **f**
+
+Other variable **c** will hold conversion value.
+
+## Program to Calculate the Sum of First and Last Digit of the Entered 4 digit Number:
+
 
