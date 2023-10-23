@@ -1,6 +1,6 @@
 # Input Output Redirection in Linux/Unix
 
-### Source: https://www.guru99.com/linux-redirection.html#:~:text=Redirection%20is%20a%20feature%20in,stdout)%20device%20is%20the%20screen.
+### 👉[Source](https://urlis.net/5bv6o6wa)👈
 
 ## Redirection:
 
