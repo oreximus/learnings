@@ -27,3 +27,33 @@ ffuf -w subdomains.txt -u http://website.com/ -H “Host: FUZZ.website.com”
 - Check for the common errors that appeared in Springboot.
 
 - Directory Scanning with spring-boot specific wordlist.
+
+### DOM XSS
+
+👉[**source**](https://www.youtube.com/watch?v=ojiOCfg-FXU)👈
+
+- using portswigger webacademy
+
+- taking place in browser client-side
+
+- searching through scripts, apart from that we have strings
+
+- referencing things with DOM XSS wiki
+
+- testing the script function in console:
+
+```
+// i.e.
+
+location.search
+
+//output
+
+'productId=1'
+
+// For checking XSS, alter the Parameter in URL, where it's getting fetched from
+
+'productID=1&test=test'
+```
+
+- if the last output comes in the output then the XSS worked!
