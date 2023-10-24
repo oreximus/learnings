@@ -57,3 +57,7 @@ location.search
 ```
 
 - if the last output comes in the output then the XSS worked!
+
+👉[**source**](https://www.youtube.com/watch?v=_3Wgx1FabIo)👈
+
+
