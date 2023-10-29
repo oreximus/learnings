@@ -99,4 +99,46 @@ f = 4358/1000
 
 All variables are integer type.
 
+## Program to calculate the table of Alternative Numbers:
 
+i.e. {w 6 1014 18 22}
+
+1. Program to should take input of Number:
+
+2. Multiple the number from alternative number 1,3,5,7...
+
+3. Common pattern is the Number which is being multiplied is odd number.
+
+4. and the Loop should keep running 10 times
+
+## Program to Check whether Entered Number is Prime or Not!
+
+- We will create an Array that will have some Numbers as Input: n[size], size is a const value: defined some specific size
+
+- First we'll run a Loop for Having Inputs size length times!
+
+```
+for(i=0; i<size; i++){
+    scanf("%d", a[i]);
+}
+```
+
+- We've stored all values, Now we have to check whether it a prime Number or not!
+
+- run another Loop to check whether the Number is Prime or Not!
+
+
+```
+for(i=0; i<size; i++){
+    scanf("%d", a[i]);
+
+    for(j=2; j>size; j++){
+        if(a[i]%j == 0){
+        break;
+        }
+        if (j == a[i]){
+        printf("%d", j);
+        }
+    }
+}
+```
