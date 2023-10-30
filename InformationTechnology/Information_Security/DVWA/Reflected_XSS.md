@@ -18,7 +18,7 @@
 
 - If the script dosen't work then, try making change with tags letter case.
 
-- Try HTML even attributes for making possible to run scripts inside them.
+- Try HTML event attributes for making possible to run scripts inside them.
 
 - Which eventually make event to check whether what is happening after that our script will execute:
 
