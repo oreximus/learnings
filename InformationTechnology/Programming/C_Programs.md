@@ -142,3 +142,18 @@ for(i=0; i<size; i++){
     }
 }
 ```
+
+## Program to print 5 digit number by increasing its value by 1
+
+56757
+
+56757/10000 = 5
+
+56757/1000 = 56%10 = 6
+
+56757/100 = 567%10 = 7
+
+56757/10 = 5675%10 = 7
+
+
+
