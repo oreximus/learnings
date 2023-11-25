@@ -60,4 +60,28 @@ location.search
 
 👉[**source**](https://www.youtube.com/watch?v=_3Wgx1FabIo)👈
 
+### [Linux Privilege Escalation using SUID Binaries](https://www.hackingarticles.in/linux-privilege-escalation-using-suid-binaries/)
 
+#### Permissions in Linux
+
+- the maximum number of bit is used to set permission for each user is **7**, which is a combination of read (**4**) write (**2**) and execute (**1**) operation. For example, if you set chmod 755, then it will look like as **rwxr-xr-x**.
+
+- But when special permission is given to each user it becomes **SUID, SGID, and sticky bits**. When extra bit **"4"** is set to user(Owner) it becomes **SUID** (Set user ID) and when bit "**2**" is set to group it becomes **SGID**(Set Group ID) and if other users are allowed to create or delete any file inside a directory then **sticky bits "1"** is set to that directory.
+
+![img01](imgs/hg_img01.png)
+
+#### SUID Permission?
+
+- Set User ID is a type of permission that allows user to execute a file with the permission of a specified user.
+
+#### How to set suid?
+
+- You can change the permission of any file either using "Numerical" method or "Symbolic" method.
+
+- As result, it will **replace x from s** as shown in the below image which denotes especial execution permission with the higher privilege to a particular file/command.
+
+- Since we are enabling SUID for Owner (user) therefore **bit 4** and **symbol s** will be added before read/write/execution operation.
+
+![img02](imgs/hg_img02.png)
+
+- If you execute **ls -al** with the file name and then you observe the small 's' 
