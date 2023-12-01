@@ -25,8 +25,8 @@
 
 ### Region Impacts:
 
-1. Indonesia:
-(Starbuck Grows most of their coffee in Indonesia)
+1. Indonesia (Starbuck Grows most of their coffee in Indonesia)
+
 - Most coffee is grown up in very low altitute.
 - oxygen is sufficient here.
 - low altitute makes high turnover rate.
