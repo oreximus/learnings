@@ -14,9 +14,7 @@
     - lay out in the fields and dry them for about 30-40 days
     - now isolating the coffee beans
 
-2. Natural:
-
-(good for sweet cup of coffee)
+2. Natural: (good for sweet cup of coffee)
 
     - less human involvement
     - drying the cherry directly in the sun.
