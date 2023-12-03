@@ -51,7 +51,7 @@ source: https://perkcoffee.co/sg/arabica-beans-vs-robusta-beans-whats-difference
 
 - The most common variety of *Coffea Canephora* is *Robusta*, Arabica's street-smart younger brother.
 
-- Despite its flavour being considered less refined, Robbusta is widely used in espresso blends because it is known to produce a better crema (the creamy layer found on top of an espresso shot) than Arabica. It is hardier, more resistant to disease and produces better yields. It also packs more caffeine.
+- Despite its flavour being considered less refined, Robusta is widely used in espresso blends because it is known to produce a better crema (the creamy layer found on top of an espresso shot) than Arabica. It is hardier, more resistant to disease and produces better yields. It also packs more caffeine.
 
 ### Robustam caffeine and chlorogenic acids
 
