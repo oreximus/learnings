@@ -85,3 +85,29 @@ location.search
 ![img02](imgs/hg_img02.png)
 
 - If you execute **ls -al** with the file name and then you observe the small 's' 
+
+## Pentesting RDP Service
+
+#### source: https://book.hacktricks.xyz/network-services-pentesting/pentesting-rdp
+
+- **Remote Desktop** Protocol (RDP) is a proprietary protocol developed by Microsoft, which provides a user with a graphical interface to connect to another computer over a network connection. The user employes **RDP** client software for this purpose, while the other computer must run **RDP** software for this purpose, while other computer must run **RDP** server computer.
+
+**default port**: 3389
+
+```
+3389/tcp open  ms-wbt-server     syn-ack Microsoft Terminal Services
+```
+
+## Enumeration
+
+**Automatic**:
+
+```
+nmap --script "rdp-enum-encryption or rdp-vuln-ms12-020 or rdp-ntlm-info" -p 3389 -T4 <ip-address>
+```
+
+`it checks the available encryption and DoS vulnerability(without causing DoS to the service) and obtains NTLM Windows info(versions).`
+
+
+
+
