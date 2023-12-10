@@ -108,6 +108,6 @@ nmap --script "rdp-enum-encryption or rdp-vuln-ms12-020 or rdp-ntlm-info" -p 338
 
 `it checks the available encryption and DoS vulnerability(without causing DoS to the service) and obtains NTLM Windows info(versions).`
 
-
+### LDAP
 
 
