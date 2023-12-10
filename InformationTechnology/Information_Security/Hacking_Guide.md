@@ -110,4 +110,18 @@ nmap --script "rdp-enum-encryption or rdp-vuln-ms12-020 or rdp-ntlm-info" -p 338
 
 ### LDAP
 
+### DNS Enumeration
 
+- The Domain Name Systems (DNS) is the phonebook of the Internet. Humans access information online throhgh domain names, like nytimes.com or espn.com. Web browsers interact through Internet Protocol (IP) addresses. DNS translates domain names to **IP addresses** so browsers can load Internet resources.
+
+**Default port**: 53
+
+#### Different DNS Servers
+
+1. DNS Root Server: The root servers of the DNS are responsible for the top-level domain donains(TLD). As the last instance, they are only requested if the name server does not respond.
+Thus, a root server is a central interface between users and content on the Internet, as it links domain and IP address. The *Internet Corporation for Assigned Names and Numbers*(ICANN) coordinates the work of the root name servers. There are `13` such root servers around the globe.
+2. Authoritive Nameserver: Authoritive name servers hold authority
+3. Non-authoritive Nameserver:
+4. Caching DNS Server:
+5. Forwarding Server:
+6. Resolver:
