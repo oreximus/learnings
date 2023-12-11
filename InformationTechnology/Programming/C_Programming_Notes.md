@@ -44,3 +44,7 @@ source: https://www.geeksforgeeks.org/c-switch-statement/
 In C, the switch case statement is used for executing one condition from multiple conditions. It is similar to an if-else-if ladder.
 
 - The switch statement consists of conditional-based cases and a a default case.
+
+### Printing Patterns in C
+
+
