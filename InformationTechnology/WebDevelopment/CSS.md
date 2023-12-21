@@ -5,8 +5,7 @@
 
 ## CSS Syntax
 
-
-- Decription:
+- Definitive Example:
 ```
 selector {
     property1: value;
