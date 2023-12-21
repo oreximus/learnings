@@ -125,7 +125,7 @@ buttun 3
         font-size: 200%;
     }
     ```
-    - For combining all the /</p/>/ tags inside /</div/>/
+    - For combining all the <\p> tags inside <\div>
     ```
     // In HTML
     <div>
