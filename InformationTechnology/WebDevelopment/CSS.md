@@ -99,7 +99,7 @@ buttun 3
 ### CSS Selector Combination
 
 - Examples:
-    - For combining H1 tag with "larg-heading" class:
+    - For combining H1 tag with "large-heading" class:
     ```
     // In HTML
     <h1 class="large=heading">
@@ -125,7 +125,7 @@ buttun 3
         font-size: 200%;
     }
     ```
-    - For combining all the <p> tags inside <div>
+    - For combining all the /</p/>/ tags inside /</div/>/
     ```
     // In HTML
     <div>
