@@ -33,7 +33,7 @@
 ### One very rare Case of SQL Injections, Third Category:
 
 3. Out of Band SQL Injection
-   - Not applicable in many of SQL products,
+   - Not applicable in many of the SQL products,
    - majorly found in the databases of Oracle under a special package called:
      UTL_HTTP, with which we can a response in our netcat listener, and there we
      can response of our queries.
