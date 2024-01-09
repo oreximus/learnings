@@ -25,12 +25,12 @@
 
 ## Types of SQL Injection
 
-## Two Major Categories of SQL Injection:
+### Two Major Categories of SQL Injection:
 
 1. In-band SQL Injections
 2. Infrential SQL Injections
 
-## One very rare Case of SQL Injections, Third Category:
+### One very rare Case of SQL Injections, Third Category:
 
 3. Out of Band SQL Injection
    - Not applicable in many of SQL products,
@@ -41,7 +41,7 @@
      background like can occur in the netcat listener which could be setted-up
      by us.
 
-## 1. In-band SQL Injections
+### 1. In-band SQL Injections
 
 - They usually occurs when you get some kind of response from the website,
   either you get some kind of **data** in response or it could be an **error**.
@@ -60,12 +60,12 @@
 - When we can take the Advantage of Error to inject our SQL, that's when we use
   **Error based SQL Injection** technique.
 
-### Union based SQL injections:
+#### Union based SQL injections:
 
 - Union based sql injections occurs when we are able to use the UNION operator
   to combine the output of two select Statements.
 
-## 2. Infrential SQL Injections
+### 2. Infrential SQL Injections
 
 - In some cases we do not get any Data or any Error, then there we need to
   analyze the Behaviour of application.
