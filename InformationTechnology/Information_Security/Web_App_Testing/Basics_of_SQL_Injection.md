@@ -70,7 +70,7 @@
 - In some cases we do not get any Data or any Error, then there we need to
   analyze the Behaviour of application.
 
-**Two Techniques of `Infrential SQL Injections`:
+**Two Techniques of `Infrential SQL Injections`:**
 
 1. Boolean-Based SQL Injection (True/False)
 2. Time-Based SQL Injection (Time taken by the application)
