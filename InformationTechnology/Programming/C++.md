@@ -36,5 +36,5 @@ int main(){
 
 - **cout** is an object of output stream that is used to show output on the console.
 - **cin** is an object of input stream which used to take input from input stream like files, console, etc.
-- \<\< --> insertion operation
-- \>\> --> extraction operator
+- \<\< ➝ insertion operation
+- \>\> ➝ extraction operator
