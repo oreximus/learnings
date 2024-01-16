@@ -34,7 +34,33 @@ int main(){
 }
 ```
 
+- iostream **stands for standard input-output stream**. #include iostream declares objects that control reading from and writing to the standard streams.
+- using namespace std means that we can use names for objects and variables from the standard library.
 - **cout** is an object of output stream that is used to show output on the console.
 - **cin** is an object of input stream which used to take input from input stream like files, console, etc.
 - \<\< ➝ insertion operation
 - \>\> ➝ extraction operator
+
+**Example Syntax with Scope resolution operator**:
+
+```
+#include <iostream>
+int main(){
+
+    int a,b,c;
+    
+    std::cout << "Enter the 2 values:"
+    std::cin >> a >> b;
+    count << "sum of" << a << "and" << b << "is" << c;
+    
+    return 0;
+}
+```
+
+- In computer programming, scope is an enclosing context where values and expressions are associated. The scope resolution operator helps to identify and specify the context to which an identifier refers, particularly by specifying a namespace or class.
+    - source: https://en.wikipedia.org/wiki/Scope_resolution_operator
+
+**Namespace in C++**
+
+- A namespace is a declarative region that provides a scope to the identifiers (the names of types, functions, variables, etc) inside it. Namespaces are used to organize code into logical groups and to prevent name collisions that can occur especially when your code base includes multiple libraries.
+    - source: https://learn.microsoft.com/en-us/cpp/cpp/namespaces-cpp?view=msvc-170
