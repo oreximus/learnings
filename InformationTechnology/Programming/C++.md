@@ -64,3 +64,29 @@ int main(){
 
 - A namespace is a declarative region that provides a scope to the identifiers (the names of types, functions, variables, etc) inside it. Namespaces are used to organize code into logical groups and to prevent name collisions that can occur especially when your code base includes multiple libraries.
     - source: https://learn.microsoft.com/en-us/cpp/cpp/namespaces-cpp?view=msvc-170
+
+## OOP
+
+- Class
+- Object
+- Constructor
+- Inheritance
+- Polymorphism
+- Encapsulation
+- Data Abstraction
+
+### Class:
+
+Class is a collection of data members and member functions where data member are the variables which can store data and functions which can perform operations on those data members, class is also called user defined data type just like a structures in c.
+
+### Object:
+
+object is an instance of a class which contains or blueprint of a class or basic runtime entity, which contains all the properties and their behaviour of a class. And by the help of that we can access all the properties of a class outside the class.
+
+### Access Modifiers
+a way to access to the properties of class through objects!
+
+- public
+- protected
+- private
+
