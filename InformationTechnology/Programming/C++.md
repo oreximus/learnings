@@ -2,7 +2,7 @@
 
 - It's the same C Programming Language only difference is that it's introduced the OOP's concepts.
 
-- The name of Programming C++, here ++ denotes increment operator and it's kind of ibvious that C++ with OPPs is the more featured version of C programming language.
+- The name of Programming C++, here ++ denotes increment operator and it's kind of obvious that C++ with OPPs is the more featured version of C programming language.
 
 ## History
 
