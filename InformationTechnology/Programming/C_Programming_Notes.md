@@ -48,3 +48,68 @@ In C, the switch case statement is used for executing one condition from multipl
 ### Printing Patterns in C
 
 
+### Difference between Argument and Parameter in C/C++
+
+**Argument**:
+
+- An **argument** is referred to the values that are passed within a function when the function is called. These values are generally the source of the function that require the arguments during the process of execution.
+
+These values are assigned to the variable in the definition of the function that is called. The type of the values passed in the function is the same as that of the of the variable defined in the function definition. These are also called **Actual arguments** or **Actual Parameters**.
+
+**Example**:
+
+Suppose a sum() function is needed to be called with two numbers to add. These two numbers are referred to as the arguments and are passed to the sum() when it called from somewhere else.
+
+```
+// C code to illustrate Arguments
+
+#include <stdio.h>
+
+int sum(int a, int b)
+{
+    // returning the addition
+    return a + b;
+}
+
+// Driver code
+int main()
+{
+    int num1 = 10, num2 = 20, res;
+
+    // sum() is called with
+    // num1 & num2 as ARGUMENTS.
+    res = sum(num1, num2);
+
+    printf("The summation is %d", res);
+    return 0;
+}
+```
+**Parameters**:
+
+- The parameter is referred to as the variable that are defined during a function declaration or definition. These variable are used to receive the arguments that are passed during a function call.
+
+These parameters within the function prototype are used during the execution of the function for which it is defined.
+
+These are also called Formal arguments or Formal Parameters.
+
+**Example**: Suppose a Multi() function is needed to be defined to multiply two numbers. These two numbers are referred to as the parameters and are defined while defining the function Multi().
+
+```
+// C code to illustrate Parameters
+
+#include <stdio.h>
+
+// Multi: Function definition
+// a and b are the PARAMETERS]
+
+int Mult(int a, int b)
+{
+
+    // returning the multiplication
+    return a*b;
+}
+```
+
+
+
+
