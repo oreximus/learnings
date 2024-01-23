@@ -90,3 +90,12 @@ a way to access to the properties of class through objects!
 - protected
 - private
 
+## Encapsulation
+
+It is a process by which we can wrap hold data and process in a single unit.
+
+## Data Abstraction
+
+we can show only essential features and hide the remaining
+
+
