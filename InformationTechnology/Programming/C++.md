@@ -90,6 +90,14 @@ a way to access to the properties of class through objects!
 - protected
 - private
 
+## Scope Resolution Operator
+
+- we use this to define the functions associated to some class.
+
+## Friend Function
+
+- It help us to use the features of a private,public,protected class.
+
 ## Encapsulation
 
 It is a process by which we can wrap hold data and process in a single unit.
