@@ -94,6 +94,38 @@ a way to access to the properties of class through objects!
 
 - we use this to define the functions associated to some class.
 
+**example**:
+```
+class Sum{
+    private:
+    int a,b,c;
+
+    get(){
+        cout << "Enter two values: ";
+        cin << a << b;
+    }
+
+    sum(){
+        c = a+b;
+    }
+    
+    show(){
+        cout << "\nSum of " << a << " and " << b << " is: " << c;
+    }
+
+    friend void oper();
+};
+
+
+
+int main(){
+
+    
+}
+
+
+```
+
 ## Friend Function
 
 - It help us to use the features of a private,public,protected class.
