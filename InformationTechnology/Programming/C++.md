@@ -138,4 +138,15 @@ int main(){
 
 - we can show only essential features and hide the remaining
 
+## Constuctor
 
+- It is a special type of function of a class
+- It's name same as a class name
+- It does not have any return type
+- It can't return any kind of value
+- It doesn't required calling, it automatically called when we declare an object of a class.
+
+### Types of Constructor:
+
+1. Compiler Defined, default
+2. User Defined, default, parameterized, copy
