@@ -132,10 +132,10 @@ int main(){
 
 ## Encapsulation
 
-It is a process by which we can wrap hold data and process in a single unit.
+- It is a process by which we can wrap hold data and process in a single unit.
 
 ## Data Abstraction
 
-we can show only essential features and hide the remaining
+- we can show only essential features and hide the remaining
 
 
