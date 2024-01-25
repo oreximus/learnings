@@ -111,5 +111,28 @@ int Mult(int a, int b)
 ```
 
 
+## Loops
+
+- 3 Different kinds of pyramids to make.
+- Even No pyramid and Odd No pyramid to make.
+- Using ASCII values to make patterns, i.e. (by %c in the printf(), 64+i, 64+j, where i and j are variable containing integer value from the loop.)
+- Using outer loop variable dependency to create patterns, by only changing starting and ending values in the variable it makes the pattern accordingly in the reverse order as well as in the main order.
+
+
+## Assignment:
+
+1. Right side and Left Side Right Angle Triangle Combination, through loop.
+
+```
+*       *
+**     **
+***   ***
+**** ****
+**********
+```
+
+
+
+
 
 
