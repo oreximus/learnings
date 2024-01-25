@@ -132,7 +132,7 @@ int main(){
 
 ## Encapsulation
 
-- It is a process by which we can wrap hold data and process in a single unit.
+- It is a process by which we can wrap whole data and process in a single unit.
 
 ## Data Abstraction
 
