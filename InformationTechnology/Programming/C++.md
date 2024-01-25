@@ -81,7 +81,7 @@ Class is a collection of data members and member functions where data member are
 
 ### Object:
 
-object is an instance of a class which contains or blueprint of a class or basic runtime entity, which contains all the properties and their behaviour of a class. And by the help of that we can access all the properties of a class outside the class.
+object is an instance of a class which contains or blueprint of a class or basic runtime entity, which contains all the properties and the behaviour of a class. And by the help of that we can access all the properties of a class outside the class.
 
 ### Access Modifiers
 a way to access to the properties of class through objects!
