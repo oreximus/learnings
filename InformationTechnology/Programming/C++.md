@@ -141,7 +141,7 @@ int main(){
 ## Constuctor
 
 - It is a special type of function of a class
-- It's name same as a class name
+- It's name same as a class name, (i.e. If Class Name is `Sum` then Constructor will be like `Sum()`)
 - It does not have any return type
 - It can't return any kind of value
 - It doesn't required calling, it automatically called when we declare an object of a class.
