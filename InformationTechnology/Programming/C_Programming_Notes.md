@@ -124,12 +124,17 @@ int Mult(int a, int b)
 1. Right side and Left Side Right Angle Triangle Combination, through loop.
 
 ```
-*       *
-**     **
-***   ***
-**** ****
+*        *
+**      **
+***    ***
+****  ****
 **********
 ```
+
+## Array 
+
+- Array is a collection of similar type of data or homegeneuos element in a continuos memory blocks, In that each and every blocks can be uniquely access through indexing, which always starts from 0 to size-1.
+
 
 
 
