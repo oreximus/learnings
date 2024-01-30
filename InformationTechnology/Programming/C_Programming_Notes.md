@@ -133,11 +133,4 @@ int Mult(int a, int b)
 
 ## Array 
 
-- Array is a collection of similar type of data or homegeneuos element in a continuos memory blocks, In that each and every blocks can be uniquely access through indexing, which always starts from 0 to size-1.
-
-
-
-
-
-
-
+- Array is a collection of similar type of data or homegeneuos element in a continuos memory blocks, In that each and every blocks can be uniquely access through indexing, which always starts from 0 to size-1. 
