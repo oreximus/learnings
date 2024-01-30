@@ -134,3 +134,103 @@ int Mult(int a, int b)
 ## Array 
 
 - Array is a collection of similar type of data or homegeneuos element in a continuos memory blocks, In that each and every blocks can be uniquely access through indexing, which always starts from 0 to size-1. 
+
+## Pointers
+
+- **Pointers** are one of the core components of the C Programming language. A pointer can be used to store the **memory address** of other variable, functions, or even other pointers.
+
+- The use of pointers allows low-level memory access, dynamic memory allocation, and many other functionalities in C.
+
+### What is a Pointer in C?
+
+`A pointer is defined as a derived data type that can store the address of other C variables or a memory location. We can access and manipulate the data stored in that memory location using pointers.`
+
+- As the pointers in C store the memory addresses, their size is independent of the type of data they are pointing to. This size of pointers in C only depends on the system architecture.
+
+### Sytax of C Pointers
+
+- The syntax of pointers in similar to the variable declaration in C, but we use the `(*) dereferencing operator` in the pointer declaration.
+
+```
+datatype * ptr;
+```
+
+where
+- **ptr** is the name of the pointer.
+- **datatype** is the type of data it is pointing to.
+
+The above syntax is used to define a pointer to a variable. We can also define pointers to functions, structures, etc.
+
+### How to use Pointers?
+
+- The use of pointers in C can be divided into three steps:
+
+1. **Pointer Declaration**
+2. **Pointer Initialization**
+3. **Pointer Dereferencing**
+
+#### 1. Pointer Declaration
+
+In pointer declaration, we only declare the pointer but do not initialize it. To declare a pointer, we use the `(*) dereference operator` before its name.
+
+**Example**:
+
+```
+int *ptr;
+```
+
+The pointer declared here will point to some random memory address as it is not initialized. Such pointers are called wild pointers.
+
+#### 2. Pointer Initialization
+
+- Pointer initialization is the process where we assign some initial value to the pointer variable. We generally use the `(&) addressof operator` to get the memory address of a variable and then store it in the pointer variable.
+
+**Example**:
+
+```
+int var = 10;
+int * ptr;
+ptr = &var;
+```
+
+We can also declare and initialize the pointer in a single step. This method is called `pointer definition` as the pointer is declared and initialized at the same time.
+
+**Example**:
+
+```
+int *ptr = &var;
+```
+
+`**Note**: It is recommended that the pointers should always be initialized to some value before starting using it. Otherwise, it may lead to number of errors.`
+
+#### 3. Pointer Dereferencing
+
+- Dereferencing a pointer is the process of accessing the value stored in the memory address specified in the pointer. We use the same `(*) dereferencing operator` that we used in the pointer declaration.
+
+#### C Pointer Example:
+
+```
+#include <stdio.h>
+
+void cool()
+{
+    int var = 10;
+    
+    // declare pointer variable
+    int* ptr;
+
+    // note that data type of ptr and var must be same
+    ptr = &var;
+
+    // assign the address of a variable to a pointer
+    printf("Value at ptr = %p \n", ptr);
+    printf("Value at var = %d \n", var);
+    printf("Value at *ptr = %d \n", *ptr);
+}
+
+int main()
+{
+    cool();
+    return 0;
+}
+```
