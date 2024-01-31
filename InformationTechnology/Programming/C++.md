@@ -150,3 +150,23 @@ int main(){
 
 1. Compiler Defined, default
 2. User Defined, default, parameterized, copy
+
+
+## Inheritance
+
+- Inheritance is a concept by which we can aquire or inherit the properties of one class into the another class.
+
+- Benefits of this:
+    1. Connection between classes
+    2. Decrease of lines of code
+    3. Reuse of code
+
+### Types of Inheritance
+
+1. Simple/Single
+2. Multiple
+3. Multilevel
+4. Herarchical
+5. Hybrid
+
+
