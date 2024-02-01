@@ -149,7 +149,7 @@ int Mult(int a, int b)
 
 ### Sytax of C Pointers
 
-- The syntax of pointers in similar to the variable declaration in C, but we use the `(*) dereferencing operator` in the pointer declaration.
+- The syntax of pointers is similar to the variable declaration in C, but we use the `(*) dereferencing operator` in the pointer declaration.
 
 ```
 datatype * ptr;
