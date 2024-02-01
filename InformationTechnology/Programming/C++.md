@@ -169,4 +169,105 @@ int main(){
 4. Herarchical
 5. Hybrid
 
-## 
+### Simple/Single Inheritance:
+
+- We can inherit the properties of a parent class (which is defined at the starting) in child class (which is defined after the parent class).
+
+**Example**:
+
+```
+class Get{
+
+    public:
+        int a,b,c;
+
+    void get(){
+        cout << "\nEnter two values:\n";
+        cin >> a >> b;
+    }
+
+    void show(msg){
+        cout << "\n" << msg << " of " << a << " and " << " is: " << c;
+    }
+};
+
+class Sum : public Get{
+
+    public:
+        
+        void sum(){
+            c = a+b;
+        }
+};
+
+int main(){
+
+    Sum s1;
+
+    s1.get();
+    s1.sum();
+    s1.show("Sum");
+
+    return 0;
+}
+```
+
+- In above example we have created a parent class `Get` and the create a child class `Sum`, which is using the properties of `Get` class by accessing the properties through single inheritance.
+
+## Multiple Inheritance
+
+- When we inherit the properties of multiple parent classes then it is an example of multiple inheritance.
+
+**Example**:
+
+```
+class Get{
+
+    public:
+        int a,b,c;
+
+    void get(){
+        cout << "\nEnter two values:\n";
+        cin >> a >> b;
+    }
+
+    void show(msg){
+        cout << "\n" << msg << " of " << a << " and " << " is: " << c;
+    }
+};
+
+class Sum : public Get{
+
+    public:
+        
+        void sum(){
+            c = a+b;
+        }
+};
+
+
+class Product : public Get{
+
+    public:
+        
+        void prod(){
+            c = a*b;
+        }
+};
+
+class Child : public Sum, public Product {
+
+    
+}
+
+int main(){
+
+    Sum s1;
+
+    s1.get();
+    s1.sum();
+    s1.show("Sum");
+
+    return 0;
+}
+```
