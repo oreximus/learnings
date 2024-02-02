@@ -235,8 +235,34 @@ int main()
 }
 ```
 
-#### Malloc Function:
+### C Dynamic Memory Allocation
+
+Sometimes the size of the array we declared is insufficient. To solve this issue, we can allocate memory manually during run-time. This is known as dynamic memory allocation in C Programming.
+
+To allocate memory dynamically, library functions are `malloc()`, `calloc()`, `realloc`, and `free()` are used. These functions are defined in the `<stdlib>` header file.
+
+#### C malloc()
+
+- The name "malloc" stands for memory allocation.
+
+- The `malloc()` function reserves a block of memory of the specified number of bytes. And, it returns a `pointer` of `void` which can be casted into pointers of any form.
 
 - `malloc()` is a library function that allows C to allocate memory dynamically from the heap.
 
 - The heap is an area of memory where something is stored. malloc() is part of stdlib.
+
+**Syntax of malloc()**
+
+```
+ptr = (castType*) malloc(size)
+```
+
+**Example**:
+
+```
+ptr = (float*) malloc(100 * sizeof(float));
+```
+- The above statement allocates 400 bytes of memory, It's because the size of `float` is 4 bytes. And, the pointer `ptr` holds the address of the first byte in the allocated memory.
+
+- The expresson results in a `NULL` pointer if the memory cannot be allocated.
+
