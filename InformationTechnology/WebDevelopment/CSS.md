@@ -186,3 +186,33 @@ buttun 3
     - margin
     - border
     - background-color
+
+
+## Margin Padding in CSS
+
+1.
+
+Applying all of the sides top, botton, left, right.
+
+```
+margin: 100px
+```
+
+- top
+- right
+- bottom
+- left
+
+2. Applying to individual side:
+
+```
+margin-left
+margin-right
+margin-top
+margin-bottom
+```
+
+3. Applying top, bottom and right, left
+```
+margin 25px 30px;
+```
