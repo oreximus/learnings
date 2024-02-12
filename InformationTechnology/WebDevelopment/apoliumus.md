@@ -15,3 +15,4 @@
     - min-width
     - oreintation
 
+- inside `@media` normal css will be applied.
