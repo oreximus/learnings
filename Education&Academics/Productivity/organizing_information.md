@@ -45,8 +45,8 @@
     - Checkout [Milanotes](https://milanote.com/) it is free!
         - create mindmaps, you can also find already templates to work with.
 
-    - [Excalidraw](https://excalidraw.com/)
-    - [Eraser](https://www.eraser.io/)
+    - [Excalidraw](https://excalidraw.com/): Good for Visualization by making Drawings and Flowcharts!
+    - [Eraser](https://www.eraser.io/): Have Document and Canvas both as user options, visualize and organize things.
 
 - **Notes App**
     - there are other tools also connect with this:
