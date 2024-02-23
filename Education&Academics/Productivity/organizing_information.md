@@ -45,6 +45,9 @@
     - Checkout [Milanotes](https://milanote.com/) it is free!
         - create mindmaps, you can also find already templates to work with.
 
+    - [Excalidraw](https://excalidraw.com/)
+    - [Eraser](https://www.eraser.io/)
+
 - **Notes App**
     - there are other tools also connect with this:
         (todo list, calender, capture tools etc)
