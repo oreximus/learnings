@@ -56,4 +56,33 @@ Get-WmiObject -Class win32_OperatingSystem | select Version, BuildNumber
 
 **Local Access Concepts**
 
-- 
+- Local access is the most common way to access any computer, including computer running Windows, **Input** is likely happening through a keyboard, trackpad, trackpad &/or mouse. **Output** is coming from the display screen(s).
+
+**Remote Access Concepts**
+
+- Remote Access is accessing a computer over a network. Local access to a computer is needed before one can access another computer remotely. There are countless methods for remote access.
+
+- Consider **MSPs** & **MSSPs**, both industries are primarily dependent on managing their client's computer systems remotely. This functionality allow them to centralize management, standardize what technologies are used, automate numerous tasks, enable remote work arrangements and allow for quick response time when issues surface, or potential security threats emerge.
+
+- Organizations with IT, Software Development &/or Security teams use remote access methods daily to build applications, manage servers and administer employee workstations. Some of the most common remote access technologies include but aren't limited to:
+
+    - Virtual Private Network (VPN)
+    - Secure Shell (SSH)
+    - File Transfer Protocol (FTP)
+    - Virtual Network Computing (VNC)
+    - Windows Remote Management (or PowerShell Remoting) (WinRM)
+    - Remote Desktop Protocol (RDP)
+
+**Remote Desktop Protocol (RDP)**
+
+- RDP uses a client/server architecture where a client-side application is used to specify a computer's target IP address or hostname over a network where RDP access is enabled. The target computer where RDP remote access is enabled is considered the server.
+
+- The target computer where RDP remote access is enabled is considered the server. RDP listens by default on logical port 3389.
+
+- Keep in mind that an IP address is used as a logical identifier for a computer on a network, and a logical port is an identifier assigned to an application.
+
+- In simpler terms, we could consider a network subnet a street in a town (the corporate network), an IP address in that subnet assigned to a host as a house on that street, and logical ports as windows/doors that can be used to access the house.
+
+- Once a require (encapsulated inside a packet) has reached a destination computer via its IP address, the request will be directed to an application hosted on the computer based on the port specified in that request (included as a header inside a packet).
+
+- IP addressing and protocol encapsulation are covered in greater detail in the module **Introduction to Networking**. From a networking perspective.
