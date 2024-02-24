@@ -85,4 +85,24 @@ Get-WmiObject -Class win32_OperatingSystem | select Version, BuildNumber
 
 - Once a require (encapsulated inside a packet) has reached a destination computer via its IP address, the request will be directed to an application hosted on the computer based on the port specified in that request (included as a header inside a packet).
 
-- IP addressing and protocol encapsulation are covered in greater detail in the module **Introduction to Networking**. From a networking perspective.
+- From a networking perspective, in this module, we only need to understand that every computer has an IP address assigned to communicate over a network, and applications hosted on target computers listen on specific logical ports.
+
+- We can use RDP to connect to a Windows target from an attack host running Linux or Windows. If we are connecting to a Windows target from a Windows host, we can use the built-in RDP client application called **Remote Desktop Connection**(mstsc.exe).
+
+- For this to work, remote access must already be **allowed** on the target Windows system. By default, remote access is not allowed on Windows operating Systems.
+
+- Remote Desktop Connection also allows us to save connection profiles. This is a common habit among IT admins because it makes connecting to remote systems more convenient.
+
+- As a pentesters, we can benefit from looking for these saved Remote Desktop Files (**.rdp**) while on an engagement.
+
+**Using xfreerdp**
+
+- From a Linux-based attack host we can use a tool called **xfreerdp** to remotely access Windows targets.
+
+- Remember that we can also copy and paste in xfreerdp commands in the commandline, so we do not need to enter options manually. There are several options avaiable to us with xfreerdp, such as drive redirection to be able to transfer files to/from the target host, which are worth practicing.
+
+- Other RDP client exist, such as **Remmina** and **rdestop**, and we can also try those too.
+
+### Task TODO
+
+- Configuring RDP in a Windows Server and Try connecting it using your local machine (Linux/Windows).
