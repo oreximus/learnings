@@ -8,10 +8,10 @@
 rustscan -a <target_ip> -- -sC -sV -oN tools/nmap/scan_box
 ```
 
-**Subdomain Enumeration using Ffuf**:
+**Subdomain Enumeration using Gobuser**:
 
 ```
-ffuf -w ~/HacknTools/wordlists/subdomain/subdomains-10000.txt -u TARGET -fc 200
+gobuster vhost -u http://pov.htb/ -t 35 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt --append-domain -k --no-error
 ```
 
 **Directory Scanning using Feroxbuster**:
