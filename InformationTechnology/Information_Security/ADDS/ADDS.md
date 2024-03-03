@@ -55,4 +55,7 @@ nmap -sC -sV -Pn <ip-address> --open
 - Above Command switches workings:
     - `-sC` enabling script scanning; if the scan find any vulnerability, we will able to see it in the output.
     - `-sV` enabling version detection of the running softwares on the targeted system.
-    - `-Pn` 
+    - `-Pn` skip host discovery
+    - `--open` will make the output for only opened ports.
+
+
