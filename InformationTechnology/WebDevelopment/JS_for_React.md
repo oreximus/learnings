@@ -1,5 +1,7 @@
 ## Required JS to Start doing React
 
+### Source: https://www.youtube.com/watch?v=Y_r-51IzfGk
+
 - Extreme JS Basics
     - defining variables(var,let,const),
     - primitive data types,
