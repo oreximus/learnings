@@ -19,3 +19,11 @@ gobuster vhost -u http://pov.htb/ -t 35 -w /usr/share/wordlists/dirbuster/direct
 ```
 
 ```
+
+## Common Tools
+
+**Connecting VPN using openvpn**:
+
+```
+sudo openvpn <vpn-file-path>
+```
