@@ -1,0 +1,24 @@
+# Useful Tools for Basic Pentesting, CTFs and Bug Hunting
+
+- amass
+- nmap
+- feroxbuster
+- gobuster
+- python (version 2, 3)
+- ruby
+- msconsole (metasploit) // optional, kali one would do better if not going to install this!
+- burpsuite
+- Browser (Firefox or Chrome; with foxyproxy extension, cookie editor, wappalyzer)
+- hashcat (main system pr aur running state mein hona chahiye!) (for password and hash cracking)
+- john (for password cracking)
+- curl, wget
+- strace, ltrace and string
+- ollydbg (VM mein bhi chalega!)
+- ghidra
+- mysql (testing; vm mein chalega!)
+- docker (docker service should enable and running on the machine; and the user should have access to the service (add user to the group `docker`)).
+- dig
+- smbclient
+- ftp
+- wordlists (seclists (github clone))
+- netcat
