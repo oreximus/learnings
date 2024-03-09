@@ -40,6 +40,6 @@ $output
 
 **Screenshot**:
 
-![](imgs/web_easy_01.png.png)
+![](imgs/web_easy_01.png)
 
 - Resources:
