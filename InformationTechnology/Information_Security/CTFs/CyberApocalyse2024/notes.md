@@ -38,14 +38,10 @@ $output
 
 - Which outputted the **flag.txt**
 
-**flag.txt**:
-
-```
-HTB{f13ry_t3mpl4t35_fr0m_th3_d3pth5!!}
-```
-
 **Screenshot**:
 
 ![](imgs/web_easy_01.png)
 
-- Resources:
+### Resources and Reference:
+
+https://iwconnect.com/apache-velocity-server-side-template-injection/
