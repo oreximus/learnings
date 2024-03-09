@@ -40,7 +40,7 @@ $output
 
 **Screenshot**:
 
-![](imgs/web_easy_01.png)
+![](imgs/01webeasy.png)
 
 ### Resources and Reference:
 
