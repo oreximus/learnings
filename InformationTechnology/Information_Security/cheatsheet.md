@@ -27,3 +27,7 @@ gobuster vhost -u http://pov.htb/ -t 35 -w /usr/share/wordlists/dirbuster/direct
 ```
 sudo openvpn <vpn-file-path>
 ```
+
+## ADDS Machine Notes
+
+- 
