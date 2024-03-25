@@ -98,3 +98,14 @@
 - Cross Forests or Cross Domains we have `Trusts` 
     - and it could be `Directional`: meaning that one domain trust another domain,
     - or it could be `Transitive`: meaning one domain trust another domain and also trust everthing that other domain trust.
+
+## Setting Up the Domain Controller:
+
+- Rename the Computer, use a custom and memorable name.
+- Installing a Domain Controller
+    - In the `Server manager` --> `Add Roles and Features`
+        - Role based or feature-based installation
+        - Server Roles: `Active Directory Domain Services`
+        - Then Install it!
+        - Promote the server to the Domain Controller.
+            - 
