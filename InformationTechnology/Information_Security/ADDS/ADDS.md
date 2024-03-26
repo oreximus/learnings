@@ -108,4 +108,39 @@
         - Server Roles: `Active Directory Domain Services`
         - Then Install it!
         - Promote the server to the Domain Controller.
-            - 
+            -`Deployment Configuration`: Add a new forest (Provide the root domain name).
+            - `Domain Controller Options`: Set the Directory Services Restore Mode (DSRM Password) there.
+            - `DNS Options`: Ingore the warning for just now and click **Next**.
+            - `Additional Options`: Wait the Until you get the NETBIOS domain name to be shown there; then click **Next**.
+            - `Paths`: The default paths for **Database Folder**, **Log Files**, and **Sysvol Folder** will be there, click **Next** to continue.
+            - `Review Options`: you can click **Next** again to continue!
+            - `Installation`: Clicking `Install` will install the stuffs related to ADDS.
+
+## Setting Up the User Machines:
+
+- Create a 2 Windows Client VMs with Good Resources!
+- Rename Both Computers to some memorable names.
+
+
+## Setting Up Users, Group and Policies:
+
+- Select `Tools` --> `Active Directory Users and Computers`.
+- Inside the `Active Directory Users and Computer` wizard we have some already Defined OUs.
+    - Builtin
+    - Computers
+    - Domain Controllers
+    - ForeignSecurityPrinciples
+    - Managed Service Accounts
+    - Users
+
+- Right click on the `Domain Controller` and Select `New` --> `Organizational Unit`
+    - Rename this as **Group**.
+    - Moving all `Security Group` from `Users` OU and move them into newly created `Group` OU. 
+
+> Little Down arrow on the Account icon means that the account has been disabled.
+
+### Creating Domain Users:
+
+- Right click in the black of Users OU and select `User`.
+- Fill details and set a password.
+
