@@ -176,9 +176,31 @@
 
 ### Joining Windows Client Machines to the Domain.
 
+- Create a folder in C Drive and named it as `Share` and share it with `everyone`.
 - Open the Network Settings in your Windows Client VM machine and Set the **DNS IP** same as your **Domain Controller IP**.
-
 - Then you can join the Local Domain by simply searching `Domain` in the Windows Start.
 - Select Access work or school
 - then `Connect` and enter the details of Domain and User that you want to be joined as.
 - Then we are going to enable our of the normal user to the local administrator of the current Windows Client machine.
+    - Open the `Computer Management` by searching from the start.
+    - Goto `Local Users and Groups` options and Select `Groups` there.
+    - Double-Click on `Administrators` then `Add` some users.
+
+## Attacking AD, Initial Attack Vectors
+
+> Learning how we can abuse `Features of Windows` and get access to user Accounts also accessing machines as well.
+
+**Cyber Mentor's Starting Article**: https://adam-toscher.medium.com/top-five-ways-i-got-domain-admin-on-your-internal-network-before-lunch-2018-edition-82259ab73aaa
+
+### Link Local Multicast Name Resolution (LLMNR) Poisoning
+
+- Used to identify hosts when DNS fails to do so.
+- Previously NBT-NS
+- Key flaw is that the services utilize a user's username and NTLMv2 hash when appropriately respondend to.
+
+![](imgs/addimg06.png)
+
+**Using responder.py**
+
+- Responder is the part of impacket toolkit.
+- It responds to the requests. 
