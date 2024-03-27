@@ -35,7 +35,7 @@
 
 ### AD DS Data store
 
-- The AD DS data sore contains the database files and processes that store and manage directory information for users, services, and applications
+- The AD DS data store contains the database files and processes that store and manage directory information for users, services, and applications
 
 `The AD DS data store:`
 
@@ -259,3 +259,5 @@ hashcat -a 0 -m 5600 hashfile.txt your-wordlist-location
 **Setting up relay**:
 
 - It takes the relay and passes it to the target file provided by us, and then we also use `-smb2support` so we can incorporate anything with smb2.
+
+
