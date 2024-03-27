@@ -141,7 +141,7 @@
 
 ### Creating Domain Users:
 
-- Right click in the black of Users OU and select `User`.
+- Right click in the blank area of Users OU and select `User`.
 - Fill details and set a password.
 - Set Password never expired for now.
 
