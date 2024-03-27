@@ -143,4 +143,42 @@
 
 - Right click in the black of Users OU and select `User`.
 - Fill details and set a password.
+- Set Password never expired for now.
 
+- Create these users:
+    - Create a normal User. - (1)
+    - Create a User which is a Copy of Admin - (2)
+    - Create a Copy of Normal User again. - (3)
+    - Create a Fake SQL account! - (4)
+
+> Service accounts should not be domain adminstrative accounts, but acccording to `The Cyber Mentor` experience he gets usually the Domain Administrative as Service Accounts.
+
+**Setup a File Share**:
+
+- `File and Storage Services` under Server Manager --> `Shares` --> Select `Task` --> `New Share` --> `SMB Share - Quick` --> Next --> Provide the Share Name --> Next in the Rest --> Create.
+
+**Create Service Principle Name**:
+
+- Open `CMD` as `Administrator`.
+- type `setspn -a Server01/SQLService.CoolDomain.local:60111 COOLDOMAIN\SQLService`
+- For ensuring the settings: `setspn -T CoolDomain.local -Q */*`
+
+**Setting Up the Group Policy**:
+
+- Search `Group Policy` in Windows Start!
+- And Open the Management software as `Admin`.
+- `Forest` --> `Domain` --> Right-Click `Create a GPO in this domain, and Link it here...`
+- Name it as `Disable Windows Defender`
+- Right-Click on the `Disable Windows Defender` and select edit!
+- `Computer Configurations` --> `Policies` --> `Administrative Templates` --> `Windows Components`--> `Windows Defender Antivirus` --> Selecting `Turn off Windows Defender Antivirus` --> Enable the Setting and apply the changes.
+
+> Make sure that `Enforced` is set to `Yes` under your Disable Windows Defender Group Policy.
+
+### Joining Windows Client Machines to the Domain.
+
+- Open the Network Settings in your Windows Client VM machine and Set the **DNS IP** same as your **Domain Controller IP**.
+
+- Then you can join the Local Domain by simply searching `Domain` in the Windows Start.
+- Select Access work or school
+- then `Connect` and enter the details of Domain and User that you want to be joined as.
+- Then we are going to enable our of the normal user to the local administrator of the current Windows Client machine.
