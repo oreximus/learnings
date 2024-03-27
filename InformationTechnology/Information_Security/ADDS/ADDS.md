@@ -204,3 +204,58 @@
 
 - Responder is the part of impacket toolkit.
 - It responds to the requests. 
+
+**Commands**:
+
+- providing the Network Interface!
+
+```
+responder -I eth0 -rdwv
+```
+
+- Then goto your Windows Client Machine and in the file explorer address bar try to connect to some location by IP: for example `\\172.16.23.134`
+
+- After that getback to the Machine where your responder is running:
+
+- You'll see some output like this!
+
+![](imgs/addsimg07.png)
+
+- After Getting NetNTLMv2 hash we could easily crack it using **hashcat**.
+
+**command for cracking NetNTLMv2 hash**:
+
+```
+hashcat -a 0 -m 5600 hashfile.txt your-wordlist-location
+```
+
+- And the output you'll be getting something like this:
+
+![](imgs/addsimg08.png)
+
+### LLMNR Poisoning Mitigation:
+
+- Best defence is to disable LLMNR, not only LLMNR but also NBT-NS (Disable both will make much more sense because if LLMNR fails to respond then it goes to NBT-NS).
+
+- Second Option is to Enable `Network Access Control`. It's checks if the connecting MAC Address is belongs to the network if it does not then it wouldn't allow the system to connect.
+
+### SMB Relay
+
+**What is SMB Relay**?
+
+- Instead of cracking hashes gathered with Responder, we can instead relay those hashed to specific machines and potentially gain access.
+
+**Requirements**
+
+- SMB Signing must be disabled on the target
+
+- Relayed user credentials must be admin on machine
+
+**Modifying responder configuration**:
+
+- Disabling SMB and HTTP responding.
+- Then we can Restart the Responder in the same way.
+
+**Setting up relay**:
+
+- It takes the relay and passes it to the target file provided by us, and then we also use `-smb2support` so we can incorporate anything with smb2.
