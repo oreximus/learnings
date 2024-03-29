@@ -260,4 +260,10 @@ hashcat -a 0 -m 5600 hashfile.txt your-wordlist-location
 
 - It takes the relay and passes it to the target file provided by us, and then we also use `-smb2support` so we can incorporate anything with smb2.
 
+> Trying to identifying where we want to target and where we want to relay to.
+
+- Starting a responder to listen
+- Configure the relay as well.
+- Then wait for the event to happen.
+
 
