@@ -266,4 +266,12 @@ hashcat -a 0 -m 5600 hashfile.txt your-wordlist-location
 - Configure the relay as well.
 - Then wait for the event to happen.
 
+**Discovering Hosts with SMB Signing Disabled**
+
+**Using NMAP; with specific script**:
+
+```
+nmap --script=smb2-security-mode.nse -p445 192.168.57.0/24
+```
+
 
