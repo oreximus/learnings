@@ -210,7 +210,7 @@
 - providing the Network Interface!
 
 ```
-responder -I eth0 -rdwv
+responder -I eth0 -dwv
 ```
 
 - Then goto your Windows Client Machine and in the file explorer address bar try to connect to some location by IP: for example `\\172.16.23.134`
