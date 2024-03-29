@@ -24,7 +24,7 @@
 
 ### Domain Controllers
 
-- A domain controller is a server with the AD DS server role installed thath has specifically been promoted to a domain controller
+- A domain controller is a server with the AD DS server role installed that has specifically been promoted to a domain controller
 
 `Domain Controllers:`
 
