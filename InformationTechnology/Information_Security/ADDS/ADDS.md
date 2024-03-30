@@ -392,7 +392,7 @@ psexec.py marvel.local/<username>:<password>@<target-ip>
 - using `mitm6`
 
 ```
-mitm6 -d <taget-domainName>
+mitm6 -d <target-domainName>
 ```
 
 - also setup a relay attack, using ntlmrelayx:
@@ -416,3 +416,18 @@ impacket-ntlmrelayx -6 -t ldaps://<domain-controller-ip> -wh fakepad.marvel.loca
 3. Relaying to LDAP and LDAPs can only be mitigated by enabling both LDAP signing and LDAP channel binding.
 
 4. Consider Administrative users to the Protected Users group or marking them as Account is sensitive and cannot be delegated, which will prevent any impersonation of that user via delegation.
+
+### Passback Attack:
+
+**good reference**: https://www.mindpointgroup.com/blog/how-to-hack-through-a-pass-back-attack
+
+**Strategies**:
+
+- Begin day with mitm6 or Responder
+- Run scans to generate traffic
+- If scans are taking too long, look for websites in scope (http_version)
+- Look for default credentials on web logins
+    - Printers
+    - Jenkins
+    - Etc
+- Think outside the box
