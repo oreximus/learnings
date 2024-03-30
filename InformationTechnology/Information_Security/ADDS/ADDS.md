@@ -367,7 +367,7 @@ psexec.py marvel.local/<username>:<password>@<target-ip>
 ```
 - Try multiple options if something not works!
 
-### IPv6 Attacks
+### IPv6 Attack
 
 - There are much chances of Windows Computers in a network is utilizing IPv4 and if you notice in the Network Settings of Windows Computers you do get to see that IPv6 is turned on but still the Windows Computers are utilizing IPv4.
 - We can listen the all the IPv6 message comes from Network and we can pass that along.
