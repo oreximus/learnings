@@ -370,9 +370,49 @@ psexec.py marvel.local/<username>:<password>@<target-ip>
 ### IPv6 Attacks
 
 - There are much chances of Windows Computers in a network is utilizing IPv4 and if you notice in the Network Settings of Windows Computers you do get to see that IPv6 is turned on but still the Windows Computers are utilizing IPv4.
-
 - We can listen the all the IPv6 message comes from Network and we can pass that along.
+- When this happens we can get authentication to Domain Controller via LDAP or we we can authenticate via `SMB`.
+- We'll reboot a machine and it will trigger an event and that event will comes to us and then we can use that machine to login to the Domain Controller.
+- We can potentially use that machine to create another machine.
+- We'll Ldap Relay to the Domain Controller.
+- The tool we are using is `MITM6`. (can be downloaded from github: https://github.com/dirkjanm/mitm6).
 
-- When this happens we can get authentication to domain controller via LDAP or we we can authenticate via `SMB`.
+**Setting up LDAPs**:
 
+- `Manage` --> `Add Roles and Features` --> Click Next until the `Server Roles` option --> Select feature `Active Directory Certificate Services` Add this feature --> Click Next for all --> And Install it.
 
+**Configuring the Active Directory Certificate Services**:
+
+- Click Next in `Credentials` and Select **Certification Authority** in `Role Services` option.
+
+- Next for rest and `Configure`!
+
+**IPv6 DNS Attack**:
+
+- using `mitm6`
+
+```
+mitm6 -d <taget-domainName>
+```
+
+- also setup a relay attack, using ntlmrelayx:
+
+```
+impacket-ntlmrelayx -6 -t ldaps://<domain-controller-ip> -wh fakepad.marvel.local -l lootme
+```
+
+> blog to explore more: https://dirkjanm.io/worst-of-both-worlds-ntlm-relaying-and-kerberos-delegation/
+
+**Mitigation Strategies**:
+
+1. IPv6 poisoning abuses the fact that Windows queris for an IPv6 address even in IPv4-only environments. If you don't use IPv6 internally, the safest way to prevent mitm6 is to block DHCPv6 traffic and incoming router advertisements in Windows Firewall via Group Policy. Disabling IPv6 entirely may rules to Block instead of Allow prevents the attack from working:
+
+    - a. (inbound) Core Networking -Dynamic Host Configuration Protocol for IPv6(DHCPV6-In)
+    - b. (Inbount) Core Networking - Router Advertisement (ICMPv6-IN)
+    - c. (Outbound) Core Networking - Dynamic Host Configuration Protocol for IPv6 (DHCPV6-Out)
+
+2. If WPAD(Web Proxy Auto-Discovery) is not in use internally, disable it via Group Policy and by disabling the WinHttpAutoProxySvc service.
+
+3. Relaying to LDAP and LDAPs can only be mitigated by enabling both LDAP signing and LDAP channel binding.
+
+4. Consider Administrative users to the Protected Users group or marking them as Account is sensitive and cannot be delegated, which will prevent any impersonation of that user via delegation.
