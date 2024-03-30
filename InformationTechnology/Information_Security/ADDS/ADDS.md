@@ -365,5 +365,5 @@ set lhost eth0
 ```
 psexec.py marvel.local/<username>:<password>@<target-ip>
 ```
-
+- Try multiple options if something not works!
 
