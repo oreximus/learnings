@@ -329,7 +329,7 @@ impacket-ntlmrelayx -tf targets.txt -smb2support -i
 **Gaining Shell Access**:
 
 - `Using metasploit console`:
-
+###
 - If smb open and we have username & password, then we can use that username & password, and specially they have a machine where the user is a local administrator, we can use this to get the shell.
 
 ```
@@ -366,4 +366,13 @@ set lhost eth0
 psexec.py marvel.local/<username>:<password>@<target-ip>
 ```
 - Try multiple options if something not works!
+
+### IPv6 Attacks
+
+- There are much chances of Windows Computers in a network is utilizing IPv4 and if you notice in the Network Settings of Windows Computers you do get to see that IPv6 is turned on but still the Windows Computers are utilizing IPv4.
+
+- We can listen the all the IPv6 message comes from Network and we can pass that along.
+
+- When this happens we can get authentication to domain controller via LDAP or we we can authenticate via `SMB`.
+
 
