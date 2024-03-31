@@ -586,3 +586,29 @@ Get-NetGPO | select displayname, whenchanged
 - Visualize the data into graph.
 
 **Pulling Data with Ivoke-Bloodhound and Ingestors**
+
+- Downloading `Invoke-Bloodhound` from github; we'll get a powershell script called `SharpHound.ps1`, have this on your Windows Client Machine.
+
+**Executing the Script on Windows Client Machine**:
+
+- First bypass the execution policy in powershell:
+
+```
+powershell -ep bypass
+```
+
+- Then run SharpHound.ps1:
+
+```
+.\SharpHound.ps1
+```
+
+- Now we can run this ingesture:
+
+```
+Invoke-BloodHound -CollectionMethod All -Domain CoolDomain.local -ZipFileName file.zip
+```
+
+- Running this script will collect all the data in your Script Containing Folder.
+
+- 
