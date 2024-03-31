@@ -574,4 +574,4 @@ Get-NetGPO
 Get-NetGPO | select displayname, whenchanged
 ```
 
-> Search More About `PowerView`, explore more you could with this tool.
+> Search More About `PowerView`, explore more you could do with this tool.
