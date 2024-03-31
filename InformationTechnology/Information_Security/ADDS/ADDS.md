@@ -421,6 +421,12 @@ impacket-ntlmrelayx -6 -t ldaps://<domain-controller-ip> -wh fakepad.marvel.loca
 
 **good reference**: https://www.mindpointgroup.com/blog/how-to-hack-through-a-pass-back-attack
 
+**Example Technique**:
+
+- We need something which has access or can be connected to LDAP or SMB connection. (whatever we can utilize.)
+- LDAP Signin Setup; we can connection related information, (IP address, Username, etc.)
+- If we change the Domain Controller IP or LDAP Server IP to our IP Address and setup a Listner, then we can capture the request... and we can able to get password in cleartext.
+
 **Strategies**:
 
 - Begin day with mitm6 or Responder
@@ -431,3 +437,103 @@ impacket-ntlmrelayx -6 -t ldaps://<domain-controller-ip> -wh fakepad.marvel.loca
     - Jenkins
     - Etc
 - Think outside the box
+
+### Post-Compromise Enumeration - Introduction:
+
+- Using `PowerView` tool, can be installed from github: https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1
+
+- In Windows Client Computer, cd into the Directory where PowerView.ps1 is stored and run:
+
+```
+powershell -ep bypass
+```
+
+```
+. .\PowerView.ps1
+```
+
+- 1st Command:
+
+```
+Get-NetDomain
+```
+
+- Checking what domain controller are there:
+
+```
+Get-NetDomainController
+```
+
+- Getting domain policy details:
+
+```
+Get-DomainPolicy
+```
+
+- Checking System Access:
+
+```
+(Get-DomainPolicy)."system access"
+```
+
+- getting Users details:
+
+```
+Get-NetUser
+```
+
+- Filtering only usernames:
+
+```
+Get-NetUser | select cn
+```
+
+- Or we can use `samaccountname` instead:
+
+```
+Get-NetUser | select samaccountname
+```
+
+- Getting Description
+
+```
+Get-NetUser | select description
+```
+
+We can filter any properties which is just simply listing in the `Get-NetUser` command.
+
+- Getting User Properties:
+
+```
+Get-UserProperty
+```
+
+- Getting Properties of the `passwordlastset`:
+
+```
+Get-UserProperty -Properties pwdlastset
+```
+
+- Getting Property of the `logoncount`:
+
+```
+Get-UserProperty -Properties logoncount
+```
+
+- For `badpwdcount`:
+
+```
+Get-UserProperty -Properties badpwdcount
+```
+
+- For checking computers in the domain:
+
+```
+Get-NetComputer
+```
+
+
+
+
+
+> Search More About `PowerView`, explore more you could with this tool.
