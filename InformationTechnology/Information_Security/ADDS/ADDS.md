@@ -532,8 +532,46 @@ Get-UserProperty -Properties badpwdcount
 Get-NetComputer
 ```
 
+- Getting OS Details:
 
+```
+Get-NetComputer -FullData | select OperatingSystem
+```
 
+- Getting Group Details:
 
+```
+Get-NetGroup -GroupName
+```
+
+- Specifically admins checking:
+
+```
+Get-NetGroup -GroupName *admin*
+```
+
+- Getting Members of this Group:
+
+```
+Get-NetGroupMember -GroupName "Domain Admins"
+```
+
+- Find all the SMB shares in the network:
+
+```
+Invoke-ShareFinder
+```
+
+- Getting all the Group Policy:
+
+```
+Get-NetGPO
+```
+
+- Checking what's going in the network through Group Policy details:
+
+```
+Get-NetGPO | select displayname, whenchanged
+```
 
 > Search More About `PowerView`, explore more you could with this tool.
