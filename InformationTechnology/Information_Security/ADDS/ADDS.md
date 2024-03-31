@@ -505,25 +505,25 @@ We can filter any properties which is just simply listing in the `Get-NetUser` c
 - Getting User Properties:
 
 ```
-Get-UserProperty
+Get-DomainUser
 ```
 
 - Getting Properties of the `passwordlastset`:
 
 ```
-Get-UserProperty -Properties pwdlastset
+Get-DomainUser -Properties pwdlastset
 ```
 
 - Getting Property of the `logoncount`:
 
 ```
-Get-UserProperty -Properties logoncount
+Get-DomainUser -Properties logoncount
 ```
 
 - For `badpwdcount`:
 
 ```
-Get-UserProperty -Properties badpwdcount
+Get-DomainUser -Properties badpwdcount
 ```
 
 - For checking computers in the domain:
@@ -575,3 +575,8 @@ Get-NetGPO | select displayname, whenchanged
 ```
 
 > Search More About `PowerView`, explore more you could do with this tool.
+
+**More Guides**:
+
+1. https://aksheet10.medium.com/powerview-common-commands-60f9a9ad6a80
+2. 
