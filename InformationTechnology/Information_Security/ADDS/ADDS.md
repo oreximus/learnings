@@ -541,19 +541,19 @@ Get-NetComputer -FullData | select OperatingSystem
 - Getting Group Details:
 
 ```
-Get-NetGroup -GroupName
+Get-NetGroup
 ```
 
 - Specifically admins checking:
 
 ```
-Get-NetGroup -GroupName *admin*
+Get-NetGroup *admin*
 ```
 
 - Getting Members of this Group:
 
 ```
-Get-NetGroupMember -GroupName "Domain Admins"
+Get-NetGroupMember "Domain Admins"
 ```
 
 - Find all the SMB shares in the network:
@@ -579,4 +579,10 @@ Get-NetGPO | select displayname, whenchanged
 **More Guides**:
 
 1. https://aksheet10.medium.com/powerview-common-commands-60f9a9ad6a80
-2. 
+
+#### Bloodhound Tool:
+
+- Tool which going to download the data of active directory.
+- Visualize the data into graph.
+
+**Pulling Data with Ivoke-Bloodhound and Ingestors**
