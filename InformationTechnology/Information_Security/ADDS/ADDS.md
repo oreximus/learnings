@@ -610,3 +610,7 @@ Invoke-BloodHound -CollectionMethod All -Domain CoolDomain.local -ZipFileName fi
 ```
 
 - Running this script will collect all the data in your Script Containing Folder.
+
+> Take `Bloodhound` tool tutorial and explore more you could do with this Tool.
+
+### Post-Compromise Attack
