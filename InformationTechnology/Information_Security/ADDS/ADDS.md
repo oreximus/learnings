@@ -614,3 +614,7 @@ Invoke-BloodHound -CollectionMethod All -Domain CoolDomain.local -ZipFileName fi
 > Take `Bloodhound` tool tutorial and explore more you could do with this Tool.
 
 ### Post-Compromise Attack
+
+#### Pass the Password / Pass the Hash
+
+- 
