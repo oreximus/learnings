@@ -19,7 +19,7 @@
 
 ### functionalities and features
 
-1. `Add to cart logic`: add to cart option will update the cart value when user is logged-in,
+1. `Add to cart logic`: add to cart option will update the cart value by 1 when user is logged-in,
    can be trigger with `updateCart` function which will increment cart value by along with the
    item information which we'll fetch from the backend.
 2. `Filtering logic`: provide a component on the frontend side, which will be having option to
