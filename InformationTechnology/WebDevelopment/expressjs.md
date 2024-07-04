@@ -32,3 +32,8 @@
 | Create contact   | POST        | /api/contacts     |
 | Update contact   | PUT         | /api/contacts     |
 | Delete contact   | DELETE      | /api/contacts/:id |
+
+## Project: Contact Manager App
+
+- We will build the API of the Contact we can manage.
+-
