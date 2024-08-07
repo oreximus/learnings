@@ -11,3 +11,23 @@
   2. **/users** GET,POST,DELETE,PUT,PATCH.
   3. **/cart** GET,POST,DELETE,PUT,PATCH.
   4. **/orders** GET, POST, DELETE.
+
+### Backend Reference Notes:
+
+**source**:https://dev.to/zeeshanali0704/e-commerce-react-node-mysql-6g5
+
+#### E-Commerce with React Node Mysql
+
+- tech used:
+  - Frontend:
+    - HTML,CSS, JS
+    - React.js (Frontend library)
+    - Bootstrap
+  - Backend:
+    - Node.js
+    - Express.js
+    - MySQL (database)
+  - Authentication:
+    - JSON Web Tokens (JWT)
+  - Other tools:
+    - Git (for version control)
