@@ -12,22 +12,13 @@
   3. **/cart** GET,POST,DELETE,PUT,PATCH.
   4. **/orders** GET, POST, DELETE.
 
-### Backend Reference Notes:
+### Logics we need
 
-**source**:https://dev.to/zeeshanali0704/e-commerce-react-node-mysql-6g5
+- for **navbar** if user is logged then check if it's admin or not,
+- then show the navbar for user or admin otherwise stay default
 
-#### E-Commerce with React Node Mysql
+```
+raw js logic:
 
-- tech used:
-  - Frontend:
-    - HTML,CSS, JS
-    - React.js (Frontend library)
-    - Bootstrap
-  - Backend:
-    - Node.js
-    - Express.js
-    - MySQL (database)
-  - Authentication:
-    - JSON Web Tokens (JWT)
-  - Other tools:
-    - Git (for version control)
+
+```
