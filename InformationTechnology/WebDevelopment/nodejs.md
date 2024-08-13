@@ -73,4 +73,49 @@ exports.sub = (a, b) => a - b;
 
 - for file handling we are a nodejs module called `fs`
 
-- creating file using `fs` module
+- creating file using `fs` module:
+
+```
+const fs = require("fs");
+
+// for creating files synchronously in nodejs
+fs.writeFileSync("./test.txt", "Hello World");
+
+// Async
+fs.writeFile("./test.txt", "Hello World Async", (err) => {})
+```
+
+> it's important to know what to use in the particular task, like Asychronous or Synchronous Jobs should be
+> defined according to the need or this can also create the problem of crashing the server.
+
+- reading a file from the local storage:
+
+```
+const fs = require("fs");
+
+fs.readFileSync("./file.txt", "utf-8");
+console.log(results);
+```
+
+- so when we use Asynchronous way to read the file then it'll prompt you an error, because the in this
+  way the it does not returning the result values, for that we need to define a callback function with
+  `err` and `result` argument.
+
+```
+fs.readFile("./file.txt", "utf-8", (err, result) => {
+    if (err) {
+        console.log("Error", err)
+    } else {
+        console.log(result);
+    }
+});
+```
+
+- appending the data in a file:
+
+```
+// for example appending the date into a file
+fs.appendFileSync("./test.txt", new Date().getDate().toLocalString());
+
+
+```
