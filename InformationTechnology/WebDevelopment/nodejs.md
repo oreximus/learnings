@@ -276,3 +276,5 @@ const myServer = http.createServer((req, res) => {
 });
 // rest remains same
 ```
+
+> always use the Non-Blocking wherever you need to deal the concurrent requests in the server.
