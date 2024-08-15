@@ -189,3 +189,90 @@ console.log(os.cpus().length);
 
 process.env.UV_THREADPOOL_SIZE = OS.cpus().length
 ```
+
+### Building HTTP Server in NodeJS
+
+- initializing the NodeJS project:
+
+```
+npm init
+```
+
+- good practice to name the file as `index.js`
+
+- require the `http` module:
+
+```
+const http = require("http");
+```
+
+- creating a server using the http:
+
+```
+const myServer = http.createServer((req, res) => {});
+```
+
+- it'll take the callback function where the first object is returning the request related
+  stufss and the second one is returning the response.
+
+- sending a response message from the server side:
+
+```
+const myServer = http.createServer((req, res) => {
+    console.log("New Req Rec.");
+    res.end("Hello From Server");
+});
+
+myServer.listen(8000, () => console.log("Server Started!"));
+```
+
+- above code will make the custom response which will send by the server and the server will
+  listen on port 8000 and we can also include the message for ourselves that server is started!
+
+- we'll setup a `start` script in the `package.json` file:
+
+```
+// in the script section of package.json file
+"start": "node index"
+```
+
+- creating a simple HTTP webserver where we can generate the simple Log file for user Requesting
+  data info:
+
+```
+const http = require("http");
+const fs = require("fs");
+
+const myServer = http.createServer((req, res) => {
+    const log = `${Date.now()}: New Req Received\n`;
+    fs.appendFile("log.txt", log, (err, data) => {
+        res.end("Hello From Server Again");
+    });
+});
+
+myServer.listen(8000, console.log("Server Started!"));
+```
+
+- we can also the `req.url` checking the path where user/client is visiting and send the
+  response according to that:
+
+```
+// rest remains same
+const myServer = http.createServer((req, res) => {
+    const log = `${Date.now()}: ${req.url} New Req Received\n`;
+    fs.appendFile("log.txt", log, (err, data) => {
+        switch (req.url) {
+            case: "/":
+                res.end("Homepage");
+                break;
+            case: "/about":
+                res.end("This is Cool!");
+                break;
+            default:
+                res.end("404 Not Found");
+                break;
+        }
+    });
+});
+// rest remains same
+```
