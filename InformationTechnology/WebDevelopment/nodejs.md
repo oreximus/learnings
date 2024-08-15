@@ -116,6 +116,76 @@ fs.readFile("./file.txt", "utf-8", (err, result) => {
 ```
 // for example appending the date into a file
 fs.appendFileSync("./test.txt", new Date().getDate().toLocalString());
+```
 
+- copying a file:
 
+```
+fs.cpSync('./test.txt', "./copy.txt");
+```
+
+- deleting a file:
+
+```
+fs.unlinkSync("./copy.txt");
+```
+
+- printing out the statistics of a file:
+
+```
+console.log(fs.statSync("./test.txt"));
+```
+
+- also we can check whether it is a file or directory:
+
+```
+console.log(fs.statSync("./test.txt").isFile);
+```
+
+- we can also create a directory:
+
+```
+fs.mkdirSync("my-docs");
+```
+
+- creating directories in a recursive manner:
+
+```
+fs.mkdirSync("parent/child1/child2", {recursive: true});
+```
+
+### NodeJS Architecture:
+
+![img01](imgs/nodejs01.png)
+
+- in a nutshell we have:
+  - request --> go to Node.js server
+  - we have event loop in the Node.js server, which is running constantly and checking
+    whether there is some operation or task in the queue.
+  - from the queue the event loop identifies whether the operation is **Blocking** or
+    **Non-Blocking** in the type and accordingly:
+  - If **Blocking Operation** then it'll send the operation to the threads to compute
+    and once the computation done it'll send back the response.
+  - If **Non-Blocking Operation** then it'll will send the response to client by event
+    queue.
+
+> by default the threads defined only 4 in the nodejs, so if all threads got busy in doing
+> the operation then the upcoming tasks needs to wait until there is some thread available to
+> do the tasks, this creates a huge problem while deployed in the server development so be
+> aware of this way of using the **Blocking Nature of Operations**
+
+> you can also expand the length of the default thread value in the nodejs project by using
+> os module:
+
+```
+// expanding the threads in nodejs project
+const os = require("os");
+
+// checks the number of VCPUs you have
+console.log(os.cpus().length);
+
+// setting the thread size to the length
+// of the VCPUs you have
+
+process.env.UV_THREADPOOL_SIZE = OS.cpus().length
 ```
