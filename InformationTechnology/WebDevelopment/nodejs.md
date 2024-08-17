@@ -343,4 +343,14 @@ const myServer = http.createServer((req, res) => {
 
 - When you want to send and mutate some data in server
 
--
+#### HTTP PUT
+
+- For example whenever you want to upload a file to the server.
+
+#### HTTP PATCH
+
+- For editing the details in the server.
+
+#### HTTP DELETE
+
+- Whenever you want delete something from the server.
