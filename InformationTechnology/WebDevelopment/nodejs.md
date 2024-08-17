@@ -279,7 +279,7 @@ const myServer = http.createServer((req, res) => {
 
 > always use the Non-Blocking wherever you need to deal the concurrent requests in the server.
 
-## Handling URL's in NodeJS
+## Handling URLs in NodeJS
 
 - structure of the URL:
 
@@ -292,3 +292,7 @@ const myServer = http.createServer((req, res) => {
 - query parameters in a URL:
 
 ![img04](imgs/nodejsimg04.png)
+
+- URL: Uniform Resource Locator
+
+k
