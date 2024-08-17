@@ -271,7 +271,7 @@ const myServer = http.createServer((req, res) => {
             default:
                 res.end("404 Not Found");
                 break;
-        }
+        }kkkG
     });
 });
 // rest remains same
@@ -295,4 +295,35 @@ const myServer = http.createServer((req, res) => {
 
 - URL: Uniform Resource Locator
 
-k
+- Utilization URL parameter and Query strings
+  - install a separate package `npm install url`.
+
+```
+// rest remains same
+const myServer = http.createServer((req, res) => {
+    const log = `${Date.now()}: ${req.url} New Req Received\n`;
+    const myUrl = url.parse(req.url, true);
+    fs.appendFile("log.txt", log, (err, data) => {
+        switch (myUrl.pathname) {
+            case "/":
+                res.end("Homepage");
+                break;
+            case "/about":
+                const username = myUrl.query.myname;
+                res.end(`Hi, ${username}`);
+                break;
+            case "/search":
+                const search = myUrl.query.search_query;
+                res.end("Here are your results for" + search);
+            default:
+                res.end("404 Not Found");
+                break;
+        }
+    });
+});
+// rest remains same
+```
+
+- In the above code you can notice that we have used the `url` module to utilize the query
+  string in the server logic. Also you need to pass `true` as a second argument of url.parse
+  method while defining the variable for url module's url data.
