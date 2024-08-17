@@ -327,3 +327,20 @@ const myServer = http.createServer((req, res) => {
 - In the above code you can notice that we have used the `url` module to utilize the query
   string in the server logic. Also you need to pass `true` as a second argument of url.parse
   method while defining the variable for url module's url data.
+
+### HTTP METHODS
+
+#### HTTTP GET
+
+- When you want to get some data from the server.
+
+- Whenever you search for a URL in your web browser then by default your browser will make a
+  GET request.
+
+- The request will be send to the server the get back the response we need.
+
+#### HTTP POST
+
+- When you want to send and mutate some data in server
+
+-
