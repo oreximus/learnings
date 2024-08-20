@@ -354,3 +354,126 @@ const myServer = http.createServer((req, res) => {
 #### HTTP DELETE
 
 - Whenever you want delete something from the server.
+
+#### Handling HTTP Methods in a nodejs Server:
+
+```
+// rest remains same
+const myServer = http.createServer((req, res) => {
+    const log = `${Date.now()}: ${req.method} ${req.url} New Req Received\n`;
+    const myUrl = url.parse(req.url, true);
+    fs.appendFile("log.txt", log, (err, data) => {
+        switch (myUrl.pathname) {
+            case "/":
+                res.end("Homepage");
+                break;
+            case "/about":
+                const username = myUrl.query.myname;
+                res.end(`Hi, ${username}`);
+                break;
+            case "/search":
+                const search = myUrl.query.search_query;
+                res.end("Here are your results for" + search);
+            default:
+                res.end("404 Not Found");
+                break;
+        }
+    });
+});
+// rest remains same
+```
+
+- In above example in the Log generation we added `req.method` variable which is going to
+  provide the request type in the log.
+
+- POST request example on the page:
+
+```
+// rest remains same
+const myServer = http.createServer((req, res) => {
+    const log = `${Date.now()}: ${req.method} ${req.url} New Req Received\n`;
+    const myUrl = url.parse(req.url, true);
+    fs.appendFile("log.txt", log, (err, data) => {
+        switch (myUrl.pathname) {
+            case "/":
+                res.end("Homepage");
+                break;
+            case "/about":
+                const username = myUrl.query.myname;
+                res.end(`Hi, ${username}`);
+                break;
+            case "/search":
+                const search = myUrl.query.search_query;
+                res.end("Here are your results for" + search);
+            case "/signup":
+                if (req.method == "GET") res.end("This is a signup Form");
+                else if (req.method === "POST") {
+                    // DB Query
+                    res.end("Success");
+                }
+            default:
+                res.end("404 Not Found");
+                break;
+        }
+    });
+});
+// rest remains same
+```
+
+- In the above example we have included an extra router `/signup` which demonstrate the
+  usage of POST request in the server.
+
+### Getting Started with Express and NodeJS
+
+- first install the Express with:
+
+```
+npm install express
+```
+
+- setting up express in nodejs server:
+
+```
+const express = require("express");
+
+const app = express();
+
+app.get("/", (req, res) => {
+    return res.send('Hello From HomePage')
+})
+
+app.get('/about', (req, res) => {
+    return res.send('Hello From About Page')
+})
+
+const myServer = http.createServer(app);
+// rest is same
+```
+
+- using query parameter directly
+
+```
+// rest is the same
+
+app.get("/about", (req, res) => {
+    return res.send(`Hello ${req.query.name}`)
+})
+
+// rest is the same
+```
+
+- for above code the example url be like: `http://localhost:8000/about?name="coolname"`
+
+### How Versioning Works in NodeJS
+
+- Example Version `4.18.2`
+
+  - The version contain three parts:
+    1. III (last part) `.2` - changes in this indicates minor fixes (Optional)
+    2. II (second part) `.18` - changes in this indicates Recommended Bug Fix or some new features are added.
+    3. I (first part) `4` - This is a Major Release or Breaking Update
+
+- `^` this symbol means install all the Recommended and Optional Fixes automatically.
+- `~` this means only install optional fixes.
+- if there is not any symbol then the version of package should match exactly that we have.
+- also there are various combination you can define the package.json file as per your need.
