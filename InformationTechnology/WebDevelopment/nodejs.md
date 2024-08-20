@@ -477,3 +477,16 @@ app.get("/about", (req, res) => {
 - `~` this means only install optional fixes.
 - if there is not any symbol then the version of package should match exactly that we have.
 - also there are various combination you can define the package.json file as per your need.
+
+## What is REST API
+
+- There is a term known as **RESTful API** which are some set rules
+  or best practices to follow in the server.
+
+- Suppose we have **server** and a **client** and they communicate
+  (request and response) to each other by following this RESTful API
+  standard.
+
+- RESTful APIs works on server-client architecture and this means
+  that the server and client are individual entity and they should
+  not depend on each other.
