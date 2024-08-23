@@ -26,9 +26,8 @@ function App() {
 ```mermaid
 flowchart TD
     A["App"] -->|"State {items}"| B[Page]
-    B --> C["Page"]
-    C --> D["Cart"]
-    D --> E["Product Page"]
+    B --> C["Cart"]
+    C --> D["Product Page"]
 ```
 
 - because the value is transferring through all of the components as you can notice in
@@ -40,14 +39,15 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    subgraph id1 ["Components"]
+    subgraph id1["Components"]
     A["App"]
-    B --> C["Cart"]
-    C --> D["Product Page"]
+        B["Page"] --> C["Cart"]
+        C --> D["Product Page"]
     end
-    subgraph id2 ["Redux Store"]
-    F["State {items}"]
+    subgraph id2["Redux Store"]
+    F["State Store"]
     end
-    id1 <-- "subscribe to changes" --> id2
-    D <-- "Add to Cart" --> id2
+    direction LR
+    id1 <-- "Subscribe to changes" --> id2
+    id1 <-- "Add to cart" --> C
 ```
