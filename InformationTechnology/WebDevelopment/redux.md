@@ -30,3 +30,24 @@ flowchart TD
     C --> D["Cart"]
     D --> E["Product Page"]
 ```
+
+- because the value is transferring through all of the components as you can notice in
+  the diagram, so that's case of **Prop Drilling**
+
+- for overcoming this problem we have redux.
+
+### Redux example
+
+```mermaid
+flowchart TD
+    subgraph id1 ["Components"]
+    A["App"]
+    B --> C["Cart"]
+    C --> D["Product Page"]
+    end
+    subgraph id2 ["Redux Store"]
+    F["State {items}"]
+    end
+    id1 <-|"subscribe to changes"|-> id2
+    D <-|"Add to Cart"|-> id2
+```
