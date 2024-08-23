@@ -25,5 +25,8 @@ function App() {
 
 ```mermaid
 flowchart TD
-    A["This is a node with spaced text"] --> B["Another node with spaced text"]
+    A["App"] -->|"State {items}"| B[Page]
+    B --> C["Page"]
+    C --> D["Cart"]
+    D --> E["Product Page"]
 ```
