@@ -489,8 +489,8 @@ app.get("/about", (req, res) => {
 
 ```mermaid
     flowchart LR
-        A[Client] -->|Request| B[Server]
-        B -->|Response| A
+        Client -->|Request| Server
+        Server -->|Response| Client
 ```
 
 - RESTful APIs works on server-client architecture and this means
