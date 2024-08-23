@@ -38,8 +38,9 @@ flowchart TD
 ### Redux example
 
 ```mermaid
-flowchart TD
+flowchart LR
     subgraph id1["Components"]
+    direction TB
     A["App"]
         B["Page"] --> C["Cart"]
         C --> D["Product Page"]
@@ -47,7 +48,6 @@ flowchart TD
     subgraph id2["Redux Store"]
     F["State Store"]
     end
-    direction LR
     id1 <-- "Subscribe to changes" --> id2
     id1 <-- "Add to cart" --> C
 ```
