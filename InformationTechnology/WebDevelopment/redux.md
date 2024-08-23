@@ -48,6 +48,6 @@ flowchart TD
     subgraph id2 ["Redux Store"]
     F["State {items}"]
     end
-    id1 <-|"subscribe to changes"|-> id2
-    D <-|"Add to Cart"|-> id2
+    id1 <--|"subscribe to changes"|--> id2
+    D <--|"Add to Cart"|--> id2
 ```
