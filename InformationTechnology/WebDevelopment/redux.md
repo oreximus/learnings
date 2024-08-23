@@ -54,3 +54,28 @@ flowchart TD
 
 - We can create this Redux Store in our project from where we can access all the variables
   throghout the project.
+
+### Redux Architecture
+
+- **UI Layer** --> suppose UI layer has a button (i.e. Add to cart) onClick a handler
+  function will run and it'll **dispatch a event** (i.e. Count Increment or anything).
+
+- The event will go to the **Redux Store**, will take that event and then give it to
+  the **Reducer Function** (that'll we'll code) which is going to handle our events.
+
+```mermaid
+    flowchart LR
+    subgraph id1["UI Layer"]
+    A["button"]
+    end
+    subgraph id2["Handler Function"]
+    B["event dispatch"]
+    end
+    C[("Redux Store")]
+    D["Reducer"]
+    id1 -- "onClick()" --> id2
+    id2 --> C
+    C -- "Dispatch Action" --> D
+    D -- "Update the State of Store" --> C
+    C -- "Update UI" --> id1
+```
