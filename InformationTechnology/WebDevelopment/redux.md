@@ -27,5 +27,5 @@ function App() {
     flowchart TB
         App -->|"State"| Page
         Page --> Cart
-        Cart --> Product Page
+        Cart --> "Product Page"
 ```
