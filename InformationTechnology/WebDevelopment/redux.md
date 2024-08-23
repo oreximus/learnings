@@ -51,3 +51,6 @@ flowchart LR
     id1 <-- "Subscribe to changes" --> id2
     D <-- "Add to Cart" --> id2
 ```
+
+- We can create this Redux Store in our project from where we can access all the variables
+  throghout the project.
