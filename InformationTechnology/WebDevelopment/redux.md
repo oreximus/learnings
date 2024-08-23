@@ -79,3 +79,29 @@ flowchart TD
     D -- "Update the State of Store" --> C
     C -- "Update UI" --> id1
 ```
+
+> **React Redux toolkit** and **Redux Toolkit** are two options which are available
+> in redux docs, So we need to be careful while using one of those, because the **Redux
+> toolkit** is deprecated we should use **React Redux** for better support for the
+> development.
+
+### Getting Started with Redux
+
+- we need to install these two things mainly:
+
+```
+npm install @reduxjs/toolkit react-redux
+```
+
+- now we'll create a directory in **src** directory named as **redux**
+  - create a file `store.js` inside this **redux** directory.
+
+```
+import { configureStore } from '@reduxjs/tookit'
+
+export const store = configureStore({
+    reducer: {},
+})
+```
+
+-
