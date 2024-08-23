@@ -487,6 +487,12 @@ app.get("/about", (req, res) => {
   (request and response) to each other by following this RESTful API
   standard.
 
+```mermaid
+    flowchart LR
+        Server --request--> Client
+        Server <--response-- Client
+```
+
 - RESTful APIs works on server-client architecture and this means
   that the server and client are individual entity and they should
   not depend on each other.
