@@ -24,8 +24,6 @@ function App() {
 ### Prop drilling Scenario
 
 ```mermaid
-    flowchart TB
-        App -->|"State"| Page
-        Page --> Cart
-        Cart --> ["Product Page"]
+flowchart TD
+    A["This is a node with spaced text"] --> B["Another node with spaced text"]
 ```
