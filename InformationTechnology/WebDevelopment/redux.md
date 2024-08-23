@@ -40,9 +40,9 @@ flowchart TD
 ```mermaid
 flowchart LR
     subgraph id1["Components"]
-    A["App"]
     direction TB
-    B["Page"] --> C["Cart"]
+    A["App"] --> B["Page"]
+    B --> C["Cart"]
     C --> D["Product Page"]
     end
     subgraph id2["Redux Store"]
