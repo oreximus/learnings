@@ -38,9 +38,8 @@ flowchart TD
 ### Redux example
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph id1["Components"]
-        direction TB
         A["App"] --> B["Page"]
         B --> C["Cart"]
         C --> D["Product Page"]
