@@ -491,6 +491,8 @@ app.get("/about", (req, res) => {
     flowchart LR
         Client -->|Request| Server
         Server -->|Response| Client
+        Client -->"/GET blog"-- Server
+        Server -->"text,image,html,json"-- Client
 ```
 
 - RESTful APIs works on server-client architecture and this means
