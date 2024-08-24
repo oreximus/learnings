@@ -2,7 +2,7 @@
 
 **source**: https://www.youtube.com/watch?v=fxT54eRIsc4
 
-- we should when and where we need redux in our project.
+- we should know when and where we need redux in our project.
 
 - when we have multiple element needs to be stay synced that's where we need redux.
 
@@ -60,8 +60,8 @@ flowchart TD
 - **UI Layer** --> suppose UI layer has a button (i.e. Add to cart) onClick a handler
   function will run and it'll **dispatch a event** (i.e. Count Increment or anything).
 
-- The event will go to the **Redux Store**, will take that event and then give it to
-  the **Reducer Function** (that'll we'll code) which is going to handle our events.
+- The event will go to the **Redux Store**, it will take that event and then give it to
+  the **Reducer Function** (that we'll code) which is going to handle our events.
 
 ```mermaid
     flowchart LR
@@ -82,7 +82,7 @@ flowchart TD
 
 > **React Redux toolkit** and **Redux Toolkit** are two options which are available
 > in redux docs, So we need to be careful while using one of those, because the **Redux
-> toolkit** is deprecated we should use **React Redux** for better support for the
+> toolkit** is deprecated, we should use **React Redux** for better support for the
 > development.
 
 ### Getting Started with Redux
