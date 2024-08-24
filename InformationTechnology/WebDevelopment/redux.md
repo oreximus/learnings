@@ -104,4 +104,78 @@ export const store = configureStore({
 })
 ```
 
--
+- then we'll import the store in our `App.jsx` file and wrapped the whole application
+  arround `Provider`
+
+```
+import {Provider} from 'react-redux';
+import {store} from './redux/store';
+
+// in the Provider give the store as a value
+<Provider store={store}>
+// your application
+</Provider>
+```
+
+- now we need to create a `slice`, in redux we denote every feature in the project can
+  be a `slice`.
+
+- for example we'll create some feature called `counter`
+
+- inside `/src/redux/slices/counter` a file `index.js`:
+
+```
+import { createSlice} from "@redux/tookit"
+
+export const counterSlice = createSlice({
+    initialState: 0,
+    name: 'counter',
+    reducers: {
+        increment: (state) => state + 1;
+        decrement: (state) => state - 1;
+    },
+});
+
+export const { increment, decrement } = counterSlice.actions
+export default counterSlice.reducer;
+```
+
+- In the above code we've just define our `counterSlice` where we've two actions `1. increment`
+  `2. decrement` and then at last we've defined `counterSlice.actions` and exported the
+  actions and reducers of the `counterSlice`.
+
+- using the `counterSlice` in our project:
+
+- in our `src/redux/store.js` file:
+
+```
+// rest is the same
+import counterSlice from "./slices/counter";
+
+export const store = configureStore({
+    reducer: {
+        counter: counterSlice,
+    },
+});
+```
+
+- for accessing the variable value use: `useSelector` hook
+
+```
+// example for accessing the state of the redux variable
+
+const count = useSelector((state) => state.counter)
+```
+
+- for dispatching an event use: `useDispatch` hook
+
+```
+// example for dispatching an event for example we have a button somewhere for
+// doing that action
+
+import {increment, decrement} from "./redux/slices/counter"
+
+const dispatch = useDispatch()
+
+<button onClick={()=>dispatch(increment)}>Button</button>
+```
