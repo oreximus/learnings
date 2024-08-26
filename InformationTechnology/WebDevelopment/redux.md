@@ -177,5 +177,5 @@ import {increment, decrement} from "./redux/slices/counter"
 
 const dispatch = useDispatch()
 
-<button onClick={()=>dispatch(increment)}>Button</button>
+<button onClick={()=>dispatch(increment())}>Button</button>
 ```
