@@ -496,3 +496,9 @@ app.get("/about", (req, res) => {
 - RESTful APIs works on server-client architecture and this means
   that the server and client are individual entity and they should
   not depend on each other.
+
+## Experiences:
+
+- while doing multer logic, do verify the accepting `fieldName` that they are same.
+- In providing the variable in the custom object for Database Entry showing an error while directly using the variable
+  which has some value coming from the function, check this by typing the variable `${variableName}` manner.
