@@ -48,3 +48,212 @@
 > impersonate you.
 
 ![img01](https://user-images.githubusercontent.com/34595361/213847475-f4d300c2-2ffc-4489-b9de-9a6fe0edd4c7.jpeg)
+
+### Create the Project
+
+- after creating a react app, these are some more things we need in the app:
+  1. **Router** to implement pages, we will use reac-router for this,
+  2. **Login Page** which we will get user information and send login request to set
+     JWT token.
+  3. **Home page** which just be accessible for authenticated users.
+
+### Defining projects routes
+
+- We will use react router for defining routes, so let's install it with following
+  command:
+
+```
+npm install react-router-dom
+```
+
+- We need to set history property to benefit from **react-router-dom** Router component.
+  Let's add a helper folder inside our source folder, then add `history.js` inside it:
+
+**history.js**:
+
+```
+import { createBrowserHistory } from 'history';
+
+export const history = createBrowserHistory();
+```
+
+- After that, let's create a file called **routes.js** in source folder to add our routes:
+
+**routes.js**:
+
+```
+import React from "react";
+import {Redirect, Switch, Route, Router } from "react-router-dom";
+
+// history
+import { history } from './helpers/history';
+
+// pages
+import HomePage from "./pages/HomePage"
+import LoginPage from "./pages/Login"
+
+function Routes() {
+    return (
+        <Router history={history}>
+            <Switch>
+                <Route
+                    exact
+                    path="/"
+                    component={HomePage}
+                />
+                <Route
+                    path="/login"
+                    component={LoginPage}
+                />
+                <Redirect to="/" />
+            </Switch>
+        </Router>
+    );
+}
+
+export default Routes;
+```
+
+### Updating App.js
+
+- After defining the routes of our project, we need to import our Routers component in App.js.
+
+### Defining Private Route
+
+- We'll create a Route Guard component as an authentication middleware.
+
+- For a more clear explanation, RouteGuard is a route component that you can use instead of
+  `react-router-dom` Route component for access control management of pages.
+
+### Step 1: Creating RouteGuard component
+
+**RouteGuard.js**:
+
+```
+import React from "react";
+import { Route, Redirect } from 'react-router-dom';
+
+const RouteGuard = ({ component: Component, ...rest }) => {
+
+    const flag = !!localStorage.getItem("token");
+
+    return (
+        <Route {...rest}
+            render={props => (
+                flag  ?
+                    <Component {...prop} />
+                    :
+                    <Redirect to={{ pathname: '/login'}} />
+            )}
+    )
+}
+
+export default RouteGuard;
+```
+
+### Step 2: Updating our Routes.js file
+
+**route.js**
+
+```
+import React from "react";
+import {Redirect, Switch, Route, Router} from "react-router-dom";
+import RouteGuard from "./component/RouteGuard"
+
+import {history} from './helpers/history';
+
+import HomePage from './pages/HomePage';
+import LoginPage from "./pages/Login";
+
+function Routes() {
+    return (
+        <Router history={history}>
+            <Switch>
+                <RouteGuard
+                    exact
+                    path="/"
+                    component={HomePage}
+                />
+                <Route
+                    path="/login"
+                    component={LoginPage}
+                />
+                <Redirect to="/" />
+            </Switch>
+        </Router>
+    );
+}
+
+export default Routes;
+```
+
+### Login Request with "axios"
+
+- We'll use axios in order to make API calls, so lets install axios with npm:
+
+```
+npm install axios
+```
+
+- Then let's import axios to our login page, and update the handleSumbit function:
+
+**handleSubmit**:
+
+```
+const handleSumbit = (email, pass) => {
+    // reqres registered sample user
+    const loginPayload = {
+        email: 'yourmail@gasd.sdf',
+        password: 'password'
+    }
+
+    axios.post("https://reqres.in/api/login", loginPayload)
+        .then(response => {
+            const token = response.data.token;
+            localStorage.setItem("token", token);
+
+            setAuthToken(token);
+
+            window.location.href = '/'
+        })
+        .catch(err => console.log(err));
+}
+```
+
+### Set axios common headers with setAuthToken()
+
+- In order to use JWT on each private request, we need to add them ot the request header as
+  expected. Axios has a header common set option, and we'l use that with a helper method
+  called setAuthToken().
+
+```
+import axios from 'axios';
+
+export const setAuthToken = token => {
+    if (token) {
+        axios.defaults.header.common["Authorization"] = `Bearer ${token}`;
+    }
+    else
+        delete axios.defaults.headers.common["Authorization"];
+}
+```
+
+> Note: axios interceptors can be used to do the same operation; especially if you have
+> other config, or any kind of condition before every request is sent.
+
+- Finally, we'll need to update App.js as follow to check JWT token right after application
+  is created.
+
+```
+// check jwt token
+    const token = localStorage.getItem("token");
+    if (token) {
+        setAuthToken(token);
+    }
+```
+
+- That's it, we just simply implemented JWT authentication in a demo React application. With
+  the last operation, our axios request header will include the Bearer token to protect our
+  application private API's
+
+-
