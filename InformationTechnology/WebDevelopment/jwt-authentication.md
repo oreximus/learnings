@@ -255,5 +255,3 @@ export const setAuthToken = token => {
 - That's it, we just simply implemented JWT authentication in a demo React application. With
   the last operation, our axios request header will include the Bearer token to protect our
   application private API's
-
--
