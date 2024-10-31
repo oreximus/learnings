@@ -20,6 +20,6 @@ stateDiagram-v2
     d1: "Postgres"
     
     direction LR
-    u1 --> s1
-    s1 --> d1
+    u1 --> s1: Request the Data from the Server
+    s1 --> d1: Query the date from the Database
 ```
