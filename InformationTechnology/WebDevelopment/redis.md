@@ -15,7 +15,7 @@ title: Old/Common way to Query Server for User Request Data
 ---
 
 stateDiagram
-    diagram LR
-    U['User'] --> S['Server']
-    S --> D['PostgresDB']
+    direction LR
+    U[User] --> S[User]
+    S --> D[PostgresDB]
 ```
