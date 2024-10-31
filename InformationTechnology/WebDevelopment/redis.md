@@ -23,8 +23,8 @@ stateDiagram-v2
     u1 --> s1: Request the Data from the Server
     s1 --> d1: Query the data from the Database
 
-    u1 <-- s1: Requested Data will be Delivered with a Response
-    s1 <-- d1: Fetched Data will get Back to the server
+    s1 --> u1: Requested Data will be Delivered with a Response
+    d1 --> s1: Fetched Data will get Back to the server
 ```
 
 - The above process will take place again entirely if we refresh
