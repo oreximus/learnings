@@ -57,7 +57,7 @@ stateDiagram-v2
 
     direction LR
     u1 --> s1: Request the Data from the Server
-    s1 --> r1: Query from the redis, if Data available then it'll return data as a Response
+    s1 <--> r1: Query from the redis, if Data available then it'll return data as a Response
     s1 --> d1: In case if the data is not avaialable, it'll query from the Database
     s1 --> r1: In case if the data is not avaialable, the server will tell redis to cache the data
 
