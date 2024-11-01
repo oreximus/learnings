@@ -66,11 +66,3 @@ stateDiagram-v2
     
 
 ```
-
-```mermaid
-stateDiagram-v2
-    [*] --> StateA
-    StateA --> StateB
-    StateB --> StateA
-    StateB --> [*]
-```
