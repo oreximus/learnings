@@ -174,3 +174,146 @@ git commit -m "your message here"
 
 - `Hash = SHA`, Git uses a cryptographic hash function called SHA-1 to
   generate commit hashes. Sometime they're referred to as "SHAs".
+
+## The Plumbing:
+
+- All the data in a Git repository is storedj directly in the (hidden) `.git`
+  directory. That includes all the commits, branches, tags, and other objects
+  we'll learn about later.
+
+- Git is made up of objects that are stored in the `.git/objects` directory.
+  A commit is just a type of object.
+
+## The Object File:
+
+- The file followed by this kind of path: `.git/objects/b5/c454d3fabab49a55cd672429abc9602b3b462c`
+  contains some unreadable characters inside it.
+
+- The contents have been compressed to raw bytes!
+
+- using `xxd`, then we have this sample hex code:
+
+```
+00000000: 7801 958d 4b0a 0231 1005 5de7 14bd 1786  x...K..1..].....
+00000010: ceaf 3388 881e a5f3 d380 9940 2603 1edf  ..3........@&...
+00000020: 6c3c 80bb 4741 d50b add6 3240 3a77 1a3d  l<..GA....2@:w.=
+00000030: 25b0 5ec9 68b2 2436 1e1d 5388 c9b2 5646  %.^.h.$6..S...VF
+00000040: c9d5 6562 cbb4 7a24 cc82 8ff1 6a1d 5a4f  ..eb..z$....j.ZO
+00000050: 9f52 8f1d aebf 757f 562e ef25 b47a 9b59  .R....u.V..%.z.Y
+00000060: 4da8 1459 0d67 b41a c5a4 f36e a4bf 45f1  M..Y.g.....n..E.
+00000070: b800 c708 a16d 236d 635f 6a14 5f8a 7b3a  .....m#mc_j._.{:
+00000080: 21
+```
+
+## Cat File
+
+- Git has a built-in plumbing command, cat-file, that allows us to see the
+  contents of a commit without needing to futz around with the object files
+  directly.
+
+```
+git cat-file -p <hash>
+```
+
+- using this cat-file we can view the contents of our last commit.
+
+## Trees and Blobs
+
+- Some useful terms in Git to know:
+
+  - `tree`: git's way of storing a directory
+  - `blob`: git's way of storing a file
+
+- Here's is the sample output from `git cat-file -p <git-hash>`:
+
+```
+tree 5b21d4f16a4b07a6cde5a3242187f6a5a68b060f
+author oreximus <oreximus@gmail.com> 1736022653 +0530
+committer oreximus <oreximus@gmail.com> 1736022653 +0530
+
+A: add contents.md
+```
+
+- Notice that we can see:
+
+  - The `tree` object
+  - The `author`
+  - The `committer`
+  - The commit message
+
+- However, we cannot see the contents of the `contents.md` file itself! that's
+  because the `blob` object stores it.
+
+- for checking the `blob` or file hash we'll use the `tree hash` in the
+  place of our commit hash:
+
+```
+git cat-file -p <your-tree-hash>
+```
+
+- and you'll get some output like this:
+
+```
+100644 blob ef7e93fc61a91deecaa551c4707e4c3049af42c9	contents.md
+```
+
+- now you can again use the git cat-file command to view this file content
+  content by replace its hash in the command.
+
+## Second Commit
+
+- some commands to revise:
+
+  - `git log` (`q` to exit, arrow keys to scroll)
+  - `git cat-file -p <hash>`
+
+- Note: `log` is a porcelain command, while `cat-file` is a plumbing command.
+  You'll use `log` much more often when working on coding projects, but `cat-file`
+  is useful for us to understand Git's internals.
+
+- Now, doing git cat-file on the latest commit hash return one extra line
+  in the output, of `parent`:
+
+```
+tree 37712fab0aa902b37e2197ebb71e4e1ba4f45f3d
+parent b5c454d3fabab49a55cd672429abc9602b3b462c
+author oreximus <oreximus@gmail.com> 1736085499 +0530
+committer oreximus <oreximus@gmail.com> 1736085499 +0530
+
+B: add title
+```
+
+## Storing Data
+
+- Git stores an entire snapshot of files on a per-commit level.
+
+### Optimization:
+
+- While it's true that Git stores entire snapshots, it does have some
+  performance optimizations so that your `.git` directory doesn't get too
+  unbearably large.
+
+      - Git compresses and packs files to store them more efficiently.
+      - Git deduplicates files that are the same across different commits.
+      If a file doesn't change between commits, Git will only store it once.
+
+## Git Config
+
+- Git stores author information so that when you're making a commit it can
+  track who made the change. Here's how you might update your global Git
+  configuration (don't do this yet):
+
+```
+git config --add --global user.name "oreximus"
+git config --add --global user.email "oreximus@gmail.com"
+```
+
+- Let's take the command apart:
+  - `git config`: The command to interact with your Git configuration.
+  - `--add`: Flag stating you want to add a configuration.
+  - `--global`: Flag starting you want this configuration to be stored
+    globally in your `~/.gitconfig`. The opposite is "local", which stores
+    the configuration in the current repository only.
+  - `user`: The section.
+  - `name`: The key within the setion.
+  - `"oreximus"`: The value want to set for the key.
