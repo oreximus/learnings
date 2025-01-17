@@ -299,6 +299,8 @@ B: add title
 
 ## Git Config
 
+### Config
+
 - Git stores author information so that when you're making a commit it can
   track who made the change. Here's how you might update your global Git
   configuration (don't do this yet):
@@ -317,3 +319,159 @@ git config --add --global user.email "oreximus@gmail.com"
   - `user`: The section.
   - `name`: The key within the setion.
   - `"oreximus"`: The value want to set for the key.
+
+### Get
+
+- The `--get` flag is useful for getting a single value.
+
+```
+git config --get <key>
+```
+
+- Keys are in the format `<section>.<keyname>`. For example:
+  - `user.name`
+  - `webflyx.ceo`
+
+### Unset
+
+- The `--unset` flag is used to remove a configuration value. For example:
+
+```
+git config --unset <key>
+```
+
+- for example, for removing any from the config we'll do this:
+
+```
+git config --unset <key>
+```
+
+> This is will work only in the case of removing section's key, without
+> the key name it won't work.
+
+### Duplicates
+
+- Typically, in a key/value store, like a Python dictionary, you aren't allowed
+  to have duplicates keys. Strangely enough, Git doesn't care.
+
+#### Unset All
+
+- The `--unset-all` flag is useful if you ever really want to purge all
+  instances of a key from your configuration. Conversely, the `--unset` flag
+  only works with a single instance of a key.
+
+```
+git config --unset-all example.key
+```
+
+- You can multiple key in a section with the same name, and then remove using
+  the above command.
+
+### Remove a Section
+
+- The `webflyx` section is nonsensical because Git doesn't use it for anything.
+  While we can store any key/value pair we want in our Git configuration, that
+  doesn't mean we should.
+
+- The `--remove-section` flag is used to remove an entire section from your
+  Git configuration. For example:
+
+```
+git config --remove-section section
+```
+
+### Location
+
+- There are several locations where Git can be configured. From more general
+  to more specific, they are:
+
+      - **system**: `/etc/gitconfig`, a file that configures Git for all users
+      on the system.
+      - **global**: `~/.gitconfig`, a file configures Git for all projects of
+      a user.
+      - **local**: `.git/config`, a file that configures Git for all projects of
+      a user.
+      - **worktree**: `.git/config.worktree`, a file that configures Git for part
+      of a project.
+
+- 90% of the time you will be using `--global` to set things
+  like your username and email. The other 9% time you will be using `--local` to
+  set project-specific configurations. The last 1% of the time you might need to
+  futz with system and worktree configurations, but it's extremely rare.
+
+### Overriding
+
+- If you set a configuration in a more specific location, it will override the
+  same configuration in a more general location. For example, if you set `user.name`
+  in the location configuration, it will override the `user.name` set i the global
+  configuration.
+
+![img01](./imgs/git01.png)
+
+## Branching
+
+### What is Branch?
+
+- A `Git branch` allows you to keep track of differet changes separately.
+
+- For example, let's say you have a big web project and you want to experiment with
+  changing the color scheme. Instead of changing the entire project directly (as of
+  right now, our `master` branch), you can create a new branch called `color_scheme`
+  and work on that branch.
+
+- When you're done, if your like the changes, you can merge, the `color_scheme`
+  branch back into the `master` branch to keep the `color_scheme` branch and go back
+  to the `master` branch.
+
+### Under the hood
+
+- A branch is just a named `pointer` to a specific commit. When you create a
+  branch, you are creating a new pointer to a specific commit. The commit that the
+  branch points to is called the tip of the branch.
+
+![img02](./imgs/git02.png)
+
+- Because a branch is just a pointer to a commit, they're lightweight and
+  "cheap" resourse-wise to create. When you create 10 branches, you're not creating
+  10 copies of your project on your hard drive.
+
+### Default Branch
+
+- We've been using Git's default `master` branch. Interestingly, Github (a website
+  where you can remotely store Git projects) recently changed its default branch from
+  `master` to `main`.
+
+#### How to rename a branch
+
+```
+git branch -m oldname newname
+```
+
+### Visualizing Branches
+
+- Throughout the rest of this course, we will use text to represent branch and commits,
+  For example:
+
+```
+A - B - C main
+```
+
+- means a branch called `main` with 3 commits. `C` is the most recent commit (the
+  tip), `B` is the previous commit, and `A` is the commit before that. To represent
+  multiple branches, we'll use multiple lines:
+
+```
+ D - E other_branch
+/
+A - B - C main
+```
+
+- Small test visualization:
+
+```
+     G - H     lanes_branch
+    /
+A - B - C - D  main
+\
+ E - F         primes_branch
+```
