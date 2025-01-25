@@ -263,3 +263,115 @@ tsc --init
 ```
 tsc
 ```
+
+### Debugging TypeScript Applications:
+
+- Going again in the `tsconfig.json` file and enable the `sourceMap` feature in the Emit
+  section.
+
+- `**sourceMap**` is a file which specifies how each line of our TypeScript code maps to the
+  generated JavaScript code.
+
+- after doing the setting, running `tsc` again, will produce a `index.js.map` file in our
+  `dist` folder, which specifies how our TypeScipt code maps to the JavaScript code.
+
+- then go to code-editor, in my case in `vscode`, create modify the code in `index.ts`:
+
+```
+let age: number = 20;
+if (age < 50)
+    age += 10;
+```
+
+- and create a breakpoint on line 1, then go to the `debug panel` and `create launch.json file`.
+
+- select `node.js` and this will create new file in your project named as: `launch.json`.
+
+- this file has the configuration which tells vscode how to debug the application.
+
+```
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/index.ts",
+            "outFiles": [
+                "${workspaceFolder}/**/*.js"
+            ]
+        }
+    ]
+}
+```
+
+- we'll one more to the above config, `"preLaunchTask": "tsc: build - tsconfig.json"`:
+
+```
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/index.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "outFiles": [
+                "${workspaceFolder}/**/*.js"
+            ]
+        }
+    ]
+}
+```
+
+- then go back to your `index.ts` file and open the debug panel, and start debugging by pressing `F5`.
+
+- you can add expressions in the debugging panel's watch section, like we can watch
+  `age` variable, then re-run the debugger, and press `F10` to see the value of `age`
+  variable on each line.
+
+### Fundamentals:
+
+- Concepts:
+  1. The any type
+  2. Arrays
+  3. Tuples
+  4. Enums
+  5. Functions
+  6. Objects
+
+#### Built-in Types:
+
+- Builtin-Types in JavaScript and TypeScript:
+
+  - **JavaScript**:
+    - number
+    - string
+    - boolean
+    - null
+    - undefined
+    - object
+  - **TypeScript**:
+    - any
+    - unknown
+    - never
+    - enum
+    - tuple
+
+- Exploring a bit about the primitive types in TypeScript.
