@@ -424,7 +424,7 @@ function render(document: any){
 "noImplicitAny": true,
 ```
 
-> Better not config these thing or you'll loose the major benefits of TypeScript.
+> Better not to config this setting or you'll loose the major benefits of TypeScript.
 
 #### Arrays:
 
@@ -434,7 +434,7 @@ function render(document: any){
 let numbers = [1,2,3];
 ```
 
-- But if change the values of array like this:
+- But if we change the values of array like this:
 
 ```
 let numbers = [1,2,'3'];
@@ -486,7 +486,7 @@ numbers.forEach(n => n.)
 
 #### Tuples
 
-- TypeScript has a new type called tuples, which is fixed length array, where each element
+- TypeScript has a new type called tuples, which is a fixed length array, where each element
   has particular type. We often use them when working with the pair of values.
 
 ```
@@ -515,6 +515,6 @@ let user = [1, 'Cool'];
 //# sourceMappingURL=index.js.map
 ```
 
-> Tuple is fixed length, where each element has a particular type. As a best practice
+> Tuple is fixed length array, where each element has a particular type. As a best practice
 > restrict your tuple to only two values, because more than that is going to make your
 > code a bit hard to understand.
