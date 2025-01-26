@@ -375,3 +375,146 @@ if (age < 50)
     - tuple
 
 - Exploring a bit about the primitive types in TypeScript.
+
+- In `index.ts`, replace the code with:
+
+```
+let sales: number = 123_456_789;
+let course: string = 'TypeScript';
+let is_published: boolean = true;
+```
+
+#### The any Type:
+
+- Defining some variable without the value, will be assumed as `any` type variable in
+  TypeScript.
+
+- The any type variable can have any type of value, this allows us to loose the Type defined
+  functionality in variable declaration in TypeScript.
+
+> Best practice is to avoid using the `any` type variable declaration as much as possible.
+
+```
+// for example we if create a
+// function
+
+function render(document) {
+    console.log(document);
+}
+```
+
+- the above function declaration will give the compilation error that `Parameter 'document; 
+implicitly has an 'any' type`
+
+- to fix this we can annotate the value with `any`.
+
+**for example**:
+
+```
+function render(document: any){
+    console.log(document);
+}
+```
+
+- other way is changing some of the settings in our `tsconfig.js` file:
+
+**Under Type Checking section**:
+
+```
+"noImplicitAny": true,
+```
+
+> Better not config these thing or you'll loose the major benefits of TypeScript.
+
+#### Arrays:
+
+- In JavaScript we declare arrays like this:
+
+```
+let numbers = [1,2,3];
+```
+
+- But if change the values of array like this:
+
+```
+let numbers = [1,2,'3'];
+```
+
+- On third element, It'll produce an error, this is where TypeScript comes into play!
+
+- Array declaration in TypeScript:
+
+```
+let numbers: number[] = [1,2,3];
+```
+
+- the type annotation will make sure that every element in this list is a number.
+
+- if we define an empty array:
+
+```
+let numbers = []
+```
+
+- This will be considered as `any` type array in TypeScript, which we should avoid.
+
+- do this instead:
+
+```
+let numbers: number[] = [];
+```
+
+- another benefit of TypeScript is code completion or IntelliSense.
+
+- for example:
+
+```
+// do this will get all the
+// number method for the object
+
+numbers.forEach(n => n.)
+
+```
+
+- suggests you the methods like:
+  - toExponential
+  - toFixed
+  - toLocationString
+  - toPrecision
+  - toString
+  - valueOf
+
+#### Tuples
+
+- TypeScript has a new type called tuples, which is fixed length array, where each element
+  has particular type. We often use them when working with the pair of values.
+
+```
+let user: [number, string] = [1, 'Cool', 0]
+```
+
+- this will give the error:
+  `Type '[number, string, number]' is not assignable to type '[number, string]'.`
+
+- we can only do this:
+
+```
+let user: [number, string] = [1, 'Cool']
+```
+
+- so if you access the elements, based on type declaration you'll have all the methods
+  associated to them.
+
+- Run `tsc` on your terminal after saving the `index.ts` file:
+
+- and you'll see the standard js array in `index.js` file:
+
+```
+"use strict";
+let user = [1, 'Cool'];
+//# sourceMappingURL=index.js.map
+```
+
+> Tuple is fixed length, where each element has a particular type. As a best practice
+> restrict your tuple to only two values, because more than that is going to make your
+> code a bit hard to understand.
