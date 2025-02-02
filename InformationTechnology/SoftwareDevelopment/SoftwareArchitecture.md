@@ -28,9 +28,9 @@ flowchart TD
 
 ```mermaid
 sequenceDiagram
-    Search Inventory
-    Buy Products
-    Check Reviews
-    Review Past Orders
-    etc
+    "Search Inventory"
+    "Buy Products"
+    "Check Reviews"
+    "Review Past Orders"
+    "etc"
 ```
