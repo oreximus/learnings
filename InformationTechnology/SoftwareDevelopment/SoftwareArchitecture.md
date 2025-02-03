@@ -90,10 +90,12 @@ flowchart TD
 
 ```mermaid
 block-beta
+columns 1
     block: B["Backend"]
         S[("Store")]
         L["Logic"]
     end
+    space
     block: F["Frontend"]
         U["UI"]
     end
