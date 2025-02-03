@@ -92,11 +92,15 @@ flowchart TD
 block-beta
 columns 1
     block: B["Backend"]
+        "Backend"
+        ---
         S[("Store")]
         L["Logic"]
     end
     space
     block: F["Frontend"]
+        "Fronend"
+        ---
         U["UI"]
     end
     B --> F
