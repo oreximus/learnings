@@ -90,8 +90,13 @@ flowchart TD
 
 ```mermaid
 block-beta
-    S[("Store")]
-    L["Logic"]
-    U["UI"]
+    block: ID["Backend"]
+        S[("Store")]
+        L["Logic"]
+    end
+    block: ID["Frontend"]
+        U["UI"]
+    end
+    ID --> U
 
 ```
