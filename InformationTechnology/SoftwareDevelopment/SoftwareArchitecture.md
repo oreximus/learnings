@@ -27,7 +27,7 @@ flowchart TD
 - What should the system do?
 
 ```mermaid
-sequenceDiagram
+flowchart TD
     [Search Inventory]
     [Buy Products]
     [Check Reviews]
