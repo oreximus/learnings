@@ -28,9 +28,9 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    [Search Inventory]
-    [Buy Products]
-    [Check Reviews]
-    [Review Past Orders]
-    [etc]
+    A[Search Inventory]
+    B[Buy Products]
+    C[Check Reviews]
+    D[Review Past Orders]
+    E[etc]
 ```
