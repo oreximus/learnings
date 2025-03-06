@@ -40,7 +40,8 @@ nest new <project_name>
   exit with the code `1`. If we want to make it throw an error instead disable
   the option `abortOnError` (e.g. `NestFactory.create(AppModule, {abortOnError: false})`).
 
-### Terminologies:
+- To quickly create a CRUD controller with built-in `validation`, you can use the CLI's
+  CRUD generator: `nest g resource [name]`.
 
 #### NestFactory:
 
@@ -67,3 +68,15 @@ nest new <project_name>
   NestFactory provides a flexible way to bootstrap different types of
   NestJS application, making it a crucial component in the framework
   architecture.
+
+#### Routing
+
+- In the following example, we'll use the `@Controller()` decorator, which is **required**
+  to define a basic controller. We'll specify an optional route path prefix of `cats`.
+  Using a path prefix in the `@Controller()` decorator help us group related routes
+  together and reduces repetitive code.
+
+- For example, if we want to group routes that manage interaction with a cat entity
+  under the `/cats` path, we can specify the `/cats` path prefix in the `@Controller()`
+  decorator. This way, we don't need to repeat that portion of the path for each route in
+  the file.
