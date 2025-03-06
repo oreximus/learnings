@@ -31,3 +31,31 @@ nest new <project_name>
 ```
 
 - select your package manager and you're good to go!
+
+### Terminologies:
+
+#### NestFactory:
+
+**source**: perplexity.ai
+
+- `NestFactory`: NestFactory is a core class in NestJS that provides static
+  methods for creating application instances. it is used to bootstrap and
+  initialize a NestJS application, serving as the entry point for creating
+  different types of applications such as web servers, microservices, and
+  standalone applications.
+
+- The `NestFactory` class offers several key methods:
+
+  1. `create()`: This method creates an instance of NestApplication, which
+     is typically used for creating HTTP-based server-side applications.
+  2. `createMicroservices()`: This method is used to create an instance
+     of NestMicroservice, specifically designed for building microservices.
+  3. `createApplicationContext()`: This method creates an instance of
+     NestApplicationContext, which is useful for creating standalone
+     applications or when you need a Nest container without a network layer.
+
+- These methods allow developers to configure the application instance,
+  set up middleware, and define the root module of the application. The
+  NestFactory provides a flexible way to bootstrap different types of
+  NestJS application, making it a crucial component in the framework
+  architecture.
