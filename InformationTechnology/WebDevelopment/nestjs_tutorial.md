@@ -32,6 +32,14 @@ nest new <project_name>
 
 - select your package manager and you're good to go!
 
+### Notes from the nestjs official docs:
+
+**source**: https://docs.nestjs.com/first-steps
+
+- By default, if any error happens while creating the application our app will
+  exit with the code `1`. If we want to make it throw an error instead disable
+  the option `abortOnError` (e.g. `NestFactory.create(AppModule, {abortOnError: false})`).
+
 ### Terminologies:
 
 #### NestFactory:
