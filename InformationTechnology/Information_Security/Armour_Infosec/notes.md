@@ -1,16 +1,16 @@
-# Comprehensive Network & Information Security Notes
+# Comprehensive Network \& Information Security Notes
 
 ## Table of Contents
 
 1. [Network Fundamentals](#network-fundamentals)
 2. [IP Addressing](#ip-addressing)
-3. [Subnetting & CIDR](#subnetting--cidr)
-4. [Network Devices & Topologies](#network-devices--topologies)
-5. [DHCP & Network Services](#dhcp--network-services)
+3. [Subnetting \& CIDR](#subnetting--cidr)
+4. [Network Devices \& Topologies](#network-devices--topologies)
+5. [DHCP \& Network Services](#dhcp--network-services)
 6. [Operating Systems](#operating-systems)
 7. [Windows Server Administration](#windows-server-administration)
 8. [Linux Administration](#linux-administration)
-9. [Domain & DNS Concepts](#domain--dns-concepts)
+9. [Domain \& DNS Concepts](#domain--dns-concepts)
 
 ---
 
@@ -48,9 +48,9 @@ A **network** is a collection of interconnected devices that can communicate and
 
 #### 4. MAN (Metropolitan Area Network)
 
-- **Purpose**: Connect networks across a city
+- **Purpose**: Connect networks across a metropolitan area
 - **Device**: Router (organization-owned)
-- **Range**: 4m - citywide
+- **Range**: Up to 50 km
 - **Devices**: Multiple locations
 - **Example**: City government network, cable TV network
 
@@ -70,17 +70,16 @@ A **network** is a collection of interconnected devices that can communicate and
 - **Range**: 20m - 50m
 - **Use**: Home and small office wireless networks
 
-#### WCAN (Wireless CAN)
+#### WPAN (Wireless Personal Area Network)
 
-- **Device**: Wi-Fi Access Point (AP)
-- **Range**: 20m - 1km
-- **Devices**: Up to 250 PCs
-- **Use**: Large campus wireless coverage
+- **Device**: Bluetooth, Zigbee
+- **Range**: Up to 10 meters
+- **Use**: Short-range connectivity for personal devices
 
 #### WMAN (Wireless MAN)
 
-- **Device**: Wi-Fi CPE (Customer Premises Equipment)
-- **Range**: 20m - 15km
+- **Device**: WiMAX, Wi-Fi CPE (Customer Premises Equipment)
+- **Range**: Up to 50 km
 - **Use**: Wireless internet service providers
 
 #### WWAN (Wireless WAN)
@@ -119,7 +118,7 @@ An **IP Address** (Internet Protocol Address) is a unique numerical identifier a
 
 ### IPv4 Address Classes
 
-#### Class A (0.0.0.0 to 127.255.255.255)
+#### Class A (1.0.0.0 to 126.255.255.255)
 
 - **Binary Pattern**: 0XXXXXXX.XXXXXXXX.XXXXXXXX.XXXXXXXX
 - **Format**: N.H.H.H (Network.Host.Host.Host)
@@ -190,21 +189,34 @@ An **IP Address** (Internet Protocol Address) is a unique numerical identifier a
 
 ### IANA Hierarchy
 
-1. **IANA** (Internet Assigned Numbers Authority) - Global coordination
-2. **Regional Registries** - Continental distribution
-3. **National Registries/ISPs** - Country/provider level
-4. **End Users** - Individual/organization assignment
+```mermaid
+graph TD
+    A[IANA (Global)] --> B[Regional Registries]
+    B --> C[National Registries/ISPs]
+    C --> D[End Users]
+```
 
 ### Network Communication Process
 
-1. **Same Network**: Direct communication through switch
-2. **Different Network**: Packet sent to gateway/router
-3. **Internet**: Multiple routers forward packet to destination
-4. **Return Path**: Response follows reverse route
+```mermaid
+sequenceDiagram
+    participant DeviceA as Device A
+    participant Switch as Switch
+    participant Router as Router
+    participant Internet as Internet
+    participant DeviceB as Device B
+
+    DeviceA->>Switch: Sends packet (same network)
+    Switch->>DeviceB: Forwards packet (if same network)
+    DeviceA->>Router: Sends packet (different network)
+    Router->>Internet: Forwards packet
+    Internet->>Router: Response
+    Router->>DeviceA: Delivers response
+```
 
 ---
 
-## Subnetting & CIDR
+## Subnetting \& CIDR
 
 ### Subnet Mask
 
@@ -252,7 +264,7 @@ A **subnet mask** determines which portion of an IP address represents the netwo
 
 ---
 
-## Network Devices & Topologies
+## Network Devices \& Topologies
 
 ### Network Devices
 
@@ -289,32 +301,39 @@ A **subnet mask** determines which portion of an IP address represents the netwo
 
 #### Star Topology
 
-- **Structure**: All devices connect to central hub/switch
-- **Advantages**: Easy troubleshooting, centralized management
-- **Disadvantages**: Single point of failure (central device)
-- **Use**: Most common in modern LANs
+```mermaid
+graph TD
+    A[Switch/Hub] --> B[PC1]
+    A --> C[PC2]
+    A --> D[PC3]
+    A --> E[PC4]
+```
 
 #### Bus Topology
 
-- **Structure**: All devices share common communication line
-- **Advantages**: Simple, cost-effective for small networks
-- **Disadvantages**: Difficult troubleshooting, single point of failure
-- **Use**: Legacy networks, some industrial applications
+```mermaid
+graph LR
+    A[PC1] -- Shared Cable --> B[PC2] -- Shared Cable --> C[PC3] -- Shared Cable --> D[PC4]
+```
 
 #### Ring Topology
 
-- **Structure**: Devices connected in circular fashion
-- **Advantages**: Predictable performance, no collisions
-- **Disadvantages**: Failure of one device affects entire network
-- **Use**: Token Ring networks (legacy)
+```mermaid
+graph LR
+    A[PC1] --> B[PC2] --> C[PC3] --> D[PC4] --> A
+```
 
 #### Mesh Topology
 
-- **Structure**: Multiple connections between devices
-- **Types**: Full mesh (all-to-all) or partial mesh
-- **Advantages**: High redundancy, excellent fault tolerance
-- **Disadvantages**: Expensive, complex configuration
-- **Use**: Critical infrastructure, WAN connections
+```mermaid
+graph TD
+    A[PC1] -- -- --> B[PC2]
+    A -- -- --> C[PC3]
+    A -- -- --> D[PC4]
+    B -- -- --> C
+    B -- -- --> D
+    C -- -- --> D
+```
 
 ### MAC Addresses
 
@@ -335,7 +354,7 @@ A **subnet mask** determines which portion of an IP address represents the netwo
 
 ---
 
-## DHCP & Network Services
+## DHCP \& Network Services
 
 ### DHCP (Dynamic Host Configuration Protocol)
 
@@ -345,10 +364,16 @@ Automatically assigns IP configuration to network devices, eliminating manual co
 
 #### DORA Process
 
-1. **Discover**: Client broadcasts DHCP Discover message
-2. **Offer**: Server responds with IP offer
-3. **Request**: Client requests specific IP from server
-4. **Acknowledge**: Server confirms assignment
+```mermaid
+sequenceDiagram
+    participant Client
+    participant DHCPServer
+
+    Client->>DHCPServer: DHCP Discover (broadcast)
+    DHCPServer->>Client: DHCP Offer
+    Client->>DHCPServer: DHCP Request
+    DHCPServer->>Client: DHCP Acknowledge
+```
 
 #### DHCP Configuration Elements
 
@@ -388,7 +413,7 @@ Process of redirecting external requests to internal private network hosts.
 
 ### Linux
 
-#### History & Philosophy
+#### History \& Philosophy
 
 - **Created**: 1991 by Linus Torvalds
 - **License**: GPL (General Public License)
@@ -412,7 +437,7 @@ The **shell** is the interface between user and kernel:
 - **Types**: Bash, Zsh, Fish, etc.
 - **Function**: Command interpreter and programming environment
 
-#### Linux Distributions & Package Managers
+#### Linux Distributions \& Package Managers
 
 ##### Debian-Based Distributions
 
@@ -487,7 +512,7 @@ The top-level directory containing all other directories.
 
 #### System Directories
 
-- \*\*C:\*\*: Root drive containing Windows system files
+- **C:\\**: Root drive containing Windows system files
 - **Program Files**: 64-bit applications
 - **Program Files (x86)**: 32-bit applications
 - **ProgramData**: Shared application data
@@ -547,7 +572,7 @@ The top-level directory containing all other directories.
 
 ---
 
-## Domain & DNS Concepts
+## Domain \& DNS Concepts
 
 ### Domain Name System (DNS)
 
@@ -557,10 +582,12 @@ Translates human-readable domain names to IP addresses and vice versa.
 
 #### DNS Hierarchy
 
-1. **Root Servers**: Top-level (.)
-2. **TLD Servers**: Top-Level Domains (.com, .org, .net)
-3. **Authoritative Servers**: Domain-specific
-4. **Local DNS**: ISP or organization DNS
+```mermaid
+graph TD
+    A[Root Servers (.)] --> B[TLD Servers (.com, .org, .net)]
+    B --> C[Authoritative Servers (example.com)]
+    C --> D[Local DNS (ISP/Org)]
+```
 
 #### DNS Record Types
 
@@ -571,6 +598,8 @@ Translates human-readable domain names to IP addresses and vice versa.
 - **NS**: Name server records
 - **PTR**: Reverse DNS lookup
 - **TXT**: Text records (verification, SPF)
+- **SRV**: Service locator records
+- **SOA**: Start of Authority (zone information)
 
 ### Domain Valuation Factors
 
@@ -598,7 +627,7 @@ Translates human-readable domain names to IP addresses and vice versa.
 
 ---
 
-## IP Configuration Rules & Best Practices
+## IP Configuration Rules \& Best Practices
 
 ### IP Assignment Rules
 
@@ -623,7 +652,7 @@ Translates human-readable domain names to IP addresses and vice versa.
 - **Windows**: ipconfig, ping, tracert, nslookup
 - **Linux**: ifconfig/ip, ping, traceroute, dig
 
-### Cable Standards & Pinouts
+### Cable Standards \& Pinouts
 
 #### Ethernet Cable Categories
 
@@ -649,7 +678,7 @@ Translates human-readable domain names to IP addresses and vice versa.
 
 ---
 
-## Study Resources & Practical Exercises
+## Study Resources \& Practical Exercises
 
 ### Key Topics for Review
 
@@ -667,29 +696,23 @@ Translates human-readable domain names to IP addresses and vice versa.
 ### Practical Exercises
 
 1. **Network Testing**:
-
    - Configure static IPs on same network
    - Test connectivity with ping
    - Use traceroute/tracert to trace paths
-
 2. **Subnetting Practice**:
-
    - Use subnet calculators
    - Practice VLSM scenarios
    - Calculate network/broadcast addresses
-
 3. **Server Configuration**:
-
    - Set up DHCP server
    - Configure DNS forwarding
    - Practice domain joining
-
 4. **Troubleshooting**:
    - Identify network connectivity issues
    - Use network diagnostic tools
    - Analyze network traffic
 
-### Useful Tools & Utilities
+### Useful Tools \& Utilities
 
 - **Windows**: ncpa.cpl, compmgmt.msc, services.msc
 - **Network Tools**: Wireshark, Nmap, PuTTY
@@ -702,7 +725,7 @@ Translates human-readable domain names to IP addresses and vice versa.
 
 **APIPA**: Automatic Private IP Addressing (169.254.x.x)
 **CIDR**: Classless Inter-Domain Routing
-**DHCP**: Dynamic Host Configuration Protocol  
+**DHCP**: Dynamic Host Configuration Protocol
 **DNS**: Domain Name System
 **FQDN**: Fully Qualified Domain Name
 **IANA**: Internet Assigned Numbers Authority
@@ -712,3 +735,5 @@ Translates human-readable domain names to IP addresses and vice versa.
 **TCP/IP**: Transmission Control Protocol/Internet Protocol
 **VLAN**: Virtual Local Area Network
 **VPN**: Virtual Private Network
+
+---
