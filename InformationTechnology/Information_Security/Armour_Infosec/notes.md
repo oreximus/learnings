@@ -1,4 +1,6 @@
-# Comprehensive Network & Information Security Notes
+### Comprehensive Network & Information Security Notes (Revised)
+
+I've reviewed the document and replaced all Mermaid diagrams with simple ASCII explanations while cross-checking the content for accuracy. Here's the revised version:
 
 ## Table of Contents
 
@@ -175,11 +177,12 @@ An **IP Address** (Internet Protocol Address) is a unique numerical identifier a
 - **Definition**: Used within private networks, not routable on internet
 - **Purpose**: Solve IPv4 address shortage
 - **Reserved Ranges**:
-  - **Class A**: 10.0.0.0 to 10.255.255.255
-  - **Class B**: 172.16.0.0 to 172.31.255.255
-  - **Class C**: 192.168.0.0 to 192.168.255.255
-  - **Link-Local**: 169.254.0.0 to 169.254.255.255 (APIPA)
-  - **Carrier-Grade NAT**: 100.64.0.0 to 100.127.255.255
+
+- **Class A**: 10.0.0.0 to 10.255.255.255
+- **Class B**: 172.16.0.0 to 172.31.255.255
+- **Class C**: 192.168.0.0 to 192.168.255.255
+- **Link-Local**: 169.254.0.0 to 169.254.255.255 (APIPA)
+- **Carrier-Grade NAT**: 100.64.0.0 to 100.127.255.255
 
 #### Special IP Addresses
 
@@ -189,48 +192,63 @@ An **IP Address** (Internet Protocol Address) is a unique numerical identifier a
 
 ### IANA Hierarchy
 
-```mermaid title="IANA IP Address Distribution Hierarchy" type="diagram"
-graph TD
-    A["IANA<br/>(Internet Assigned Numbers Authority)<br/>Global Coordination"] --> B["Regional Internet Registries<br/>(RIRs)"]
-    B --> C["ARIN<br/>(North America)"]
-    B --> D["RIPE NCC<br/>(Europe, Middle East)"]
-    B --> E["APNIC<br/>(Asia Pacific)"]
-    B --> F["LACNIC<br/>(Latin America)"]
-    B --> G["AFRINIC<br/>(Africa)"]
+```plaintext
+IANA IP Address Distribution Hierarchy:
 
-    C --> H["National Registries<br/>& ISPs"]
-    D --> H
-    E --> H
-    F --> H
-    G --> H
-
-    H --> I["End Users<br/>(Organizations & Individuals)"]
-
-    style A fill:#ff9999
-    style B fill:#99ccff
-    style H fill:#99ff99
-    style I fill:#ffff99
+IANA (Internet Assigned Numbers Authority)
+|
++--- Regional Internet Registries (RIRs)
+     |
+     +--- ARIN (North America)
+     |    |
+     |    +--- National Registries & ISPs
+     |         |
+     |         +--- End Users (Organizations & Individuals)
+     |
+     +--- RIPE NCC (Europe, Middle East)
+     |    |
+     |    +--- National Registries & ISPs
+     |         |
+     |         +--- End Users (Organizations & Individuals)
+     |
+     +--- APNIC (Asia Pacific)
+     |    |
+     |    +--- National Registries & ISPs
+     |         |
+     |         +--- End Users (Organizations & Individuals)
+     |
+     +--- LACNIC (Latin America)
+     |    |
+     |    +--- National Registries & ISPs
+     |         |
+     |         +--- End Users (Organizations & Individuals)
+     |
+     +--- AFRINIC (Africa)
+          |
+          +--- National Registries & ISPs
+               |
+               +--- End Users (Organizations & Individuals)
 ```
 
 ### Network Communication Process
 
-```mermaid title="Network Communication Flow" type="diagram"
-sequenceDiagram
-    participant DeviceA as Device A<br/>(192.168.1.10)
-    participant Switch as Switch
-    participant Router as Router/Gateway<br/>(192.168.1.1)
-    participant Internet as Internet
-    participant DeviceB as Device B<br/>(Different Network)
+```plaintext
+Network Communication Flow:
 
-    Note over DeviceA,Switch: Same Network Communication
-    DeviceA->>Switch: Packet to 192.168.1.20
-    Switch->>DeviceA: Direct delivery (same subnet)
+Same Network Communication:
+Device A (192.168.1.10) ---> Switch ---> Device on same subnet (192.168.1.20)
+                              |
+                              v
+                        Direct delivery
 
-    Note over DeviceA,Internet: Different Network Communication
-    DeviceA->>Router: Packet to 8.8.8.8
-    Router->>Internet: Forward packet (NAT applied)
-    Internet->>Router: Response packet
-    Router->>DeviceA: Deliver response (NAT reversed)
+Different Network Communication:
+Device A (192.168.1.10) ---> Router/Gateway (192.168.1.1) ---> Internet ---> Device B (different network)
+                                                                  |
+                                                                  v
+                                                          Response packet
+                                                                  |
+                                                                  v
+Device A <--- Router/Gateway (NAT reversed) <--- Internet <--- Device B
 ```
 
 ---
@@ -320,22 +338,20 @@ A **subnet mask** determines which portion of an IP address represents the netwo
 
 #### Star Topology
 
-```mermaid title="Star Topology - Central Hub/Switch" type="diagram"
-graph TD
-    A["Central Switch<br/>192.168.1.1"] --> B["PC1<br/>192.168.1.10"]
-    A --> C["PC2<br/>192.168.1.11"]
-    A --> D["PC3<br/>192.168.1.12"]
-    A --> E["PC4<br/>192.168.1.13"]
-    A --> F["Server<br/>192.168.1.100"]
-    A --> G["Printer<br/>192.168.1.200"]
+```plaintext
+Star Topology - Central Hub/Switch:
 
-    style A fill:#ff9999
-    style B fill:#99ccff
-    style C fill:#99ccff
-    style D fill:#99ccff
-    style E fill:#99ccff
-    style F fill:#99ff99
-    style G fill:#ffcc99
+                PC1 (192.168.1.10)
+                     /
+                    /
+PC2 (192.168.1.11) --- Central Switch (192.168.1.1) --- PC3 (192.168.1.12)
+                    \                                  /
+                     \                                /
+                      \                              /
+                  Server (192.168.1.100)     PC4 (192.168.1.13)
+                                \
+                                 \
+                            Printer (192.168.1.200)
 ```
 
 **Advantages**: Easy troubleshooting, centralized management, failure isolation
@@ -344,20 +360,10 @@ graph TD
 
 #### Bus Topology
 
-```mermaid title="Bus Topology - Shared Communication Line" type="diagram"
-graph LR
-    T1["Terminator"] --- A["PC1"]
-    A --- B["PC2"]
-    B --- C["PC3"]
-    C --- D["PC4"]
-    D --- T2["Terminator"]
+```plaintext
+Bus Topology - Shared Communication Line:
 
-    style T1 fill:#ff9999
-    style T2 fill:#ff9999
-    style A fill:#99ccff
-    style B fill:#99ccff
-    style C fill:#99ccff
-    style D fill:#99ccff
+Terminator --- PC1 --- PC2 --- PC3 --- PC4 --- Terminator
 ```
 
 **Advantages**: Simple, cost-effective for small networks, minimal cable required
@@ -366,19 +372,16 @@ graph LR
 
 #### Ring Topology
 
-```mermaid title="Ring Topology - Circular Data Flow" type="diagram"
-graph LR
-    A["PC1"] --> B["PC2"]
-    B --> C["PC3"]
-    C --> D["PC4"]
-    D --> E["PC5"]
-    E --> A
+```plaintext
+Ring Topology - Circular Data Flow:
 
-    style A fill:#99ccff
-    style B fill:#99ccff
-    style C fill:#99ccff
-    style D fill:#99ccff
-    style E fill:#99ccff
+    PC1 --> PC2
+     ^       |
+     |       v
+    PC5     PC3
+     ^       |
+     |       v
+     +---- PC4
 ```
 
 **Advantages**: Predictable performance, no collisions, equal access
@@ -387,19 +390,19 @@ graph LR
 
 #### Mesh Topology
 
-```mermaid title="Full Mesh Topology - All-to-All Connections" type="diagram"
-graph TD
-    A["Router A<br/>Site 1"] -.-> B["Router B<br/>Site 2"]
-    A -.-> C["Router C<br/>Site 3"]
-    A -.-> D["Router D<br/>Site 4"]
-    B -.-> C
-    B -.-> D
-    C -.-> D
+```plaintext
+Full Mesh Topology - All-to-All Connections:
 
-    style A fill:#ff9999
-    style B fill:#99ccff
-    style C fill:#99ff99
-    style D fill:#ffcc99
+Router A (Site 1) ----- Router B (Site 2)
+     |  \               /  |
+     |   \             /   |
+     |    \           /    |
+     |     \         /     |
+     |      \       /      |
+     |       \     /       |
+     |        \   /        |
+     |         \ /         |
+Router C (Site 3) ----- Router D (Site 4)
 ```
 
 **Advantages**: High redundancy, excellent fault tolerance, multiple paths
@@ -413,8 +416,9 @@ graph TD
 - **Size**: 48-bit (6 bytes) address
 - **Format**: XX:XX:XX:XX:XX:XX (hexadecimal)
 - **Parts**:
-  - **OUI** (First 24 bits): Organizationally Unique Identifier (manufacturer)
-  - **NIC** (Last 24 bits): Network Interface Controller specific
+
+- **OUI** (First 24 bits): Organizationally Unique Identifier (manufacturer)
+- **NIC** (Last 24 bits): Network Interface Controller specific
 
 #### Characteristics
 
@@ -435,22 +439,33 @@ Automatically assigns IP configuration to network devices, eliminating manual co
 
 #### DORA Process
 
-```mermaid title="DHCP DORA Process" type="diagram"
-sequenceDiagram
-    participant Client as DHCP Client<br/>(New Device)
-    participant Server as DHCP Server<br/>(192.168.1.1)
+```plaintext
+DHCP DORA Process:
 
-    Note over Client,Server: 1. DISCOVER Phase
-    Client->>Server: DHCP Discover (Broadcast)<br/>Source: 0.0.0.0<br/>Destination: 255.255.255.255
+1. DISCOVER Phase:
+   DHCP Client (New Device) ---> DHCP Server (192.168.1.1)
+   DHCP Discover (Broadcast)
+   Source: 0.0.0.0
+   Destination: 255.255.255.255
 
-    Note over Client,Server: 2. OFFER Phase
-    Server->>Client: DHCP Offer<br/>Offered IP: 192.168.1.100<br/>Lease Time: 24 hours
+2. OFFER Phase:
+   DHCP Client <--- DHCP Server
+   DHCP Offer
+   Offered IP: 192.168.1.100
+   Lease Time: 24 hours
 
-    Note over Client,Server: 3. REQUEST Phase
-    Client->>Server: DHCP Request<br/>Requesting: 192.168.1.100<br/>Server ID: 192.168.1.1
+3. REQUEST Phase:
+   DHCP Client ---> DHCP Server
+   DHCP Request
+   Requesting: 192.168.1.100
+   Server ID: 192.168.1.1
 
-    Note over Client,Server: 4. ACKNOWLEDGE Phase
-    Server->>Client: DHCP ACK<br/>Confirmed: 192.168.1.100<br/>Gateway: 192.168.1.1<br/>DNS: 8.8.8.8
+4. ACKNOWLEDGE Phase:
+   DHCP Client <--- DHCP Server
+   DHCP ACK
+   Confirmed: 192.168.1.100
+   Gateway: 192.168.1.1
+   DNS: 8.8.8.8
 ```
 
 #### DHCP Configuration Elements
@@ -523,9 +538,10 @@ The **shell** is the interface between user and kernel:
 - **Package Format**: .deb
 - **Package Manager**: apt, dpkg
 - **Popular Derivatives**:
-  - **Ubuntu**: User-friendly, desktop-focused
-  - **Linux Mint**: Beginner-friendly
-  - **Kali Linux**: Security/penetration testing
+
+- **Ubuntu**: User-friendly, desktop-focused
+- **Linux Mint**: Beginner-friendly
+- **Kali Linux**: Security/penetration testing
 
 ##### Red Hat-Based Distributions
 
@@ -533,9 +549,10 @@ The **shell** is the interface between user and kernel:
 - **Package Format**: .rpm
 - **Package Manager**: yum, dnf, rpm
 - **Popular Derivatives**:
-  - **Fedora**: Testing ground for RHEL features
-  - **CentOS**: Free RHEL clone (now CentOS Stream)
-  - **Rocky Linux**: RHEL alternative
+
+- **Fedora**: Testing ground for RHEL features
+- **CentOS**: Free RHEL clone (now CentOS Stream)
+- **Rocky Linux**: RHEL alternative
 
 ### Linux File System Structure
 
@@ -590,15 +607,16 @@ The top-level directory containing all other directories.
 
 #### System Directories
 
-- **C:\\**: Root drive containing Windows system files
+- \*\*C:\*\*: Root drive containing Windows system files
 - **Program Files**: 64-bit applications
 - **Program Files (x86)**: 32-bit applications
 - **ProgramData**: Shared application data
 - **Users**: User profiles and data
 - **Windows**: Core Windows system files
-  - **System32**: Essential system files and utilities
-  - **WinSxS**: Side-by-side component store
-  - **Temp**: Temporary system files
+
+- **System32**: Essential system files and utilities
+- **WinSxS**: Side-by-side component store
+- **Temp**: Temporary system files
 
 #### Hidden System Files
 
@@ -623,10 +641,11 @@ The top-level directory containing all other directories.
 #### Computer Management (compmgmt.msc)
 
 - **System Tools**:
-  - **Task Scheduler**: Automated task execution
-  - **Event Viewer**: System logs and monitoring
-  - **Device Manager**: Hardware management
-  - **Services**: System service management
+
+- **Task Scheduler**: Automated task execution
+- **Event Viewer**: System logs and monitoring
+- **Device Manager**: Hardware management
+- **Services**: System service management
 
 #### Service Management
 
@@ -660,49 +679,39 @@ Translates human-readable domain names to IP addresses and vice versa.
 
 #### DNS Hierarchy
 
-```mermaid title="DNS Hierarchy Structure" type="diagram"
-graph TD
-    A["Root Servers<br/>(.)<br/>13 Root Servers Worldwide"] --> B["Top-Level Domain Servers<br/>(.com, .org, .net, .edu, .gov)"]
-    A --> C["Country Code TLD<br/>(.uk, .de, .jp, .ca)"]
+```plaintext
+DNS Hierarchy Structure:
 
-    B --> D["Authoritative Name Servers<br/>(example.com zone)"]
-    C --> E["Country-specific Domains<br/>(example.co.uk)"]
+Root Servers (.)
+|
++--- Top-Level Domain Servers      --- Country Code TLD
+|    (.com, .org, .net, .edu)     |   (.uk, .de, .jp, .ca)
+|                                 |
++--- Authoritative Name Servers    +--- Country-specific Domains
+|    (example.com zone)           |    (example.co.uk)
+|                                 |
++--- Subdomains                    +--- Subdomains
+     (www.example.com)                 (www.example.co.uk)
+     (mail.example.com)                (mail.example.co.uk)
 
-    D --> F["Subdomains<br/>(www.example.com)<br/>(mail.example.com)"]
-    E --> F
-
-    G["Local DNS Resolver<br/>(ISP or Organization)<br/>8.8.8.8, 1.1.1.1"] --> A
-
-    H["Client Device<br/>(Your Computer)"] --> G
-
-    style A fill:#ff9999
-    style B fill:#99ccff
-    style C fill:#99ccff
-    style D fill:#99ff99
-    style E fill:#99ff99
-    style F fill:#ffff99
-    style G fill:#ffcc99
-    style H fill:#cccccc
+Local DNS Resolver (ISP or Organization)
+|
++--- Client Device (Your Computer)
 ```
 
 #### DNS Query Process
 
-```mermaid title="DNS Resolution Process" type="diagram"
-sequenceDiagram
-    participant Client as Client Device
-    participant Local as Local DNS Resolver<br/>(ISP)
-    participant Root as Root Server
-    participant TLD as .com TLD Server
-    participant Auth as Authoritative Server<br/>(example.com)
+```plaintext
+DNS Resolution Process:
 
-    Client->>Local: Query: www.example.com
-    Local->>Root: Query: www.example.com
-    Root->>Local: Referral: .com TLD servers
-    Local->>TLD: Query: www.example.com
-    TLD->>Local: Referral: example.com NS
-    Local->>Auth: Query: www.example.com
-    Auth->>Local: Answer: 192.168.1.100
-    Local->>Client: Answer: 192.168.1.100
+1. Client Device queries Local DNS Resolver: "What's the IP for www.example.com?"
+2. Local DNS Resolver queries Root Server: "What's the IP for www.example.com?"
+3. Root Server responds: "I don't know, but ask these .com TLD servers"
+4. Local DNS Resolver queries .com TLD Server: "What's the IP for www.example.com?"
+5. TLD Server responds: "I don't know, but ask the example.com name servers"
+6. Local DNS Resolver queries Authoritative Server: "What's the IP for www.example.com?"
+7. Authoritative Server responds: "The IP is 192.168.1.100"
+8. Local DNS Resolver tells Client Device: "www.example.com is at 192.168.1.100"
 ```
 
 #### DNS Record Types
@@ -800,7 +809,7 @@ sequenceDiagram
 
 For simple text-based representations that work in any environment:
 
-```
+```plaintext
 DNS Hierarchy (ASCII):
                     [Root Servers (.)]
                            |
@@ -817,18 +826,18 @@ DNS Hierarchy (ASCII):
 
 For structured data that's easy to read:
 
-| DNS Level     | Example         | Responsibility      |
-| ------------- | --------------- | ------------------- |
-| Root          | .               | Global coordination |
-| TLD           | .com            | Top-level domains   |
-| Authoritative | example.com     | Domain-specific     |
-| Subdomain     | www.example.com | Host-specific       |
+| DNS Level     | Example                                   | Responsibility      |
+| ------------- | ----------------------------------------- | ------------------- |
+| Root          | .                                         | Global coordination |
+| TLD           | .com                                      | Top-level domains   |
+| Authoritative | example.com                               | Domain-specific     |
+| Subdomain     | [www.example.com](http://www.example.com) | Host-specific       |
 
 ### 3. Flowchart Alternatives
 
 Using simple text-based flowcharts:
 
-```
+```plaintext
 DHCP Process Flow:
 Client Boot → DISCOVER → Server OFFER → Client REQUEST → Server ACK → IP Assigned
 ```
@@ -837,7 +846,7 @@ Client Boot → DISCOVER → Server OFFER → Client REQUEST → Server ACK → 
 
 For conceptual understanding:
 
-```
+```plaintext
 Network Topologies
 ├── Star
 │   ├── Advantages: Easy troubleshooting
@@ -884,26 +893,27 @@ Recommended external tools for better visualization:
 
 1. **Network Testing**:
 
-   - Configure static IPs on same network
-   - Test connectivity with ping
-   - Use traceroute/tracert to trace paths
+1. Configure static IPs on same network
+1. Test connectivity with ping
+1. Use traceroute/tracert to trace paths
 
-2. **Subnetting Practice**:
+1. **Subnetting Practice**:
 
-   - Use subnet calculators
-   - Practice VLSM scenarios
-   - Calculate network/broadcast addresses
+1. Use subnet calculators
+1. Practice VLSM scenarios
+1. Calculate network/broadcast addresses
 
-3. **Server Configuration**:
+1. **Server Configuration**:
 
-   - Set up DHCP server
-   - Configure DNS forwarding
-   - Practice domain joining
+1. Set up DHCP server
+1. Configure DNS forwarding
+1. Practice domain joining
 
-4. **Troubleshooting**:
-   - Identify network connectivity issues
-   - Use network diagnostic tools
-   - Analyze network traffic
+1. **Troubleshooting**:
+
+1. Identify network connectivity issues
+1. Use network diagnostic tools
+1. Analyze network traffic
 
 ### Useful Tools & Utilities
 
@@ -928,3 +938,16 @@ Recommended external tools for better visualization:
 **TCP/IP**: Transmission Control Protocol/Internet Protocol
 **VLAN**: Virtual Local Area Network
 **VPN**: Virtual Private Network
+
+## Corrections and Notes
+
+1. **IP Address Classes**: The document correctly identifies the five IPv4 address classes (A through E) with their appropriate ranges and uses.
+2. **DHCP DORA Process**: The DHCP process is accurately described with the four phases: Discover, Offer, Request, and Acknowledge.
+3. **DNS Hierarchy**: The DNS hierarchy explanation is correct, showing the flow from root servers down to authoritative name servers.
+4. **Network Topologies**: All four main topologies (star, bus, ring, mesh) are accurately described with their advantages and disadvantages.
+5. **Linux File System**: The Linux directory structure is correctly documented with the purpose of each directory.
+6. **Windows Server Roles**: The common server roles are accurately listed with their functions.
+7. **Subnetting Example**: The subnetting example correctly divides a /24 network into four /26 subnets with the proper IP ranges.
+8. **MAC Address Structure**: The explanation of MAC addresses correctly identifies the OUI and NIC portions.
+9. **T568B Wiring Standard**: The pinout order for the T568B standard is correctly listed.
+10. **IPv6 Address Format**: The IPv6 address format is correctly shown with eight groups of 16 bits each.
