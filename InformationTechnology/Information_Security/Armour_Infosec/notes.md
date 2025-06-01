@@ -1,4 +1,4 @@
-# Comprehensive Network & Information Security Notes
+### Comprehensive Network & Information Security Notes
 
 ## Table of Contents
 
@@ -175,11 +175,12 @@ An **IP Address** (Internet Protocol Address) is a unique numerical identifier a
 - **Definition**: Used within private networks, not routable on internet
 - **Purpose**: Solve IPv4 address shortage
 - **Reserved Ranges**:
-  - **Class A**: 10.0.0.0 to 10.255.255.255
-  - **Class B**: 172.16.0.0 to 172.31.255.255
-  - **Class C**: 192.168.0.0 to 192.168.255.255
-  - **Link-Local**: 169.254.0.0 to 169.254.255.255 (APIPA)
-  - **Carrier-Grade NAT**: 100.64.0.0 to 100.127.255.255
+
+- **Class A**: 10.0.0.0 to 10.255.255.255
+- **Class B**: 172.16.0.0 to 172.31.255.255
+- **Class C**: 192.168.0.0 to 192.168.255.255
+- **Link-Local**: 169.254.0.0 to 169.254.255.255 (APIPA)
+- **Carrier-Grade NAT**: 100.64.0.0 to 100.127.255.255
 
 #### Special IP Addresses
 
@@ -189,48 +190,36 @@ An **IP Address** (Internet Protocol Address) is a unique numerical identifier a
 
 ### IANA Hierarchy
 
-```mermaid title="IANA IP Address Distribution Hierarchy" type="diagram"
-graph TD
-    A["IANA<br/>(Internet Assigned Numbers Authority)<br/>Global Coordination"] --> B["Regional Internet Registries<br/>(RIRs)"]
-    B --> C["ARIN<br/>(North America)"]
-    B --> D["RIPE NCC<br/>(Europe, Middle East)"]
-    B --> E["APNIC<br/>(Asia Pacific)"]
-    B --> F["LACNIC<br/>(Latin America)"]
-    B --> G["AFRINIC<br/>(Africa)"]
-
-    C --> H["National Registries<br/>& ISPs"]
-    D --> H
-    E --> H
-    F --> H
-    G --> H
-
-    H --> I["End Users<br/>(Organizations & Individuals)"]
-
-    style A fill:#ff9999
-    style B fill:#99ccff
-    style H fill:#99ff99
-    style I fill:#ffff99
+```mermaid
+IANA IP Address Distribution Hierarchy.download-icon {
+            cursor: pointer;
+            transform-origin: center;
+        }
+        .download-icon .arrow-part {
+            transition: transform 0.35s cubic-bezier(0.35, 0.2, 0.14, 0.95);
+             transform-origin: center;
+        }
+        button:has(.download-icon):hover .download-icon .arrow-part, button:has(.download-icon):focus-visible .download-icon .arrow-part {
+          transform: translateY(-1.5px);
+        }
+        #mermaid-diagram-r1ql{font-family:var(--font-geist-sans);font-size:12px;fill:#000000;}#mermaid-diagram-r1ql .error-icon{fill:#552222;}#mermaid-diagram-r1ql .error-text{fill:#552222;stroke:#552222;}#mermaid-diagram-r1ql .edge-thickness-normal{stroke-width:1px;}#mermaid-diagram-r1ql .edge-thickness-thick{stroke-width:3.5px;}#mermaid-diagram-r1ql .edge-pattern-solid{stroke-dasharray:0;}#mermaid-diagram-r1ql .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-diagram-r1ql .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-diagram-r1ql .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-diagram-r1ql .marker{fill:#666;stroke:#666;}#mermaid-diagram-r1ql .marker.cross{stroke:#666;}#mermaid-diagram-r1ql svg{font-family:var(--font-geist-sans);font-size:12px;}#mermaid-diagram-r1ql p{margin:0;}#mermaid-diagram-r1ql .label{font-family:var(--font-geist-sans);color:#000000;}#mermaid-diagram-r1ql .cluster-label text{fill:#333;}#mermaid-diagram-r1ql .cluster-label span{color:#333;}#mermaid-diagram-r1ql .cluster-label span p{background-color:transparent;}#mermaid-diagram-r1ql .label text,#mermaid-diagram-r1ql span{fill:#000000;color:#000000;}#mermaid-diagram-r1ql .node rect,#mermaid-diagram-r1ql .node circle,#mermaid-diagram-r1ql .node ellipse,#mermaid-diagram-r1ql .node polygon,#mermaid-diagram-r1ql .node path{fill:#eee;stroke:#999;stroke-width:1px;}#mermaid-diagram-r1ql .rough-node .label text,#mermaid-diagram-r1ql .node .label text{text-anchor:middle;}#mermaid-diagram-r1ql .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-diagram-r1ql .node .label{text-align:center;}#mermaid-diagram-r1ql .node.clickable{cursor:pointer;}#mermaid-diagram-r1ql .arrowheadPath{fill:#333333;}#mermaid-diagram-r1ql .edgePath .path{stroke:#666;stroke-width:2.0px;}#mermaid-diagram-r1ql .flowchart-link{stroke:#666;fill:none;}#mermaid-diagram-r1ql .edgeLabel{background-color:white;text-align:center;}#mermaid-diagram-r1ql .edgeLabel p{background-color:white;}#mermaid-diagram-r1ql .edgeLabel rect{opacity:0.5;background-color:white;fill:white;}#mermaid-diagram-r1ql .labelBkg{background-color:rgba(255, 255, 255, 0.5);}#mermaid-diagram-r1ql .cluster rect{fill:hsl(0, 0%, 98.9215686275%);stroke:#707070;stroke-width:1px;}#mermaid-diagram-r1ql .cluster text{fill:#333;}#mermaid-diagram-r1ql .cluster span{color:#333;}#mermaid-diagram-r1ql div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:var(--font-geist-sans);font-size:12px;background:hsl(-160, 0%, 93.3333333333%);border:1px solid #707070;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-diagram-r1ql .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#000000;}#mermaid-diagram-r1ql .flowchart-link{stroke:hsl(var(--gray-400));stroke-width:1px;}#mermaid-diagram-r1ql .marker,#mermaid-diagram-r1ql marker,#mermaid-diagram-r1ql marker *{fill:hsl(var(--gray-400))!important;stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r1ql .label,#mermaid-diagram-r1ql text,#mermaid-diagram-r1ql text>tspan{fill:hsl(var(--black))!important;color:hsl(var(--black))!important;}#mermaid-diagram-r1ql .background,#mermaid-diagram-r1ql rect.relationshipLabelBox{fill:hsl(var(--white))!important;}#mermaid-diagram-r1ql .entityBox,#mermaid-diagram-r1ql .attributeBoxEven{fill:hsl(var(--gray-150))!important;}#mermaid-diagram-r1ql .attributeBoxOdd{fill:hsl(var(--white))!important;}#mermaid-diagram-r1ql .label-container,#mermaid-diagram-r1ql rect.actor{fill:hsl(var(--white))!important;stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r1ql line{stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r1ql :root{--mermaid-font-family:var(--font-geist-sans);}IANA(Internet Assigned NumbersAuthority)Global CoordinationRegional Internet Registries(RIRs)ARIN(North America)RIPE NCC(Europe, Middle East)APNIC(Asia Pacific)LACNIC(Latin America)AFRINIC(Africa)National Registries&amp; ISPsEnd Users(Organizations &amp; Individuals)
 ```
 
 ### Network Communication Process
 
-```mermaid title="Network Communication Flow" type="diagram"
-sequenceDiagram
-    participant DeviceA as Device A<br/>(192.168.1.10)
-    participant Switch as Switch
-    participant Router as Router/Gateway<br/>(192.168.1.1)
-    participant Internet as Internet
-    participant DeviceB as Device B<br/>(Different Network)
-
-    Note over DeviceA,Switch: Same Network Communication
-    DeviceA->>Switch: Packet to 192.168.1.20
-    Switch->>DeviceA: Direct delivery (same subnet)
-
-    Note over DeviceA,Internet: Different Network Communication
-    DeviceA->>Router: Packet to 8.8.8.8
-    Router->>Internet: Forward packet (NAT applied)
-    Internet->>Router: Response packet
-    Router->>DeviceA: Deliver response (NAT reversed)
+```mermaid
+Network Communication Flow.download-icon {
+            cursor: pointer;
+            transform-origin: center;
+        }
+        .download-icon .arrow-part {
+            transition: transform 0.35s cubic-bezier(0.35, 0.2, 0.14, 0.95);
+             transform-origin: center;
+        }
+        button:has(.download-icon):hover .download-icon .arrow-part, button:has(.download-icon):focus-visible .download-icon .arrow-part {
+          transform: translateY(-1.5px);
+        }
+        Device B(Different Network)InternetRouter/Gateway(192.168.1.1)SwitchDevice A(192.168.1.10)Device B(Different Network)InternetRouter/Gateway(192.168.1.1)SwitchDevice A(192.168.1.10)#mermaid-diagram-r1qr{font-family:var(--font-geist-sans);font-size:12px;fill:#000000;}#mermaid-diagram-r1qr .error-icon{fill:#552222;}#mermaid-diagram-r1qr .error-text{fill:#552222;stroke:#552222;}#mermaid-diagram-r1qr .edge-thickness-normal{stroke-width:1px;}#mermaid-diagram-r1qr .edge-thickness-thick{stroke-width:3.5px;}#mermaid-diagram-r1qr .edge-pattern-solid{stroke-dasharray:0;}#mermaid-diagram-r1qr .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-diagram-r1qr .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-diagram-r1qr .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-diagram-r1qr .marker{fill:#666;stroke:#666;}#mermaid-diagram-r1qr .marker.cross{stroke:#666;}#mermaid-diagram-r1qr svg{font-family:var(--font-geist-sans);font-size:12px;}#mermaid-diagram-r1qr p{margin:0;}#mermaid-diagram-r1qr .actor{stroke:hsl(0, 0%, 83%);fill:#eee;}#mermaid-diagram-r1qr text.actor>tspan{fill:#333;stroke:none;}#mermaid-diagram-r1qr .actor-line{stroke:hsl(0, 0%, 83%);}#mermaid-diagram-r1qr .messageLine0{stroke-width:1.5;stroke-dasharray:none;stroke:#333;}#mermaid-diagram-r1qr .messageLine1{stroke-width:1.5;stroke-dasharray:2,2;stroke:#333;}#mermaid-diagram-r1qr #arrowhead path{fill:#333;stroke:#333;}#mermaid-diagram-r1qr .sequenceNumber{fill:white;}#mermaid-diagram-r1qr #sequencenumber{fill:#333;}#mermaid-diagram-r1qr #crosshead path{fill:#333;stroke:#333;}#mermaid-diagram-r1qr .messageText{fill:#333;stroke:none;}#mermaid-diagram-r1qr .labelBox{stroke:hsl(0, 0%, 83%);fill:#eee;}#mermaid-diagram-r1qr .labelText,#mermaid-diagram-r1qr .labelText>tspan{fill:#333;stroke:none;}#mermaid-diagram-r1qr .loopText,#mermaid-diagram-r1qr .loopText>tspan{fill:#333;stroke:none;}#mermaid-diagram-r1qr .loopLine{stroke-width:2px;stroke-dasharray:2,2;stroke:hsl(0, 0%, 83%);fill:hsl(0, 0%, 83%);}#mermaid-diagram-r1qr .note{stroke:#999;fill:#666;}#mermaid-diagram-r1qr .noteText,#mermaid-diagram-r1qr .noteText>tspan{fill:#fff;stroke:none;}#mermaid-diagram-r1qr .activation0{fill:#f4f4f4;stroke:#666;}#mermaid-diagram-r1qr .activation1{fill:#f4f4f4;stroke:#666;}#mermaid-diagram-r1qr .activation2{fill:#f4f4f4;stroke:#666;}#mermaid-diagram-r1qr .actorPopupMenu{position:absolute;}#mermaid-diagram-r1qr .actorPopupMenuPanel{position:absolute;fill:#eee;box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);filter:drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));}#mermaid-diagram-r1qr .actor-man line{stroke:hsl(0, 0%, 83%);fill:#eee;}#mermaid-diagram-r1qr .actor-man circle,#mermaid-diagram-r1qr line{stroke:hsl(0, 0%, 83%);fill:#eee;stroke-width:2px;}#mermaid-diagram-r1qr .flowchart-link{stroke:hsl(var(--gray-400));stroke-width:1px;}#mermaid-diagram-r1qr .marker,#mermaid-diagram-r1qr marker,#mermaid-diagram-r1qr marker *{fill:hsl(var(--gray-400))!important;stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r1qr .label,#mermaid-diagram-r1qr text,#mermaid-diagram-r1qr text>tspan{fill:hsl(var(--black))!important;color:hsl(var(--black))!important;}#mermaid-diagram-r1qr .background,#mermaid-diagram-r1qr rect.relationshipLabelBox{fill:hsl(var(--white))!important;}#mermaid-diagram-r1qr .entityBox,#mermaid-diagram-r1qr .attributeBoxEven{fill:hsl(var(--gray-150))!important;}#mermaid-diagram-r1qr .attributeBoxOdd{fill:hsl(var(--white))!important;}#mermaid-diagram-r1qr .label-container,#mermaid-diagram-r1qr rect.actor{fill:hsl(var(--white))!important;stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r1qr line{stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r1qr :root{--mermaid-font-family:var(--font-geist-sans);}Same Network CommunicationDifferent Network CommunicationPacket to 192.168.1.20Direct delivery (same subnet)Packet to 8.8.8.8Forward packet (NAT applied)Response packetDeliver response (NAT reversed)
 ```
 
 ---
@@ -320,22 +309,19 @@ A **subnet mask** determines which portion of an IP address represents the netwo
 
 #### Star Topology
 
-```mermaid title="Star Topology - Central Hub/Switch" type="diagram"
-graph TD
-    A["Central Switch<br/>192.168.1.1"] --> B["PC1<br/>192.168.1.10"]
-    A --> C["PC2<br/>192.168.1.11"]
-    A --> D["PC3<br/>192.168.1.12"]
-    A --> E["PC4<br/>192.168.1.13"]
-    A --> F["Server<br/>192.168.1.100"]
-    A --> G["Printer<br/>192.168.1.200"]
-
-    style A fill:#ff9999
-    style B fill:#99ccff
-    style C fill:#99ccff
-    style D fill:#99ccff
-    style E fill:#99ccff
-    style F fill:#99ff99
-    style G fill:#ffcc99
+```mermaid
+Star Topology - Central Hub/Switch.download-icon {
+            cursor: pointer;
+            transform-origin: center;
+        }
+        .download-icon .arrow-part {
+            transition: transform 0.35s cubic-bezier(0.35, 0.2, 0.14, 0.95);
+             transform-origin: center;
+        }
+        button:has(.download-icon):hover .download-icon .arrow-part, button:has(.download-icon):focus-visible .download-icon .arrow-part {
+          transform: translateY(-1.5px);
+        }
+        #mermaid-diagram-r255{font-family:var(--font-geist-sans);font-size:12px;fill:#000000;}#mermaid-diagram-r255 .error-icon{fill:#552222;}#mermaid-diagram-r255 .error-text{fill:#552222;stroke:#552222;}#mermaid-diagram-r255 .edge-thickness-normal{stroke-width:1px;}#mermaid-diagram-r255 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-diagram-r255 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-diagram-r255 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-diagram-r255 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-diagram-r255 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-diagram-r255 .marker{fill:#666;stroke:#666;}#mermaid-diagram-r255 .marker.cross{stroke:#666;}#mermaid-diagram-r255 svg{font-family:var(--font-geist-sans);font-size:12px;}#mermaid-diagram-r255 p{margin:0;}#mermaid-diagram-r255 .label{font-family:var(--font-geist-sans);color:#000000;}#mermaid-diagram-r255 .cluster-label text{fill:#333;}#mermaid-diagram-r255 .cluster-label span{color:#333;}#mermaid-diagram-r255 .cluster-label span p{background-color:transparent;}#mermaid-diagram-r255 .label text,#mermaid-diagram-r255 span{fill:#000000;color:#000000;}#mermaid-diagram-r255 .node rect,#mermaid-diagram-r255 .node circle,#mermaid-diagram-r255 .node ellipse,#mermaid-diagram-r255 .node polygon,#mermaid-diagram-r255 .node path{fill:#eee;stroke:#999;stroke-width:1px;}#mermaid-diagram-r255 .rough-node .label text,#mermaid-diagram-r255 .node .label text{text-anchor:middle;}#mermaid-diagram-r255 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-diagram-r255 .node .label{text-align:center;}#mermaid-diagram-r255 .node.clickable{cursor:pointer;}#mermaid-diagram-r255 .arrowheadPath{fill:#333333;}#mermaid-diagram-r255 .edgePath .path{stroke:#666;stroke-width:2.0px;}#mermaid-diagram-r255 .flowchart-link{stroke:#666;fill:none;}#mermaid-diagram-r255 .edgeLabel{background-color:white;text-align:center;}#mermaid-diagram-r255 .edgeLabel p{background-color:white;}#mermaid-diagram-r255 .edgeLabel rect{opacity:0.5;background-color:white;fill:white;}#mermaid-diagram-r255 .labelBkg{background-color:rgba(255, 255, 255, 0.5);}#mermaid-diagram-r255 .cluster rect{fill:hsl(0, 0%, 98.9215686275%);stroke:#707070;stroke-width:1px;}#mermaid-diagram-r255 .cluster text{fill:#333;}#mermaid-diagram-r255 .cluster span{color:#333;}#mermaid-diagram-r255 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:var(--font-geist-sans);font-size:12px;background:hsl(-160, 0%, 93.3333333333%);border:1px solid #707070;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-diagram-r255 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#000000;}#mermaid-diagram-r255 .flowchart-link{stroke:hsl(var(--gray-400));stroke-width:1px;}#mermaid-diagram-r255 .marker,#mermaid-diagram-r255 marker,#mermaid-diagram-r255 marker *{fill:hsl(var(--gray-400))!important;stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r255 .label,#mermaid-diagram-r255 text,#mermaid-diagram-r255 text>tspan{fill:hsl(var(--black))!important;color:hsl(var(--black))!important;}#mermaid-diagram-r255 .background,#mermaid-diagram-r255 rect.relationshipLabelBox{fill:hsl(var(--white))!important;}#mermaid-diagram-r255 .entityBox,#mermaid-diagram-r255 .attributeBoxEven{fill:hsl(var(--gray-150))!important;}#mermaid-diagram-r255 .attributeBoxOdd{fill:hsl(var(--white))!important;}#mermaid-diagram-r255 .label-container,#mermaid-diagram-r255 rect.actor{fill:hsl(var(--white))!important;stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r255 line{stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r255 :root{--mermaid-font-family:var(--font-geist-sans);}Central Switch192.168.1.1PC1192.168.1.10PC2192.168.1.11PC3192.168.1.12PC4192.168.1.13Server192.168.1.100Printer192.168.1.200
 ```
 
 **Advantages**: Easy troubleshooting, centralized management, failure isolation
@@ -344,20 +330,19 @@ graph TD
 
 #### Bus Topology
 
-```mermaid title="Bus Topology - Shared Communication Line" type="diagram"
-graph LR
-    T1["Terminator"] --- A["PC1"]
-    A --- B["PC2"]
-    B --- C["PC3"]
-    C --- D["PC4"]
-    D --- T2["Terminator"]
-
-    style T1 fill:#ff9999
-    style T2 fill:#ff9999
-    style A fill:#99ccff
-    style B fill:#99ccff
-    style C fill:#99ccff
-    style D fill:#99ccff
+```mermaid
+Bus Topology - Shared Communication Line.download-icon {
+            cursor: pointer;
+            transform-origin: center;
+        }
+        .download-icon .arrow-part {
+            transition: transform 0.35s cubic-bezier(0.35, 0.2, 0.14, 0.95);
+             transform-origin: center;
+        }
+        button:has(.download-icon):hover .download-icon .arrow-part, button:has(.download-icon):focus-visible .download-icon .arrow-part {
+          transform: translateY(-1.5px);
+        }
+        #mermaid-diagram-r25r{font-family:var(--font-geist-sans);font-size:12px;fill:#000000;}#mermaid-diagram-r25r .error-icon{fill:#552222;}#mermaid-diagram-r25r .error-text{fill:#552222;stroke:#552222;}#mermaid-diagram-r25r .edge-thickness-normal{stroke-width:1px;}#mermaid-diagram-r25r .edge-thickness-thick{stroke-width:3.5px;}#mermaid-diagram-r25r .edge-pattern-solid{stroke-dasharray:0;}#mermaid-diagram-r25r .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-diagram-r25r .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-diagram-r25r .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-diagram-r25r .marker{fill:#666;stroke:#666;}#mermaid-diagram-r25r .marker.cross{stroke:#666;}#mermaid-diagram-r25r svg{font-family:var(--font-geist-sans);font-size:12px;}#mermaid-diagram-r25r p{margin:0;}#mermaid-diagram-r25r .label{font-family:var(--font-geist-sans);color:#000000;}#mermaid-diagram-r25r .cluster-label text{fill:#333;}#mermaid-diagram-r25r .cluster-label span{color:#333;}#mermaid-diagram-r25r .cluster-label span p{background-color:transparent;}#mermaid-diagram-r25r .label text,#mermaid-diagram-r25r span{fill:#000000;color:#000000;}#mermaid-diagram-r25r .node rect,#mermaid-diagram-r25r .node circle,#mermaid-diagram-r25r .node ellipse,#mermaid-diagram-r25r .node polygon,#mermaid-diagram-r25r .node path{fill:#eee;stroke:#999;stroke-width:1px;}#mermaid-diagram-r25r .rough-node .label text,#mermaid-diagram-r25r .node .label text{text-anchor:middle;}#mermaid-diagram-r25r .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-diagram-r25r .node .label{text-align:center;}#mermaid-diagram-r25r .node.clickable{cursor:pointer;}#mermaid-diagram-r25r .arrowheadPath{fill:#333333;}#mermaid-diagram-r25r .edgePath .path{stroke:#666;stroke-width:2.0px;}#mermaid-diagram-r25r .flowchart-link{stroke:#666;fill:none;}#mermaid-diagram-r25r .edgeLabel{background-color:white;text-align:center;}#mermaid-diagram-r25r .edgeLabel p{background-color:white;}#mermaid-diagram-r25r .edgeLabel rect{opacity:0.5;background-color:white;fill:white;}#mermaid-diagram-r25r .labelBkg{background-color:rgba(255, 255, 255, 0.5);}#mermaid-diagram-r25r .cluster rect{fill:hsl(0, 0%, 98.9215686275%);stroke:#707070;stroke-width:1px;}#mermaid-diagram-r25r .cluster text{fill:#333;}#mermaid-diagram-r25r .cluster span{color:#333;}#mermaid-diagram-r25r div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:var(--font-geist-sans);font-size:12px;background:hsl(-160, 0%, 93.3333333333%);border:1px solid #707070;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-diagram-r25r .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#000000;}#mermaid-diagram-r25r .flowchart-link{stroke:hsl(var(--gray-400));stroke-width:1px;}#mermaid-diagram-r25r .marker,#mermaid-diagram-r25r marker,#mermaid-diagram-r25r marker *{fill:hsl(var(--gray-400))!important;stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r25r .label,#mermaid-diagram-r25r text,#mermaid-diagram-r25r text>tspan{fill:hsl(var(--black))!important;color:hsl(var(--black))!important;}#mermaid-diagram-r25r .background,#mermaid-diagram-r25r rect.relationshipLabelBox{fill:hsl(var(--white))!important;}#mermaid-diagram-r25r .entityBox,#mermaid-diagram-r25r .attributeBoxEven{fill:hsl(var(--gray-150))!important;}#mermaid-diagram-r25r .attributeBoxOdd{fill:hsl(var(--white))!important;}#mermaid-diagram-r25r .label-container,#mermaid-diagram-r25r rect.actor{fill:hsl(var(--white))!important;stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r25r line{stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r25r :root{--mermaid-font-family:var(--font-geist-sans);}TerminatorPC1PC2PC3PC4Terminator
 ```
 
 **Advantages**: Simple, cost-effective for small networks, minimal cable required
@@ -366,19 +351,19 @@ graph LR
 
 #### Ring Topology
 
-```mermaid title="Ring Topology - Circular Data Flow" type="diagram"
-graph LR
-    A["PC1"] --> B["PC2"]
-    B --> C["PC3"]
-    C --> D["PC4"]
-    D --> E["PC5"]
-    E --> A
-
-    style A fill:#99ccff
-    style B fill:#99ccff
-    style C fill:#99ccff
-    style D fill:#99ccff
-    style E fill:#99ccff
+```mermaid
+Ring Topology - Circular Data Flow.download-icon {
+            cursor: pointer;
+            transform-origin: center;
+        }
+        .download-icon .arrow-part {
+            transition: transform 0.35s cubic-bezier(0.35, 0.2, 0.14, 0.95);
+             transform-origin: center;
+        }
+        button:has(.download-icon):hover .download-icon .arrow-part, button:has(.download-icon):focus-visible .download-icon .arrow-part {
+          transform: translateY(-1.5px);
+        }
+        #mermaid-diagram-r26h{font-family:var(--font-geist-sans);font-size:12px;fill:#000000;}#mermaid-diagram-r26h .error-icon{fill:#552222;}#mermaid-diagram-r26h .error-text{fill:#552222;stroke:#552222;}#mermaid-diagram-r26h .edge-thickness-normal{stroke-width:1px;}#mermaid-diagram-r26h .edge-thickness-thick{stroke-width:3.5px;}#mermaid-diagram-r26h .edge-pattern-solid{stroke-dasharray:0;}#mermaid-diagram-r26h .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-diagram-r26h .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-diagram-r26h .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-diagram-r26h .marker{fill:#666;stroke:#666;}#mermaid-diagram-r26h .marker.cross{stroke:#666;}#mermaid-diagram-r26h svg{font-family:var(--font-geist-sans);font-size:12px;}#mermaid-diagram-r26h p{margin:0;}#mermaid-diagram-r26h .label{font-family:var(--font-geist-sans);color:#000000;}#mermaid-diagram-r26h .cluster-label text{fill:#333;}#mermaid-diagram-r26h .cluster-label span{color:#333;}#mermaid-diagram-r26h .cluster-label span p{background-color:transparent;}#mermaid-diagram-r26h .label text,#mermaid-diagram-r26h span{fill:#000000;color:#000000;}#mermaid-diagram-r26h .node rect,#mermaid-diagram-r26h .node circle,#mermaid-diagram-r26h .node ellipse,#mermaid-diagram-r26h .node polygon,#mermaid-diagram-r26h .node path{fill:#eee;stroke:#999;stroke-width:1px;}#mermaid-diagram-r26h .rough-node .label text,#mermaid-diagram-r26h .node .label text{text-anchor:middle;}#mermaid-diagram-r26h .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-diagram-r26h .node .label{text-align:center;}#mermaid-diagram-r26h .node.clickable{cursor:pointer;}#mermaid-diagram-r26h .arrowheadPath{fill:#333333;}#mermaid-diagram-r26h .edgePath .path{stroke:#666;stroke-width:2.0px;}#mermaid-diagram-r26h .flowchart-link{stroke:#666;fill:none;}#mermaid-diagram-r26h .edgeLabel{background-color:white;text-align:center;}#mermaid-diagram-r26h .edgeLabel p{background-color:white;}#mermaid-diagram-r26h .edgeLabel rect{opacity:0.5;background-color:white;fill:white;}#mermaid-diagram-r26h .labelBkg{background-color:rgba(255, 255, 255, 0.5);}#mermaid-diagram-r26h .cluster rect{fill:hsl(0, 0%, 98.9215686275%);stroke:#707070;stroke-width:1px;}#mermaid-diagram-r26h .cluster text{fill:#333;}#mermaid-diagram-r26h .cluster span{color:#333;}#mermaid-diagram-r26h div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:var(--font-geist-sans);font-size:12px;background:hsl(-160, 0%, 93.3333333333%);border:1px solid #707070;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-diagram-r26h .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#000000;}#mermaid-diagram-r26h .flowchart-link{stroke:hsl(var(--gray-400));stroke-width:1px;}#mermaid-diagram-r26h .marker,#mermaid-diagram-r26h marker,#mermaid-diagram-r26h marker *{fill:hsl(var(--gray-400))!important;stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r26h .label,#mermaid-diagram-r26h text,#mermaid-diagram-r26h text>tspan{fill:hsl(var(--black))!important;color:hsl(var(--black))!important;}#mermaid-diagram-r26h .background,#mermaid-diagram-r26h rect.relationshipLabelBox{fill:hsl(var(--white))!important;}#mermaid-diagram-r26h .entityBox,#mermaid-diagram-r26h .attributeBoxEven{fill:hsl(var(--gray-150))!important;}#mermaid-diagram-r26h .attributeBoxOdd{fill:hsl(var(--white))!important;}#mermaid-diagram-r26h .label-container,#mermaid-diagram-r26h rect.actor{fill:hsl(var(--white))!important;stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r26h line{stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r26h :root{--mermaid-font-family:var(--font-geist-sans);}PC1PC2PC3PC4PC5
 ```
 
 **Advantages**: Predictable performance, no collisions, equal access
@@ -387,19 +372,19 @@ graph LR
 
 #### Mesh Topology
 
-```mermaid title="Full Mesh Topology - All-to-All Connections" type="diagram"
-graph TD
-    A["Router A<br/>Site 1"] -.-> B["Router B<br/>Site 2"]
-    A -.-> C["Router C<br/>Site 3"]
-    A -.-> D["Router D<br/>Site 4"]
-    B -.-> C
-    B -.-> D
-    C -.-> D
-
-    style A fill:#ff9999
-    style B fill:#99ccff
-    style C fill:#99ff99
-    style D fill:#ffcc99
+```mermaid
+Full Mesh Topology - All-to-All Connections.download-icon {
+            cursor: pointer;
+            transform-origin: center;
+        }
+        .download-icon .arrow-part {
+            transition: transform 0.35s cubic-bezier(0.35, 0.2, 0.14, 0.95);
+             transform-origin: center;
+        }
+        button:has(.download-icon):hover .download-icon .arrow-part, button:has(.download-icon):focus-visible .download-icon .arrow-part {
+          transform: translateY(-1.5px);
+        }
+        #mermaid-diagram-r277{font-family:var(--font-geist-sans);font-size:12px;fill:#000000;}#mermaid-diagram-r277 .error-icon{fill:#552222;}#mermaid-diagram-r277 .error-text{fill:#552222;stroke:#552222;}#mermaid-diagram-r277 .edge-thickness-normal{stroke-width:1px;}#mermaid-diagram-r277 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-diagram-r277 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-diagram-r277 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-diagram-r277 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-diagram-r277 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-diagram-r277 .marker{fill:#666;stroke:#666;}#mermaid-diagram-r277 .marker.cross{stroke:#666;}#mermaid-diagram-r277 svg{font-family:var(--font-geist-sans);font-size:12px;}#mermaid-diagram-r277 p{margin:0;}#mermaid-diagram-r277 .label{font-family:var(--font-geist-sans);color:#000000;}#mermaid-diagram-r277 .cluster-label text{fill:#333;}#mermaid-diagram-r277 .cluster-label span{color:#333;}#mermaid-diagram-r277 .cluster-label span p{background-color:transparent;}#mermaid-diagram-r277 .label text,#mermaid-diagram-r277 span{fill:#000000;color:#000000;}#mermaid-diagram-r277 .node rect,#mermaid-diagram-r277 .node circle,#mermaid-diagram-r277 .node ellipse,#mermaid-diagram-r277 .node polygon,#mermaid-diagram-r277 .node path{fill:#eee;stroke:#999;stroke-width:1px;}#mermaid-diagram-r277 .rough-node .label text,#mermaid-diagram-r277 .node .label text{text-anchor:middle;}#mermaid-diagram-r277 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-diagram-r277 .node .label{text-align:center;}#mermaid-diagram-r277 .node.clickable{cursor:pointer;}#mermaid-diagram-r277 .arrowheadPath{fill:#333333;}#mermaid-diagram-r277 .edgePath .path{stroke:#666;stroke-width:2.0px;}#mermaid-diagram-r277 .flowchart-link{stroke:#666;fill:none;}#mermaid-diagram-r277 .edgeLabel{background-color:white;text-align:center;}#mermaid-diagram-r277 .edgeLabel p{background-color:white;}#mermaid-diagram-r277 .edgeLabel rect{opacity:0.5;background-color:white;fill:white;}#mermaid-diagram-r277 .labelBkg{background-color:rgba(255, 255, 255, 0.5);}#mermaid-diagram-r277 .cluster rect{fill:hsl(0, 0%, 98.9215686275%);stroke:#707070;stroke-width:1px;}#mermaid-diagram-r277 .cluster text{fill:#333;}#mermaid-diagram-r277 .cluster span{color:#333;}#mermaid-diagram-r277 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:var(--font-geist-sans);font-size:12px;background:hsl(-160, 0%, 93.3333333333%);border:1px solid #707070;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-diagram-r277 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#000000;}#mermaid-diagram-r277 .flowchart-link{stroke:hsl(var(--gray-400));stroke-width:1px;}#mermaid-diagram-r277 .marker,#mermaid-diagram-r277 marker,#mermaid-diagram-r277 marker *{fill:hsl(var(--gray-400))!important;stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r277 .label,#mermaid-diagram-r277 text,#mermaid-diagram-r277 text>tspan{fill:hsl(var(--black))!important;color:hsl(var(--black))!important;}#mermaid-diagram-r277 .background,#mermaid-diagram-r277 rect.relationshipLabelBox{fill:hsl(var(--white))!important;}#mermaid-diagram-r277 .entityBox,#mermaid-diagram-r277 .attributeBoxEven{fill:hsl(var(--gray-150))!important;}#mermaid-diagram-r277 .attributeBoxOdd{fill:hsl(var(--white))!important;}#mermaid-diagram-r277 .label-container,#mermaid-diagram-r277 rect.actor{fill:hsl(var(--white))!important;stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r277 line{stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r277 :root{--mermaid-font-family:var(--font-geist-sans);}Router ASite 1Router BSite 2Router CSite 3Router DSite 4
 ```
 
 **Advantages**: High redundancy, excellent fault tolerance, multiple paths
@@ -413,8 +398,9 @@ graph TD
 - **Size**: 48-bit (6 bytes) address
 - **Format**: XX:XX:XX:XX:XX:XX (hexadecimal)
 - **Parts**:
-  - **OUI** (First 24 bits): Organizationally Unique Identifier (manufacturer)
-  - **NIC** (Last 24 bits): Network Interface Controller specific
+
+- **OUI** (First 24 bits): Organizationally Unique Identifier (manufacturer)
+- **NIC** (Last 24 bits): Network Interface Controller specific
 
 #### Characteristics
 
@@ -435,22 +421,19 @@ Automatically assigns IP configuration to network devices, eliminating manual co
 
 #### DORA Process
 
-```mermaid title="DHCP DORA Process" type="diagram"
-sequenceDiagram
-    participant Client as DHCP Client<br/>(New Device)
-    participant Server as DHCP Server<br/>(192.168.1.1)
-
-    Note over Client,Server: 1. DISCOVER Phase
-    Client->>Server: DHCP Discover (Broadcast)<br/>Source: 0.0.0.0<br/>Destination: 255.255.255.255
-
-    Note over Client,Server: 2. OFFER Phase
-    Server->>Client: DHCP Offer<br/>Offered IP: 192.168.1.100<br/>Lease Time: 24 hours
-
-    Note over Client,Server: 3. REQUEST Phase
-    Client->>Server: DHCP Request<br/>Requesting: 192.168.1.100<br/>Server ID: 192.168.1.1
-
-    Note over Client,Server: 4. ACKNOWLEDGE Phase
-    Server->>Client: DHCP ACK<br/>Confirmed: 192.168.1.100<br/>Gateway: 192.168.1.1<br/>DNS: 8.8.8.8
+```mermaid
+DHCP DORA Process.download-icon {
+            cursor: pointer;
+            transform-origin: center;
+        }
+        .download-icon .arrow-part {
+            transition: transform 0.35s cubic-bezier(0.35, 0.2, 0.14, 0.95);
+             transform-origin: center;
+        }
+        button:has(.download-icon):hover .download-icon .arrow-part, button:has(.download-icon):focus-visible .download-icon .arrow-part {
+          transform: translateY(-1.5px);
+        }
+        DHCP Server(192.168.1.1)DHCP Client(New Device)DHCP Server(192.168.1.1)DHCP Client(New Device)#mermaid-diagram-r2aj{font-family:var(--font-geist-sans);font-size:12px;fill:#000000;}#mermaid-diagram-r2aj .error-icon{fill:#552222;}#mermaid-diagram-r2aj .error-text{fill:#552222;stroke:#552222;}#mermaid-diagram-r2aj .edge-thickness-normal{stroke-width:1px;}#mermaid-diagram-r2aj .edge-thickness-thick{stroke-width:3.5px;}#mermaid-diagram-r2aj .edge-pattern-solid{stroke-dasharray:0;}#mermaid-diagram-r2aj .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-diagram-r2aj .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-diagram-r2aj .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-diagram-r2aj .marker{fill:#666;stroke:#666;}#mermaid-diagram-r2aj .marker.cross{stroke:#666;}#mermaid-diagram-r2aj svg{font-family:var(--font-geist-sans);font-size:12px;}#mermaid-diagram-r2aj p{margin:0;}#mermaid-diagram-r2aj .actor{stroke:hsl(0, 0%, 83%);fill:#eee;}#mermaid-diagram-r2aj text.actor>tspan{fill:#333;stroke:none;}#mermaid-diagram-r2aj .actor-line{stroke:hsl(0, 0%, 83%);}#mermaid-diagram-r2aj .messageLine0{stroke-width:1.5;stroke-dasharray:none;stroke:#333;}#mermaid-diagram-r2aj .messageLine1{stroke-width:1.5;stroke-dasharray:2,2;stroke:#333;}#mermaid-diagram-r2aj #arrowhead path{fill:#333;stroke:#333;}#mermaid-diagram-r2aj .sequenceNumber{fill:white;}#mermaid-diagram-r2aj #sequencenumber{fill:#333;}#mermaid-diagram-r2aj #crosshead path{fill:#333;stroke:#333;}#mermaid-diagram-r2aj .messageText{fill:#333;stroke:none;}#mermaid-diagram-r2aj .labelBox{stroke:hsl(0, 0%, 83%);fill:#eee;}#mermaid-diagram-r2aj .labelText,#mermaid-diagram-r2aj .labelText>tspan{fill:#333;stroke:none;}#mermaid-diagram-r2aj .loopText,#mermaid-diagram-r2aj .loopText>tspan{fill:#333;stroke:none;}#mermaid-diagram-r2aj .loopLine{stroke-width:2px;stroke-dasharray:2,2;stroke:hsl(0, 0%, 83%);fill:hsl(0, 0%, 83%);}#mermaid-diagram-r2aj .note{stroke:#999;fill:#666;}#mermaid-diagram-r2aj .noteText,#mermaid-diagram-r2aj .noteText>tspan{fill:#fff;stroke:none;}#mermaid-diagram-r2aj .activation0{fill:#f4f4f4;stroke:#666;}#mermaid-diagram-r2aj .activation1{fill:#f4f4f4;stroke:#666;}#mermaid-diagram-r2aj .activation2{fill:#f4f4f4;stroke:#666;}#mermaid-diagram-r2aj .actorPopupMenu{position:absolute;}#mermaid-diagram-r2aj .actorPopupMenuPanel{position:absolute;fill:#eee;box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);filter:drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));}#mermaid-diagram-r2aj .actor-man line{stroke:hsl(0, 0%, 83%);fill:#eee;}#mermaid-diagram-r2aj .actor-man circle,#mermaid-diagram-r2aj line{stroke:hsl(0, 0%, 83%);fill:#eee;stroke-width:2px;}#mermaid-diagram-r2aj .flowchart-link{stroke:hsl(var(--gray-400));stroke-width:1px;}#mermaid-diagram-r2aj .marker,#mermaid-diagram-r2aj marker,#mermaid-diagram-r2aj marker *{fill:hsl(var(--gray-400))!important;stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r2aj .label,#mermaid-diagram-r2aj text,#mermaid-diagram-r2aj text>tspan{fill:hsl(var(--black))!important;color:hsl(var(--black))!important;}#mermaid-diagram-r2aj .background,#mermaid-diagram-r2aj rect.relationshipLabelBox{fill:hsl(var(--white))!important;}#mermaid-diagram-r2aj .entityBox,#mermaid-diagram-r2aj .attributeBoxEven{fill:hsl(var(--gray-150))!important;}#mermaid-diagram-r2aj .attributeBoxOdd{fill:hsl(var(--white))!important;}#mermaid-diagram-r2aj .label-container,#mermaid-diagram-r2aj rect.actor{fill:hsl(var(--white))!important;stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r2aj line{stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r2aj :root{--mermaid-font-family:var(--font-geist-sans);}1. DISCOVER Phase2. OFFER Phase3. REQUEST Phase4. ACKNOWLEDGE PhaseDHCP Discover (Broadcast)Source: 0.0.0.0Destination: 255.255.255.255DHCP OfferOffered IP: 192.168.1.100Lease Time: 24 hoursDHCP RequestRequesting: 192.168.1.100Server ID: 192.168.1.1DHCP ACKConfirmed: 192.168.1.100Gateway: 192.168.1.1DNS: 8.8.8.8
 ```
 
 #### DHCP Configuration Elements
@@ -523,9 +506,10 @@ The **shell** is the interface between user and kernel:
 - **Package Format**: .deb
 - **Package Manager**: apt, dpkg
 - **Popular Derivatives**:
-  - **Ubuntu**: User-friendly, desktop-focused
-  - **Linux Mint**: Beginner-friendly
-  - **Kali Linux**: Security/penetration testing
+
+- **Ubuntu**: User-friendly, desktop-focused
+- **Linux Mint**: Beginner-friendly
+- **Kali Linux**: Security/penetration testing
 
 ##### Red Hat-Based Distributions
 
@@ -533,9 +517,10 @@ The **shell** is the interface between user and kernel:
 - **Package Format**: .rpm
 - **Package Manager**: yum, dnf, rpm
 - **Popular Derivatives**:
-  - **Fedora**: Testing ground for RHEL features
-  - **CentOS**: Free RHEL clone (now CentOS Stream)
-  - **Rocky Linux**: RHEL alternative
+
+- **Fedora**: Testing ground for RHEL features
+- **CentOS**: Free RHEL clone (now CentOS Stream)
+- **Rocky Linux**: RHEL alternative
 
 ### Linux File System Structure
 
@@ -590,15 +575,16 @@ The top-level directory containing all other directories.
 
 #### System Directories
 
-- **C:\\**: Root drive containing Windows system files
+- \*\*C:\*\*: Root drive containing Windows system files
 - **Program Files**: 64-bit applications
 - **Program Files (x86)**: 32-bit applications
 - **ProgramData**: Shared application data
 - **Users**: User profiles and data
 - **Windows**: Core Windows system files
-  - **System32**: Essential system files and utilities
-  - **WinSxS**: Side-by-side component store
-  - **Temp**: Temporary system files
+
+- **System32**: Essential system files and utilities
+- **WinSxS**: Side-by-side component store
+- **Temp**: Temporary system files
 
 #### Hidden System Files
 
@@ -623,10 +609,11 @@ The top-level directory containing all other directories.
 #### Computer Management (compmgmt.msc)
 
 - **System Tools**:
-  - **Task Scheduler**: Automated task execution
-  - **Event Viewer**: System logs and monitoring
-  - **Device Manager**: Hardware management
-  - **Services**: System service management
+
+- **Task Scheduler**: Automated task execution
+- **Event Viewer**: System logs and monitoring
+- **Device Manager**: Hardware management
+- **Services**: System service management
 
 #### Service Management
 
@@ -660,49 +647,36 @@ Translates human-readable domain names to IP addresses and vice versa.
 
 #### DNS Hierarchy
 
-```mermaid title="DNS Hierarchy Structure" type="diagram"
-graph TD
-    A["Root Servers<br/>(.)<br/>13 Root Servers Worldwide"] --> B["Top-Level Domain Servers<br/>(.com, .org, .net, .edu, .gov)"]
-    A --> C["Country Code TLD<br/>(.uk, .de, .jp, .ca)"]
-
-    B --> D["Authoritative Name Servers<br/>(example.com zone)"]
-    C --> E["Country-specific Domains<br/>(example.co.uk)"]
-
-    D --> F["Subdomains<br/>(www.example.com)<br/>(mail.example.com)"]
-    E --> F
-
-    G["Local DNS Resolver<br/>(ISP or Organization)<br/>8.8.8.8, 1.1.1.1"] --> A
-
-    H["Client Device<br/>(Your Computer)"] --> G
-
-    style A fill:#ff9999
-    style B fill:#99ccff
-    style C fill:#99ccff
-    style D fill:#99ff99
-    style E fill:#99ff99
-    style F fill:#ffff99
-    style G fill:#ffcc99
-    style H fill:#cccccc
+```mermaid
+DNS Hierarchy Structure.download-icon {
+            cursor: pointer;
+            transform-origin: center;
+        }
+        .download-icon .arrow-part {
+            transition: transform 0.35s cubic-bezier(0.35, 0.2, 0.14, 0.95);
+             transform-origin: center;
+        }
+        button:has(.download-icon):hover .download-icon .arrow-part, button:has(.download-icon):focus-visible .download-icon .arrow-part {
+          transform: translateY(-1.5px);
+        }
+        #mermaid-diagram-r338{font-family:var(--font-geist-sans);font-size:12px;fill:#000000;}#mermaid-diagram-r338 .error-icon{fill:#552222;}#mermaid-diagram-r338 .error-text{fill:#552222;stroke:#552222;}#mermaid-diagram-r338 .edge-thickness-normal{stroke-width:1px;}#mermaid-diagram-r338 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-diagram-r338 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-diagram-r338 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-diagram-r338 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-diagram-r338 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-diagram-r338 .marker{fill:#666;stroke:#666;}#mermaid-diagram-r338 .marker.cross{stroke:#666;}#mermaid-diagram-r338 svg{font-family:var(--font-geist-sans);font-size:12px;}#mermaid-diagram-r338 p{margin:0;}#mermaid-diagram-r338 .label{font-family:var(--font-geist-sans);color:#000000;}#mermaid-diagram-r338 .cluster-label text{fill:#333;}#mermaid-diagram-r338 .cluster-label span{color:#333;}#mermaid-diagram-r338 .cluster-label span p{background-color:transparent;}#mermaid-diagram-r338 .label text,#mermaid-diagram-r338 span{fill:#000000;color:#000000;}#mermaid-diagram-r338 .node rect,#mermaid-diagram-r338 .node circle,#mermaid-diagram-r338 .node ellipse,#mermaid-diagram-r338 .node polygon,#mermaid-diagram-r338 .node path{fill:#eee;stroke:#999;stroke-width:1px;}#mermaid-diagram-r338 .rough-node .label text,#mermaid-diagram-r338 .node .label text{text-anchor:middle;}#mermaid-diagram-r338 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-diagram-r338 .node .label{text-align:center;}#mermaid-diagram-r338 .node.clickable{cursor:pointer;}#mermaid-diagram-r338 .arrowheadPath{fill:#333333;}#mermaid-diagram-r338 .edgePath .path{stroke:#666;stroke-width:2.0px;}#mermaid-diagram-r338 .flowchart-link{stroke:#666;fill:none;}#mermaid-diagram-r338 .edgeLabel{background-color:white;text-align:center;}#mermaid-diagram-r338 .edgeLabel p{background-color:white;}#mermaid-diagram-r338 .edgeLabel rect{opacity:0.5;background-color:white;fill:white;}#mermaid-diagram-r338 .labelBkg{background-color:rgba(255, 255, 255, 0.5);}#mermaid-diagram-r338 .cluster rect{fill:hsl(0, 0%, 98.9215686275%);stroke:#707070;stroke-width:1px;}#mermaid-diagram-r338 .cluster text{fill:#333;}#mermaid-diagram-r338 .cluster span{color:#333;}#mermaid-diagram-r338 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:var(--font-geist-sans);font-size:12px;background:hsl(-160, 0%, 93.3333333333%);border:1px solid #707070;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-diagram-r338 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#000000;}#mermaid-diagram-r338 .flowchart-link{stroke:hsl(var(--gray-400));stroke-width:1px;}#mermaid-diagram-r338 .marker,#mermaid-diagram-r338 marker,#mermaid-diagram-r338 marker *{fill:hsl(var(--gray-400))!important;stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r338 .label,#mermaid-diagram-r338 text,#mermaid-diagram-r338 text>tspan{fill:hsl(var(--black))!important;color:hsl(var(--black))!important;}#mermaid-diagram-r338 .background,#mermaid-diagram-r338 rect.relationshipLabelBox{fill:hsl(var(--white))!important;}#mermaid-diagram-r338 .entityBox,#mermaid-diagram-r338 .attributeBoxEven{fill:hsl(var(--gray-150))!important;}#mermaid-diagram-r338 .attributeBoxOdd{fill:hsl(var(--white))!important;}#mermaid-diagram-r338 .label-container,#mermaid-diagram-r338 rect.actor{fill:hsl(var(--white))!important;stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r338 line{stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r338 :root{--mermaid-font-family:var(--font-geist-sans);}Root Servers(.)13 Root Servers WorldwideTop-Level Domain Servers(.com, .org, .net, .edu, .gov)Country Code TLD(.uk, .de, .jp, .ca)Authoritative Name Servers(example.com zone)Country-specific Domains(example.co.uk)Subdomains( )(mail.example.com)Local DNS Resolver(ISP or Organization)8.8.8.8, 1.1.1.1Client Device(Your Computer)
 ```
 
 #### DNS Query Process
 
-```mermaid title="DNS Resolution Process" type="diagram"
-sequenceDiagram
-    participant Client as Client Device
-    participant Local as Local DNS Resolver<br/>(ISP)
-    participant Root as Root Server
-    participant TLD as .com TLD Server
-    participant Auth as Authoritative Server<br/>(example.com)
-
-    Client->>Local: Query: www.example.com
-    Local->>Root: Query: www.example.com
-    Root->>Local: Referral: .com TLD servers
-    Local->>TLD: Query: www.example.com
-    TLD->>Local: Referral: example.com NS
-    Local->>Auth: Query: www.example.com
-    Auth->>Local: Answer: 192.168.1.100
-    Local->>Client: Answer: 192.168.1.100
+```mermaid
+DNS Resolution Process.download-icon {
+            cursor: pointer;
+            transform-origin: center;
+        }
+        .download-icon .arrow-part {
+            transition: transform 0.35s cubic-bezier(0.35, 0.2, 0.14, 0.95);
+             transform-origin: center;
+        }
+        button:has(.download-icon):hover .download-icon .arrow-part, button:has(.download-icon):focus-visible .download-icon .arrow-part {
+          transform: translateY(-1.5px);
+        }
+        Authoritative Server(example.com).com TLD ServerRoot ServerLocal DNS Resolver(ISP)Client DeviceAuthoritative Server(example.com).com TLD ServerRoot ServerLocal DNS Resolver(ISP)Client Device#mermaid-diagram-r33d{font-family:var(--font-geist-sans);font-size:12px;fill:#000000;}#mermaid-diagram-r33d .error-icon{fill:#552222;}#mermaid-diagram-r33d .error-text{fill:#552222;stroke:#552222;}#mermaid-diagram-r33d .edge-thickness-normal{stroke-width:1px;}#mermaid-diagram-r33d .edge-thickness-thick{stroke-width:3.5px;}#mermaid-diagram-r33d .edge-pattern-solid{stroke-dasharray:0;}#mermaid-diagram-r33d .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-diagram-r33d .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-diagram-r33d .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-diagram-r33d .marker{fill:#666;stroke:#666;}#mermaid-diagram-r33d .marker.cross{stroke:#666;}#mermaid-diagram-r33d svg{font-family:var(--font-geist-sans);font-size:12px;}#mermaid-diagram-r33d p{margin:0;}#mermaid-diagram-r33d .actor{stroke:hsl(0, 0%, 83%);fill:#eee;}#mermaid-diagram-r33d text.actor>tspan{fill:#333;stroke:none;}#mermaid-diagram-r33d .actor-line{stroke:hsl(0, 0%, 83%);}#mermaid-diagram-r33d .messageLine0{stroke-width:1.5;stroke-dasharray:none;stroke:#333;}#mermaid-diagram-r33d .messageLine1{stroke-width:1.5;stroke-dasharray:2,2;stroke:#333;}#mermaid-diagram-r33d #arrowhead path{fill:#333;stroke:#333;}#mermaid-diagram-r33d .sequenceNumber{fill:white;}#mermaid-diagram-r33d #sequencenumber{fill:#333;}#mermaid-diagram-r33d #crosshead path{fill:#333;stroke:#333;}#mermaid-diagram-r33d .messageText{fill:#333;stroke:none;}#mermaid-diagram-r33d .labelBox{stroke:hsl(0, 0%, 83%);fill:#eee;}#mermaid-diagram-r33d .labelText,#mermaid-diagram-r33d .labelText>tspan{fill:#333;stroke:none;}#mermaid-diagram-r33d .loopText,#mermaid-diagram-r33d .loopText>tspan{fill:#333;stroke:none;}#mermaid-diagram-r33d .loopLine{stroke-width:2px;stroke-dasharray:2,2;stroke:hsl(0, 0%, 83%);fill:hsl(0, 0%, 83%);}#mermaid-diagram-r33d .note{stroke:#999;fill:#666;}#mermaid-diagram-r33d .noteText,#mermaid-diagram-r33d .noteText>tspan{fill:#fff;stroke:none;}#mermaid-diagram-r33d .activation0{fill:#f4f4f4;stroke:#666;}#mermaid-diagram-r33d .activation1{fill:#f4f4f4;stroke:#666;}#mermaid-diagram-r33d .activation2{fill:#f4f4f4;stroke:#666;}#mermaid-diagram-r33d .actorPopupMenu{position:absolute;}#mermaid-diagram-r33d .actorPopupMenuPanel{position:absolute;fill:#eee;box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);filter:drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));}#mermaid-diagram-r33d .actor-man line{stroke:hsl(0, 0%, 83%);fill:#eee;}#mermaid-diagram-r33d .actor-man circle,#mermaid-diagram-r33d line{stroke:hsl(0, 0%, 83%);fill:#eee;stroke-width:2px;}#mermaid-diagram-r33d .flowchart-link{stroke:hsl(var(--gray-400));stroke-width:1px;}#mermaid-diagram-r33d .marker,#mermaid-diagram-r33d marker,#mermaid-diagram-r33d marker *{fill:hsl(var(--gray-400))!important;stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r33d .label,#mermaid-diagram-r33d text,#mermaid-diagram-r33d text>tspan{fill:hsl(var(--black))!important;color:hsl(var(--black))!important;}#mermaid-diagram-r33d .background,#mermaid-diagram-r33d rect.relationshipLabelBox{fill:hsl(var(--white))!important;}#mermaid-diagram-r33d .entityBox,#mermaid-diagram-r33d .attributeBoxEven{fill:hsl(var(--gray-150))!important;}#mermaid-diagram-r33d .attributeBoxOdd{fill:hsl(var(--white))!important;}#mermaid-diagram-r33d .label-container,#mermaid-diagram-r33d rect.actor{fill:hsl(var(--white))!important;stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r33d line{stroke:hsl(var(--gray-400))!important;}#mermaid-diagram-r33d :root{--mermaid-font-family:var(--font-geist-sans);}Query: www.example.comQuery: www.example.comReferral: .com TLD serversQuery: www.example.comReferral: example.com NSQuery: www.example.comAnswer: 192.168.1.100Answer: 192.168.1.100
 ```
 
 #### DNS Record Types
@@ -800,7 +774,7 @@ sequenceDiagram
 
 For simple text-based representations that work in any environment:
 
-```
+```plaintext
 DNS Hierarchy (ASCII):
                     [Root Servers (.)]
                            |
@@ -817,18 +791,18 @@ DNS Hierarchy (ASCII):
 
 For structured data that's easy to read:
 
-| DNS Level     | Example         | Responsibility      |
-| ------------- | --------------- | ------------------- |
-| Root          | .               | Global coordination |
-| TLD           | .com            | Top-level domains   |
-| Authoritative | example.com     | Domain-specific     |
-| Subdomain     | www.example.com | Host-specific       |
+| DNS Level     | Example                                   | Responsibility      |
+| ------------- | ----------------------------------------- | ------------------- |
+| Root          | .                                         | Global coordination |
+| TLD           | .com                                      | Top-level domains   |
+| Authoritative | example.com                               | Domain-specific     |
+| Subdomain     | [www.example.com](http://www.example.com) | Host-specific       |
 
 ### 3. Flowchart Alternatives
 
 Using simple text-based flowcharts:
 
-```
+```plaintext
 DHCP Process Flow:
 Client Boot → DISCOVER → Server OFFER → Client REQUEST → Server ACK → IP Assigned
 ```
@@ -837,7 +811,7 @@ Client Boot → DISCOVER → Server OFFER → Client REQUEST → Server ACK → 
 
 For conceptual understanding:
 
-```
+```plaintext
 Network Topologies
 ├── Star
 │   ├── Advantages: Easy troubleshooting
@@ -884,26 +858,27 @@ Recommended external tools for better visualization:
 
 1. **Network Testing**:
 
-   - Configure static IPs on same network
-   - Test connectivity with ping
-   - Use traceroute/tracert to trace paths
+1. Configure static IPs on same network
+1. Test connectivity with ping
+1. Use traceroute/tracert to trace paths
 
-2. **Subnetting Practice**:
+1. **Subnetting Practice**:
 
-   - Use subnet calculators
-   - Practice VLSM scenarios
-   - Calculate network/broadcast addresses
+1. Use subnet calculators
+1. Practice VLSM scenarios
+1. Calculate network/broadcast addresses
 
-3. **Server Configuration**:
+1. **Server Configuration**:
 
-   - Set up DHCP server
-   - Configure DNS forwarding
-   - Practice domain joining
+1. Set up DHCP server
+1. Configure DNS forwarding
+1. Practice domain joining
 
-4. **Troubleshooting**:
-   - Identify network connectivity issues
-   - Use network diagnostic tools
-   - Analyze network traffic
+1. **Troubleshooting**:
+
+1. Identify network connectivity issues
+1. Use network diagnostic tools
+1. Analyze network traffic
 
 ### Useful Tools & Utilities
 
