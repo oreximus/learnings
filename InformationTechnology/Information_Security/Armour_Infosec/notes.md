@@ -22,6 +22,9 @@ A **network** is a collection of interconnected devices that can communicate and
 
 ### Types of Networks
 
+![Network Types Overview](/placeholder.svg?height=400&width=600)
+_Network types from PAN to WAN with their respective ranges and devices_
+
 #### 1. PAN (Personal Area Network)
 
 - **Purpose**: Connect personal devices around an individual
@@ -62,32 +65,6 @@ A **network** is a collection of interconnected devices that can communicate and
 - **Devices**: Unlimited locations
 - **Example**: Internet, corporate networks across countries
 
-### Wireless Network Types
-
-#### WLAN (Wireless LAN)
-
-- **Device**: Wi-Fi Router
-- **Range**: 20m - 50m
-- **Use**: Home and small office wireless networks
-
-#### WPAN (Wireless Personal Area Network)
-
-- **Device**: Bluetooth, Zigbee
-- **Range**: Up to 10 meters
-- **Use**: Short-range connectivity for personal devices
-
-#### WMAN (Wireless MAN)
-
-- **Device**: WiMAX, Wi-Fi CPE (Customer Premises Equipment)
-- **Range**: Up to 50 km
-- **Use**: Wireless internet service providers
-
-#### WWAN (Wireless WAN)
-
-- **Device**: Cell towers, satellites
-- **Range**: 15km - thousands of kilometers
-- **Use**: Cellular networks, IoT devices, satellite internet
-
 ---
 
 ## IP Addressing
@@ -97,6 +74,9 @@ A **network** is a collection of interconnected devices that can communicate and
 An **IP Address** (Internet Protocol Address) is a unique numerical identifier assigned to every device on a network. Think of it as a postal address for your device on the internet.
 
 ### IP Versions
+
+![IPv4 vs IPv6 Comparison](/placeholder.svg?height=300&width=500)
+_Visual comparison of IPv4 and IPv6 address formats and capacity_
 
 #### IPv4 (Internet Protocol Version 4)
 
@@ -118,168 +98,82 @@ An **IP Address** (Internet Protocol Address) is a unique numerical identifier a
 
 ### IPv4 Address Classes
 
-#### Class A (1.0.0.0 to 126.255.255.255)
+![IPv4 Address Classes](/placeholder.svg?height=400&width=700)
+_Visual representation of Class A, B, C, D, and E with their ranges and uses_
 
-- **Binary Pattern**: 0XXXXXXX.XXXXXXXX.XXXXXXXX.XXXXXXXX
-- **Format**: N.H.H.H (Network.Host.Host.Host)
-- **Default Subnet Mask**: 255.0.0.0 (/8)
-- **Networks**: 126 (2^7 - 2, excluding 0 and 127)
-- **Hosts per Network**: 16,777,214 (2^24 - 2)
-- **Use**: Large organizations, ISPs, governments
-- **Example**: 10.0.0.0 (private), 8.8.8.8 (Google DNS)
+```
+IPv4 Address Classes (Simple View):
 
-#### Class B (128.0.0.0 to 191.255.255.255)
+Class A: 1.0.0.0    to 126.255.255.255  (/8)  - Large Organizations
+         [N][H][H][H] - 126 networks, 16M+ hosts each
 
-- **Binary Pattern**: 10XXXXXX.XXXXXXXX.XXXXXXXX.XXXXXXXX
-- **Format**: N.N.H.H (Network.Network.Host.Host)
-- **Default Subnet Mask**: 255.255.0.0 (/16)
-- **Networks**: 16,384 (2^14)
-- **Hosts per Network**: 65,534 (2^16 - 2)
-- **Use**: Medium to large organizations
-- **Example**: 172.16.0.0 (private), 128.0.0.1
+Class B: 128.0.0.0  to 191.255.255.255  (/16) - Medium Organizations
+         [N][N][H][H] - 16K networks, 65K hosts each
 
-#### Class C (192.0.0.0 to 223.255.255.255)
+Class C: 192.0.0.0  to 223.255.255.255  (/24) - Small Organizations
+         [N][N][N][H] - 2M networks, 254 hosts each
 
-- **Binary Pattern**: 110XXXXX.XXXXXXXX.XXXXXXXX.XXXXXXXX
-- **Format**: N.N.N.H (Network.Network.Network.Host)
-- **Default Subnet Mask**: 255.255.255.0 (/24)
-- **Networks**: 2,097,152 (2^21)
-- **Hosts per Network**: 254 (2^8 - 2)
-- **Use**: Small organizations, home networks
-- **Example**: 192.168.1.0 (private), 8.8.4.4
-
-#### Class D (224.0.0.0 to 239.255.255.255)
-
-- **Binary Pattern**: 1110XXXX.XXXXXXXX.XXXXXXXX.XXXXXXXX
-- **Use**: Multicast addressing
-- **Note**: Not used for regular host addressing
-
-#### Class E (240.0.0.0 to 255.255.255.255)
-
-- **Binary Pattern**: 1111XXXX.XXXXXXXX.XXXXXXXX.XXXXXXXX
-- **Use**: Reserved for experimental purposes
-- **Note**: Not used for regular addressing
+Class D: 224.0.0.0  to 239.255.255.255        - Multicast
+Class E: 240.0.0.0  to 255.255.255.255        - Experimental
+```
 
 ### Public vs Private IP Addresses
 
-#### Public IP Addresses
+![Public vs Private IP Ranges](/placeholder.svg?height=350&width=600)
+_Diagram showing public internet and private network ranges_
 
-- **Definition**: Globally unique addresses assigned by ISPs
-- **Routable**: Can communicate directly over the internet
-- **Assignment**: Managed by IANA → Regional Registries → ISPs
-- **Cost**: Usually costs money from ISP
-- **Example**: Your home's external IP address
+```
+Private IP Address Ranges:
 
-#### Private IP Addresses
+Class A Private: 10.0.0.0      to 10.255.255.255
+Class B Private: 172.16.0.0    to 172.31.255.255
+Class C Private: 192.168.0.0   to 192.168.255.255
 
-- **Definition**: Used within private networks, not routable on internet
-- **Purpose**: Solve IPv4 address shortage
-- **Reserved Ranges**:
-  - **Class A**: 10.0.0.0 to 10.255.255.255
-  - **Class B**: 172.16.0.0 to 172.31.255.255
-  - **Class C**: 192.168.0.0 to 192.168.255.255
-  - **Link-Local**: 169.254.0.0 to 169.254.255.255 (APIPA)
-  - **Carrier-Grade NAT**: 100.64.0.0 to 100.127.255.255
-
-#### Special IP Addresses
-
-- **Loopback**: 127.0.0.1 to 127.255.255.255 (localhost)
-- **Broadcast**: Last address in any network (e.g., 192.168.1.255)
-- **Network Address**: First address in any network (e.g., 192.168.1.0)
+Special Ranges:
+Loopback:       127.0.0.0      to 127.255.255.255
+Link-Local:     169.254.0.0    to 169.254.255.255 (APIPA)
+Carrier NAT:    100.64.0.0     to 100.127.255.255
+```
 
 ### IANA Hierarchy
 
-```mermaid title="IANA IP Address Distribution Hierarchy" type="diagram"
-graph TD
-    A["IANA<br/>(Internet Assigned Numbers Authority)<br/>Global Coordination"] --> B["Regional Internet Registries<br/>(RIRs)"]
-    B --> C["ARIN<br/>(North America)"]
-    B --> D["RIPE NCC<br/>(Europe, Middle East)"]
-    B --> E["APNIC<br/>(Asia Pacific)"]
-    B --> F["LACNIC<br/>(Latin America)"]
-    B --> G["AFRINIC<br/>(Africa)"]
+![IANA Hierarchy Structure](/placeholder.svg?height=400&width=600)
+_Hierarchical structure from IANA to end users_
 
-    C --> H["National Registries<br/>& ISPs"]
-    D --> H
-    E --> H
-    F --> H
-    G --> H
+```
+IANA IP Address Distribution Hierarchy:
 
-    H --> I["End Users<br/>(Organizations & Individuals)"]
-
-    style A fill:#ff9999
-    style B fill:#99ccff
-    style H fill:#99ff99
-    style I fill:#ffff99
+                    IANA (Global)
+                         |
+              Regional Internet Registries
+                         |
+        +--------+--------+--------+--------+
+        |        |        |        |        |
+      ARIN    RIPE NCC   APNIC   LACNIC  AFRINIC
+   (N.America) (Europe) (Asia)  (Latin)  (Africa)
+        |        |        |        |        |
+                National Registries & ISPs
+                         |
+                    End Users
 ```
 
 ### Network Communication Process
 
-```mermaid title="Network Communication Flow" type="diagram"
-sequenceDiagram
-    participant DeviceA as Device A<br/>(192.168.1.10)
-    participant Switch as Switch
-    participant Router as Router/Gateway<br/>(192.168.1.1)
-    participant Internet as Internet
-    participant DeviceB as Device B<br/>(Different Network)
+![Network Communication Flow](/placeholder.svg?height=300&width=700)
+_Step-by-step communication between devices on same and different networks_
 
-    Note over DeviceA,Switch: Same Network Communication
-    DeviceA->>Switch: Packet to 192.168.1.20
-    Switch->>DeviceA: Direct delivery (same subnet)
-
-    Note over DeviceA,Internet: Different Network Communication
-    DeviceA->>Router: Packet to 8.8.8.8
-    Router->>Internet: Forward packet (NAT applied)
-    Internet->>Router: Response packet
-    Router->>DeviceA: Deliver response (NAT reversed)
 ```
+Network Communication Process:
 
----
+Same Network:
+Device A → Switch → Device B (Direct)
 
-## Subnetting & CIDR
+Different Network:
+Device A → Router/Gateway → Internet → Router → Device B
 
-### Subnet Mask
-
-A **subnet mask** determines which portion of an IP address represents the network and which represents the host.
-
-#### Structure
-
-- **32-bit address** like IP address
-- **Network bits**: Set to 1 (binary)
-- **Host bits**: Set to 0 (binary)
-- **Representation**: Dotted decimal or CIDR notation
-
-#### Examples
-
-- **Class A**: 255.0.0.0 = /8
-- **Class B**: 255.255.0.0 = /16
-- **Class C**: 255.255.255.0 = /24
-
-### Subnetting Process
-
-#### Why Subnet?
-
-- **Efficient IP usage**: Divide large networks into smaller ones
-- **Improved performance**: Reduce broadcast domains
-- **Better security**: Isolate network segments
-- **Easier management**: Organize by department/function
-
-#### Subnetting Example
-
-**Original Network**: 192.168.1.0/24 (254 hosts)
-**Requirement**: 4 subnets with ~60 hosts each
-
-**Solution**: Use /26 (255.255.255.192)
-
-- **Subnet 1**: 192.168.1.0/26 (192.168.1.1 - 192.168.1.62)
-- **Subnet 2**: 192.168.1.64/26 (192.168.1.65 - 192.168.1.126)
-- **Subnet 3**: 192.168.1.128/26 (192.168.1.129 - 192.168.1.190)
-- **Subnet 4**: 192.168.1.192/26 (192.168.1.193 - 192.168.1.254)
-
-### CIDR (Classless Inter-Domain Routing)
-
-- **Purpose**: More flexible IP allocation than classful addressing
-- **Notation**: IP/prefix (e.g., 192.168.1.0/24)
-- **Benefits**: Reduces routing table size, more efficient IP usage
+Example:
+PC (192.168.1.10) → Router (192.168.1.1) → Internet → Google (8.8.8.8)
+```
 
 ---
 
@@ -287,141 +181,106 @@ A **subnet mask** determines which portion of an IP address represents the netwo
 
 ### Network Devices
 
-#### Hub (Legacy)
+![Network Devices Comparison](/placeholder.svg?height=350&width=600)
+_Hub, Switch, Router, and Access Point with their OSI layers_
 
-- **Layer**: Physical (Layer 1)
-- **Function**: Simple signal repeater
-- **Collision Domain**: Single collision domain
-- **Duplex**: Half-duplex only
-- **Status**: Largely obsolete
+```
+Network Device Layers:
 
-#### Switch
+Hub (Layer 1 - Physical)
+├── Simple signal repeater
+├── Single collision domain
+└── Half-duplex only (OBSOLETE)
 
-- **Layer**: Data Link (Layer 2)
-- **Function**: Frame switching based on MAC addresses
-- **Collision Domain**: Each port = separate collision domain
-- **Duplex**: Full-duplex capable
-- **Features**: MAC address learning, VLAN support
+Switch (Layer 2 - Data Link)
+├── MAC address learning
+├── Each port = separate collision domain
+└── Full-duplex capable
 
-#### Router
+Router (Layer 3 - Network)
+├── IP packet routing
+├── Connects different networks
+└── NAT, DHCP, Firewall features
 
-- **Layer**: Network (Layer 3)
-- **Function**: Packet routing between different networks
-- **Features**: NAT, DHCP, firewall capabilities
-- **Use**: Connect different network segments
-
-#### Access Point (AP)
-
-- **Function**: Provides wireless connectivity
-- **Modes**: Autonomous or controller-based
-- **Standards**: 802.11a/b/g/n/ac/ax (Wi-Fi 6)
+Access Point (Layer 2 - Wireless)
+├── Wireless connectivity
+├── 802.11 standards
+└── Bridge to wired network
+```
 
 ### Network Topologies
 
 #### Star Topology
 
-```mermaid title="Star Topology - Central Hub/Switch" type="diagram"
-graph TD
-    A["Central Switch<br/>192.168.1.1"] --> B["PC1<br/>192.168.1.10"]
-    A --> C["PC2<br/>192.168.1.11"]
-    A --> D["PC3<br/>192.168.1.12"]
-    A --> E["PC4<br/>192.168.1.13"]
-    A --> F["Server<br/>192.168.1.100"]
-    A --> G["Printer<br/>192.168.1.200"]
+![Star Topology Diagram](/placeholder.svg?height=300&width=400)
+_Central switch connected to multiple devices_
 
-    style A fill:#ff9999
-    style B fill:#99ccff
-    style C fill:#99ccff
-    style D fill:#99ccff
-    style E fill:#99ccff
-    style F fill:#99ff99
-    style G fill:#ffcc99
 ```
+Star Topology:
 
-**Advantages**: Easy troubleshooting, centralized management, failure isolation
-**Disadvantages**: Single point of failure (central device), requires more cable
-**Use**: Most common in modern LANs
+        PC1
+         |
+PC4 --- Switch --- PC2
+         |
+        PC3
+
+✓ Easy troubleshooting
+✓ Centralized management
+✗ Single point of failure
+```
 
 #### Bus Topology
 
-```mermaid title="Bus Topology - Shared Communication Line" type="diagram"
-graph LR
-    T1["Terminator"] --- A["PC1"]
-    A --- B["PC2"]
-    B --- C["PC3"]
-    C --- D["PC4"]
-    D --- T2["Terminator"]
+![Bus Topology Diagram](/placeholder.svg?height=200&width=500)
+_Devices connected along a single cable_
 
-    style T1 fill:#ff9999
-    style T2 fill:#ff9999
-    style A fill:#99ccff
-    style B fill:#99ccff
-    style C fill:#99ccff
-    style D fill:#99ccff
 ```
+Bus Topology:
 
-**Advantages**: Simple, cost-effective for small networks, minimal cable required
-**Disadvantages**: Difficult troubleshooting, single point of failure, collision domain
-**Use**: Legacy networks, some industrial applications
+[T] --- PC1 --- PC2 --- PC3 --- PC4 --- [T]
+        (Shared Communication Line)
+
+✓ Simple and cost-effective
+✓ Minimal cable required
+✗ Difficult troubleshooting
+✗ Single point of failure
+```
 
 #### Ring Topology
 
-```mermaid title="Ring Topology - Circular Data Flow" type="diagram"
-graph LR
-    A["PC1"] --> B["PC2"]
-    B --> C["PC3"]
-    C --> D["PC4"]
-    D --> E["PC5"]
-    E --> A
+![Ring Topology Diagram](/placeholder.svg?height=300&width=300)
+_Devices connected in a circular fashion_
 
-    style A fill:#99ccff
-    style B fill:#99ccff
-    style C fill:#99ccff
-    style D fill:#99ccff
-    style E fill:#99ccff
 ```
+Ring Topology:
 
-**Advantages**: Predictable performance, no collisions, equal access
-**Disadvantages**: Failure of one device affects entire network, difficult to troubleshoot
-**Use**: Token Ring networks (legacy), some fiber optic networks
+    PC1 → PC2
+     ↑     ↓
+    PC4 ← PC3
+
+✓ Predictable performance
+✓ No collisions
+✗ One failure affects all
+✗ Difficult to troubleshoot
+```
 
 #### Mesh Topology
 
-```mermaid title="Full Mesh Topology - All-to-All Connections" type="diagram"
-graph TD
-    A["Router A<br/>Site 1"] -.-> B["Router B<br/>Site 2"]
-    A -.-> C["Router C<br/>Site 3"]
-    A -.-> D["Router D<br/>Site 4"]
-    B -.-> C
-    B -.-> D
-    C -.-> D
+![Mesh Topology Diagram](/placeholder.svg?height=300&width=400)
+_Multiple connections between all devices_
 
-    style A fill:#ff9999
-    style B fill:#99ccff
-    style C fill:#99ff99
-    style D fill:#ffcc99
 ```
+Full Mesh Topology:
 
-**Advantages**: High redundancy, excellent fault tolerance, multiple paths
-**Disadvantages**: Expensive, complex configuration, many connections required
-**Use**: Critical infrastructure, WAN connections, data centers
+    A ←→ B
+    ↕ ✗ ↕
+    D ←→ C
 
-### MAC Addresses
-
-#### Structure
-
-- **Size**: 48-bit (6 bytes) address
-- **Format**: XX:XX:XX:XX:XX:XX (hexadecimal)
-- **Parts**:
-  - **OUI** (First 24 bits): Organizationally Unique Identifier (manufacturer)
-  - **NIC** (Last 24 bits): Network Interface Controller specific
-
-#### Characteristics
-
-- **Uniqueness**: Burned into network interface during manufacturing
-- **Scope**: Unique within Layer 2 broadcast domain
-- **Types**: Unicast, Multicast, Broadcast
-- **Spoofing**: Can be changed via software
+✓ High redundancy
+✓ Multiple paths
+✗ Expensive
+✗ Complex configuration
+```
 
 ---
 
@@ -429,502 +288,192 @@ graph TD
 
 ### DHCP (Dynamic Host Configuration Protocol)
 
-#### Purpose
+![DHCP DORA Process](/placeholder.svg?height=400&width=600)
+_Four-step DHCP process visualization_
 
-Automatically assigns IP configuration to network devices, eliminating manual configuration.
-
-#### DORA Process
-
-```mermaid title="DHCP DORA Process" type="diagram"
-sequenceDiagram
-    participant Client as DHCP Client<br/>(New Device)
-    participant Server as DHCP Server<br/>(192.168.1.1)
-
-    Note over Client,Server: 1. DISCOVER Phase
-    Client->>Server: DHCP Discover (Broadcast)<br/>Source: 0.0.0.0<br/>Destination: 255.255.255.255
-
-    Note over Client,Server: 2. OFFER Phase
-    Server->>Client: DHCP Offer<br/>Offered IP: 192.168.1.100<br/>Lease Time: 24 hours
-
-    Note over Client,Server: 3. REQUEST Phase
-    Client->>Server: DHCP Request<br/>Requesting: 192.168.1.100<br/>Server ID: 192.168.1.1
-
-    Note over Client,Server: 4. ACKNOWLEDGE Phase
-    Server->>Client: DHCP ACK<br/>Confirmed: 192.168.1.100<br/>Gateway: 192.168.1.1<br/>DNS: 8.8.8.8
 ```
+DHCP DORA Process:
 
-#### DHCP Configuration Elements
+Client                    DHCP Server
+  |                           |
+  |------ DISCOVER ---------->| (Broadcast: "I need an IP")
+  |                           |
+  |<------ OFFER -------------| (Unicast: "Here's 192.168.1.100")
+  |                           |
+  |------ REQUEST ----------->| (Broadcast: "I want 192.168.1.100")
+  |                           |
+  |<------ ACK ---------------| (Unicast: "Confirmed + Gateway/DNS")
 
-- **IP Address Pool**: Range of available IP addresses
-- **Lease Time**: How long client can use IP address
-- **Gateway**: Default route for clients
-- **DNS Servers**: Name resolution servers
-- **Subnet Mask**: Network configuration
-
-#### DHCP Server Setup (Windows Server)
-
-1. Install DHCP role via Server Manager
-2. Configure scope (IP range)
-3. Set lease duration
-4. Configure options (gateway, DNS)
-5. Activate scope
+Result: Client gets IP: 192.168.1.100
+                Gateway: 192.168.1.1
+                DNS: 8.8.8.8
+```
 
 ### NAT (Network Address Translation)
 
-#### Purpose
+![NAT Process Diagram](/placeholder.svg?height=300&width=600)
+_How private IPs are translated to public IPs_
 
-Allows private IP addresses to communicate with public internet using public IP addresses.
+```
+NAT Translation Process:
 
-#### Types
-
-- **Static NAT**: One-to-one mapping
-- **Dynamic NAT**: Pool of public IPs
-- **PAT/NAPT**: Port Address Translation (most common)
-
-#### Port Forwarding
-
-Process of redirecting external requests to internal private network hosts.
-
----
-
-## Operating Systems
-
-### Linux
-
-#### History & Philosophy
-
-- **Created**: 1991 by Linus Torvalds
-- **License**: GPL (General Public License)
-- **Philosophy**: Open source, community-driven development
-
-#### Key Features
-
-- **Open Source**: Source code freely available
-- **Multitasking**: Multiple processes simultaneously
-- **Multiuser**: Multiple users can use system concurrently
-- **Portability**: Runs on various hardware platforms
-- **Security**: Robust permission system, frequent security updates
-- **Stability**: High uptime, reliable performance
-- **Performance**: Efficient resource utilization
-
-#### Shell
-
-The **shell** is the interface between user and kernel:
-
-- **Purpose**: Interpret user commands and execute them
-- **Types**: Bash, Zsh, Fish, etc.
-- **Function**: Command interpreter and programming environment
-
-#### Linux Distributions & Package Managers
-
-##### Debian-Based Distributions
-
-- **Base**: Debian (1993)
-- **Package Format**: .deb
-- **Package Manager**: apt, dpkg
-- **Popular Derivatives**:
-  - **Ubuntu**: User-friendly, desktop-focused
-  - **Linux Mint**: Beginner-friendly
-  - **Kali Linux**: Security/penetration testing
-
-##### Red Hat-Based Distributions
-
-- **Base**: Red Hat Enterprise Linux (RHEL)
-- **Package Format**: .rpm
-- **Package Manager**: yum, dnf, rpm
-- **Popular Derivatives**:
-  - **Fedora**: Testing ground for RHEL features
-  - **CentOS**: Free RHEL clone (now CentOS Stream)
-  - **Rocky Linux**: RHEL alternative
-
-### Linux File System Structure
-
-#### Root Directory (/)
-
-The top-level directory containing all other directories.
-
-#### Essential Directories
-
-- **/bin**: Essential user commands (ls, cp, mv, cat)
-- **/sbin**: System administration commands (init, fsck, reboot)
-- **/lib**: Libraries for /bin and /sbin programs
-- **/lib64**: 64-bit specific libraries
-- **/etc**: System-wide configuration files
-- **/dev**: Device files (hardware interfaces)
-- **/proc**: Virtual filesystem (kernel/process information)
-- **/var**: Variable data (logs, databases, mail)
-- **/tmp**: Temporary files (cleared on reboot)
-- **/usr**: User programs and data
-- **/boot**: Boot loader files and kernel
-- **/opt**: Optional software packages
-- **/srv**: Service-related data
-- **/home**: User home directories
-- **/root**: Root user's home directory
-- **/mnt**: Mount points for temporary filesystems
-
-### Linux Run Levels
-
-#### Traditional Run Levels (SysV)
-
-- **0**: Halt/Shutdown
-- **1**: Single-user mode (maintenance)
-- **2**: Multi-user without networking
-- **3**: Multi-user with networking (text mode)
-- **4**: Unused (custom)
-- **5**: Multi-user with GUI
-- **6**: Reboot
-
-#### Systemd Targets (Modern)
-
-- **poweroff.target**: Shutdown
-- **rescue.target**: Single-user mode
-- **multi-user.target**: Text mode
-- **graphical.target**: GUI mode
-- **reboot.target**: Restart
-
----
-
-## Windows Server Administration
-
-### Windows File System Structure
-
-#### System Directories
-
-- **C:\\**: Root drive containing Windows system files
-- **Program Files**: 64-bit applications
-- **Program Files (x86)**: 32-bit applications
-- **ProgramData**: Shared application data
-- **Users**: User profiles and data
-- **Windows**: Core Windows system files
-  - **System32**: Essential system files and utilities
-  - **WinSxS**: Side-by-side component store
-  - **Temp**: Temporary system files
-
-#### Hidden System Files
-
-- **pagefile.sys**: Virtual memory file
-- **swapfile.sys**: Modern apps virtual memory
-- **hiberfil.sys**: Hibernation data
-- **Recovery**: System recovery tools
-
-### Windows Server Roles
-
-#### Common Server Roles
-
-- **DHCP Server**: Automatic IP configuration
-- **DNS Server**: Name resolution services
-- **File and Storage Services**: File sharing
-- **Active Directory Domain Services**: Domain controller
-- **Web Server (IIS)**: Web hosting
-- **Print Services**: Printer sharing
-
-### Windows Management Tools
-
-#### Computer Management (compmgmt.msc)
-
-- **System Tools**:
-  - **Task Scheduler**: Automated task execution
-  - **Event Viewer**: System logs and monitoring
-  - **Device Manager**: Hardware management
-  - **Services**: System service management
-
-#### Service Management
-
-**Startup Types**:
-
-- **Automatic**: Starts with Windows
-- **Automatic (Delayed)**: Starts after other services
-- **Manual**: Starts when needed
-- **Disabled**: Cannot start
-
-### Windows Server Configuration
-
-#### Initial Setup
-
-1. **Server Name**: Change to descriptive name
-2. **Workgroup/Domain**: Join appropriate group
-3. **IP Configuration**: Set static IP address
-4. **Windows Update**: Configure update settings
-5. **Firewall**: Configure for services
-6. **Remote Management**: Enable WinRM if needed
+Private Network          Router (NAT)         Internet
+192.168.1.10:1234  →  203.0.113.1:5678  →  8.8.8.8:53
+                   ←                     ←
+                   Translation Table:
+                   Internal → External
+                   192.168.1.10:1234 ↔ 203.0.113.1:5678
+```
 
 ---
 
 ## Domain & DNS Concepts
 
-### Domain Name System (DNS)
+### DNS Hierarchy
 
-#### Purpose
+![DNS Hierarchy Structure](/placeholder.svg?height=400&width=600)
+_Complete DNS hierarchy from root to subdomains_
 
-Translates human-readable domain names to IP addresses and vice versa.
+```
+DNS Hierarchy Structure:
 
-#### DNS Hierarchy
+                Root Servers (.)
+                      |
+        +-------------+-------------+
+        |             |             |
+    .com TLD      .org TLD      .net TLD
+        |             |             |
+   example.com   nonprofit.org  network.net
+        |
+   www.example.com
 
-```mermaid title="DNS Hierarchy Structure" type="diagram"
-graph TD
-    A["Root Servers<br/>(.)<br/>13 Root Servers Worldwide"] --> B["Top-Level Domain Servers<br/>(.com, .org, .net, .edu, .gov)"]
-    A --> C["Country Code TLD<br/>(.uk, .de, .jp, .ca)"]
-
-    B --> D["Authoritative Name Servers<br/>(example.com zone)"]
-    C --> E["Country-specific Domains<br/>(example.co.uk)"]
-
-    D --> F["Subdomains<br/>(www.example.com)<br/>(mail.example.com)"]
-    E --> F
-
-    G["Local DNS Resolver<br/>(ISP or Organization)<br/>8.8.8.8, 1.1.1.1"] --> A
-
-    H["Client Device<br/>(Your Computer)"] --> G
-
-    style A fill:#ff9999
-    style B fill:#99ccff
-    style C fill:#99ccff
-    style D fill:#99ff99
-    style E fill:#99ff99
-    style F fill:#ffff99
-    style G fill:#ffcc99
-    style H fill:#cccccc
+Query Flow:
+1. Client → Local DNS
+2. Local DNS → Root Server
+3. Root → TLD Server (.com)
+4. TLD → Authoritative Server (example.com)
+5. Authoritative → Local DNS (IP Address)
+6. Local DNS → Client (Final Answer)
 ```
 
-#### DNS Query Process
+### DNS Query Process
 
-```mermaid title="DNS Resolution Process" type="diagram"
-sequenceDiagram
-    participant Client as Client Device
-    participant Local as Local DNS Resolver<br/>(ISP)
-    participant Root as Root Server
-    participant TLD as .com TLD Server
-    participant Auth as Authoritative Server<br/>(example.com)
+![DNS Resolution Process](/placeholder.svg?height=350&width=700)
+_Step-by-step DNS query resolution_
 
-    Client->>Local: Query: www.example.com
-    Local->>Root: Query: www.example.com
-    Root->>Local: Referral: .com TLD servers
-    Local->>TLD: Query: www.example.com
-    TLD->>Local: Referral: example.com NS
-    Local->>Auth: Query: www.example.com
-    Auth->>Local: Answer: 192.168.1.100
-    Local->>Client: Answer: 192.168.1.100
 ```
+DNS Resolution Process for www.example.com:
 
-#### DNS Record Types
-
-- **A**: IPv4 address mapping
-- **AAAA**: IPv6 address mapping
-- **CNAME**: Canonical name (alias)
-- **MX**: Mail exchange servers
-- **NS**: Name server records
-- **PTR**: Reverse DNS lookup
-- **TXT**: Text records (verification, SPF)
-- **SRV**: Service locator records
-- **SOA**: Start of Authority (zone information)
-
-### Domain Valuation Factors
-
-#### Technical Factors
-
-- **TLD Importance**: .com > .org > .net > others
-- **Domain Length**: Shorter is generally better
-- **Memorability**: Easy to remember and spell
-- **Brandability**: Suitable for business use
-
-#### Market Factors
-
-- **Keyword Value**: Search volume and relevance
-- **Market Trends**: Industry popularity
-- **Historical Sales**: Comparable domain sales
-- **Traffic/SEO**: Existing visitors and search ranking
-
-### WHOIS Information
-
-- **Domain Status**: Registration status
-- **Registrant**: Domain owner information
-- **Registration Dates**: Created, updated, expires
-- **Name Servers**: DNS servers for domain
-- **Contact Information**: Administrative and technical contacts
+Client Device → Local DNS Resolver → Root Server
+     ↑                                    ↓
+     |                              "Ask .com server"
+     |                                    ↓
+     |              Local DNS → .com TLD Server
+     |                   ↑              ↓
+     |                   |        "Ask example.com NS"
+     |                   |              ↓
+     |              Local DNS → example.com Server
+     |                   ↑              ↓
+     |                   |         "192.168.1.100"
+     |                   ↓
+     ←── "192.168.1.100" ←──────────────
+```
 
 ---
 
-## IP Configuration Rules & Best Practices
-
-### IP Assignment Rules
-
-1. **Uniqueness**: Each IP must be unique within network
-2. **Correct Network**: IP must belong to proper network segment
-3. **Valid Range**: Avoid network and broadcast addresses
-4. **Reserved Addresses**: Don't use gateway, DHCP server IPs
-5. **Subnet Consistency**: Match subnet mask across network
-6. **DHCP Coordination**: Avoid conflicts with DHCP pools
-7. **Gateway Network**: Gateway must be in same network
-
-### Network Troubleshooting
-
-#### Common Error Messages
-
-- **Host Unreachable**: Device not responding (same network)
-- **Transmit Failed**: Different network, routing issue
-- **Request Timeout**: Network congestion or firewall
-
-#### Troubleshooting Commands
-
-- **Windows**: ipconfig, ping, tracert, nslookup
-- **Linux**: ifconfig/ip, ping, traceroute, dig
-
-### Cable Standards & Pinouts
-
-#### Ethernet Cable Categories
-
-- **CAT5e**: Up to 1 Gbps (100 MHz)
-- **CAT6**: Up to 10 Gbps over short distances (250 MHz)
-- **CAT6a**: Up to 10 Gbps at full distance (500 MHz)
-
-#### T568B Wiring Standard
-
-1. **Orange/White**
-2. **Orange**
-3. **Green/White**
-4. **Blue**
-5. **Blue/White**
-6. **Green**
-7. **Brown/White**
-8. **Brown**
-
-#### Connector Types
-
-- **RJ45**: Ethernet (8-pin)
-- **RJ11**: Telephone (6-pin)
-
----
-
-## Alternative Visualization Methods
+## Alternative Simple Visualization Methods
 
 ### 1. ASCII Art Diagrams
 
-For simple text-based representations that work in any environment:
+Perfect for text-only environments and simple understanding:
 
 ```
-DNS Hierarchy (ASCII):
-                    [Root Servers (.)]
-                           |
-        +------------------+------------------+
-        |                  |                  |
-    [.com TLD]         [.org TLD]         [.net TLD]
-        |                  |                  |
-   [example.com]      [nonprofit.org]   [network.net]
-        |
-   [www.example.com]
+Network Topology Comparison:
+
+STAR:           BUS:            RING:           MESH:
+  PC1           PC1-PC2-PC3      PC1→PC2         PC1↔PC2
+   |             (shared)         ↑  ↓           ↕ ✗ ↕
+Switch                           PC4←PC3         PC4↔PC3
+   |
+  PC2
 ```
 
-### 2. Table-Based Representations
+### 2. Simple Tables
 
-For structured data that's easy to read:
+For structured information:
 
-| DNS Level     | Example         | Responsibility      |
-| ------------- | --------------- | ------------------- |
-| Root          | .               | Global coordination |
-| TLD           | .com            | Top-level domains   |
-| Authoritative | example.com     | Domain-specific     |
-| Subdomain     | www.example.com | Host-specific       |
+| Network Type | Range  | Device     | Example Use       |
+| ------------ | ------ | ---------- | ----------------- |
+| PAN          | 10m    | Bluetooth  | Phone to earbuds  |
+| LAN          | 100m   | Switch     | Office network    |
+| CAN          | 1km    | L3 Switch  | University campus |
+| MAN          | 50km   | Router     | City network      |
+| WAN          | Global | ISP Router | Internet          |
 
-### 3. Flowchart Alternatives
+### 3. Process Flows
 
-Using simple text-based flowcharts:
-
-```
-DHCP Process Flow:
-Client Boot → DISCOVER → Server OFFER → Client REQUEST → Server ACK → IP Assigned
-```
-
-### 4. Mind Map Style
-
-For conceptual understanding:
+For step-by-step procedures:
 
 ```
-Network Topologies
-├── Star
-│   ├── Advantages: Easy troubleshooting
-│   └── Disadvantages: Single point of failure
-├── Bus
-│   ├── Advantages: Cost-effective
-│   └── Disadvantages: Difficult troubleshooting
-├── Ring
-│   ├── Advantages: Predictable performance
-│   └── Disadvantages: One failure affects all
-└── Mesh
-    ├── Advantages: High redundancy
-    └── Disadvantages: Expensive
+DHCP Configuration Steps:
+1. Install DHCP Role → 2. Create Scope → 3. Set Options → 4. Activate
+
+Subnetting Process:
+Original Network → Determine Requirements → Calculate Subnets → Assign Ranges
 ```
 
-### 5. Interactive Learning Tools
+### 4. Hierarchical Lists
 
-Recommended external tools for better visualization:
+For organizational structures:
 
-- **Packet Tracer**: Cisco's network simulation tool
-- **GNS3**: Advanced network emulator
-- **Draw.io**: Free online diagramming tool
-- **Lucidchart**: Professional network diagrams
-- **Visio**: Microsoft's diagramming software
+```
+Linux File System:
+/
+├── bin/ (essential commands)
+├── etc/ (configuration files)
+├── home/ (user directories)
+├── var/ (variable data)
+└── usr/ (user programs)
+```
+
+### 5. Comparison Charts
+
+For feature comparisons:
+
+```
+IPv4 vs IPv6:
+Feature     | IPv4          | IPv6
+------------|---------------|------------------
+Address Size| 32-bit        | 128-bit
+Format      | 192.168.1.1   | 2001:db8::1
+Addresses   | 4.3 billion   | 340 undecillion
+Header      | Variable      | Fixed
+Security    | Optional      | Built-in
+```
 
 ---
 
-## Study Resources & Practical Exercises
+## Tools for Creating Simple Images
 
-### Key Topics for Review
+### Free Online Tools:
 
-1. **Internet vs Intranet vs VPN**
-2. **Classful vs Classless addressing**
-3. **Public vs Private IP ranges**
-4. **DHCP configuration and DORA process**
-5. **NAT and Port Forwarding**
-6. **Network devices and topologies**
-7. **OSI and TCP/IP models**
-8. **Linux distributions and package management**
-9. **Host files and NetBIOS**
-10. **Link-local addressing (APIPA)**
+1. **Draw.io** (now diagrams.net) - Free online diagramming
+2. **Canva** - Simple graphic design with network templates
+3. **Google Drawings** - Basic shapes and diagrams
+4. **Lucidchart** - Professional network diagrams (free tier)
+5. **Creately** - Collaborative diagramming
 
-### Practical Exercises
+### Desktop Tools:
 
-1. **Network Testing**:
+1. **Microsoft Visio** - Professional network diagrams
+2. **LibreOffice Draw** - Free alternative to Visio
+3. **Inkscape** - Free vector graphics editor
+4. **GIMP** - Free image editor for simple diagrams
 
-   - Configure static IPs on same network
-   - Test connectivity with ping
-   - Use traceroute/tracert to trace paths
+### Quick Creation Tips:
 
-2. **Subnetting Practice**:
-
-   - Use subnet calculators
-   - Practice VLSM scenarios
-   - Calculate network/broadcast addresses
-
-3. **Server Configuration**:
-
-   - Set up DHCP server
-   - Configure DNS forwarding
-   - Practice domain joining
-
-4. **Troubleshooting**:
-   - Identify network connectivity issues
-   - Use network diagnostic tools
-   - Analyze network traffic
-
-### Useful Tools & Utilities
-
-- **Windows**: ncpa.cpl, compmgmt.msc, services.msc
-- **Network Tools**: Wireshark, Nmap, PuTTY
-- **Online Resources**: Subnet calculators, WHOIS lookup
-- **Documentation**: RFC standards, vendor documentation
-
----
-
-## Glossary
-
-**APIPA**: Automatic Private IP Addressing (169.254.x.x)
-**CIDR**: Classless Inter-Domain Routing
-**DHCP**: Dynamic Host Configuration Protocol
-**DNS**: Domain Name System
-**FQDN**: Fully Qualified Domain Name
-**IANA**: Internet Assigned Numbers Authority
-**NAT**: Network Address Translation
-**OSI**: Open Systems Interconnection
-**PoE**: Power over Ethernet
-**TCP/IP**: Transmission Control Protocol/Internet Protocol
-**VLAN**: Virtual Local Area Network
-**VPN**: Virtual Private Network
+- Use basic shapes (rectangles, circles, lines)
+- Keep colors simple (2-3 colors max)
+- Use consistent fonts and sizes
+- Label everything clearly
+- Save as PNG or SVG for web use
