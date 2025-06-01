@@ -1,16 +1,16 @@
-# Comprehensive Network \& Information Security Notes
+# Comprehensive Network & Information Security Notes
 
 ## Table of Contents
 
 1. [Network Fundamentals](#network-fundamentals)
 2. [IP Addressing](#ip-addressing)
-3. [Subnetting \& CIDR](#subnetting--cidr)
-4. [Network Devices \& Topologies](#network-devices--topologies)
-5. [DHCP \& Network Services](#dhcp--network-services)
+3. [Subnetting & CIDR](#subnetting--cidr)
+4. [Network Devices & Topologies](#network-devices--topologies)
+5. [DHCP & Network Services](#dhcp--network-services)
 6. [Operating Systems](#operating-systems)
 7. [Windows Server Administration](#windows-server-administration)
 8. [Linux Administration](#linux-administration)
-9. [Domain \& DNS Concepts](#domain--dns-concepts)
+9. [Domain & DNS Concepts](#domain--dns-concepts)
 
 ---
 
@@ -189,34 +189,53 @@ An **IP Address** (Internet Protocol Address) is a unique numerical identifier a
 
 ### IANA Hierarchy
 
-```mermaid
+```mermaid title="IANA IP Address Distribution Hierarchy" type="diagram"
 graph TD
-    A[IANA (Global)] --> B[Regional Registries]
-    B --> C[National Registries/ISPs]
-    C --> D[End Users]
+    A["IANA<br/>(Internet Assigned Numbers Authority)<br/>Global Coordination"] --> B["Regional Internet Registries<br/>(RIRs)"]
+    B --> C["ARIN<br/>(North America)"]
+    B --> D["RIPE NCC<br/>(Europe, Middle East)"]
+    B --> E["APNIC<br/>(Asia Pacific)"]
+    B --> F["LACNIC<br/>(Latin America)"]
+    B --> G["AFRINIC<br/>(Africa)"]
+
+    C --> H["National Registries<br/>& ISPs"]
+    D --> H
+    E --> H
+    F --> H
+    G --> H
+
+    H --> I["End Users<br/>(Organizations & Individuals)"]
+
+    style A fill:#ff9999
+    style B fill:#99ccff
+    style H fill:#99ff99
+    style I fill:#ffff99
 ```
 
 ### Network Communication Process
 
-```mermaid
+```mermaid title="Network Communication Flow" type="diagram"
 sequenceDiagram
-    participant DeviceA as Device A
+    participant DeviceA as Device A<br/>(192.168.1.10)
     participant Switch as Switch
-    participant Router as Router
+    participant Router as Router/Gateway<br/>(192.168.1.1)
     participant Internet as Internet
-    participant DeviceB as Device B
+    participant DeviceB as Device B<br/>(Different Network)
 
-    DeviceA->>Switch: Sends packet (same network)
-    Switch->>DeviceB: Forwards packet (if same network)
-    DeviceA->>Router: Sends packet (different network)
-    Router->>Internet: Forwards packet
-    Internet->>Router: Response
-    Router->>DeviceA: Delivers response
+    Note over DeviceA,Switch: Same Network Communication
+    DeviceA->>Switch: Packet to 192.168.1.20
+    Switch->>DeviceA: Direct delivery (same subnet)
+
+    Note over DeviceA,Internet: Different Network Communication
+    DeviceA->>Router: Packet to 8.8.8.8
+    Router->>Internet: Forward packet (NAT applied)
+    Internet->>Router: Response packet
+    Router->>DeviceA: Deliver response (NAT reversed)
 ```
 
 ---
 
-## Subnetting \& CIDR
+## Subnetting & CIDR
 
 ### Subnet Mask
 
@@ -264,7 +283,7 @@ A **subnet mask** determines which portion of an IP address represents the netwo
 
 ---
 
-## Network Devices \& Topologies
+## Network Devices & Topologies
 
 ### Network Devices
 
@@ -301,39 +320,91 @@ A **subnet mask** determines which portion of an IP address represents the netwo
 
 #### Star Topology
 
-```mermaid
+```mermaid title="Star Topology - Central Hub/Switch" type="diagram"
 graph TD
-    A[Switch/Hub] --> B[PC1]
-    A --> C[PC2]
-    A --> D[PC3]
-    A --> E[PC4]
+    A["Central Switch<br/>192.168.1.1"] --> B["PC1<br/>192.168.1.10"]
+    A --> C["PC2<br/>192.168.1.11"]
+    A --> D["PC3<br/>192.168.1.12"]
+    A --> E["PC4<br/>192.168.1.13"]
+    A --> F["Server<br/>192.168.1.100"]
+    A --> G["Printer<br/>192.168.1.200"]
+
+    style A fill:#ff9999
+    style B fill:#99ccff
+    style C fill:#99ccff
+    style D fill:#99ccff
+    style E fill:#99ccff
+    style F fill:#99ff99
+    style G fill:#ffcc99
 ```
+
+**Advantages**: Easy troubleshooting, centralized management, failure isolation
+**Disadvantages**: Single point of failure (central device), requires more cable
+**Use**: Most common in modern LANs
 
 #### Bus Topology
 
-```mermaid
+```mermaid title="Bus Topology - Shared Communication Line" type="diagram"
 graph LR
-    A[PC1] -- Shared Cable --> B[PC2] -- Shared Cable --> C[PC3] -- Shared Cable --> D[PC4]
+    T1["Terminator"] --- A["PC1"]
+    A --- B["PC2"]
+    B --- C["PC3"]
+    C --- D["PC4"]
+    D --- T2["Terminator"]
+
+    style T1 fill:#ff9999
+    style T2 fill:#ff9999
+    style A fill:#99ccff
+    style B fill:#99ccff
+    style C fill:#99ccff
+    style D fill:#99ccff
 ```
+
+**Advantages**: Simple, cost-effective for small networks, minimal cable required
+**Disadvantages**: Difficult troubleshooting, single point of failure, collision domain
+**Use**: Legacy networks, some industrial applications
 
 #### Ring Topology
 
-```mermaid
+```mermaid title="Ring Topology - Circular Data Flow" type="diagram"
 graph LR
-    A[PC1] --> B[PC2] --> C[PC3] --> D[PC4] --> A
+    A["PC1"] --> B["PC2"]
+    B --> C["PC3"]
+    C --> D["PC4"]
+    D --> E["PC5"]
+    E --> A
+
+    style A fill:#99ccff
+    style B fill:#99ccff
+    style C fill:#99ccff
+    style D fill:#99ccff
+    style E fill:#99ccff
 ```
+
+**Advantages**: Predictable performance, no collisions, equal access
+**Disadvantages**: Failure of one device affects entire network, difficult to troubleshoot
+**Use**: Token Ring networks (legacy), some fiber optic networks
 
 #### Mesh Topology
 
-```mermaid
+```mermaid title="Full Mesh Topology - All-to-All Connections" type="diagram"
 graph TD
-    A[PC1] -- -- --> B[PC2]
-    A -- -- --> C[PC3]
-    A -- -- --> D[PC4]
-    B -- -- --> C
-    B -- -- --> D
-    C -- -- --> D
+    A["Router A<br/>Site 1"] -.-> B["Router B<br/>Site 2"]
+    A -.-> C["Router C<br/>Site 3"]
+    A -.-> D["Router D<br/>Site 4"]
+    B -.-> C
+    B -.-> D
+    C -.-> D
+
+    style A fill:#ff9999
+    style B fill:#99ccff
+    style C fill:#99ff99
+    style D fill:#ffcc99
 ```
+
+**Advantages**: High redundancy, excellent fault tolerance, multiple paths
+**Disadvantages**: Expensive, complex configuration, many connections required
+**Use**: Critical infrastructure, WAN connections, data centers
 
 ### MAC Addresses
 
@@ -354,7 +425,7 @@ graph TD
 
 ---
 
-## DHCP \& Network Services
+## DHCP & Network Services
 
 ### DHCP (Dynamic Host Configuration Protocol)
 
@@ -364,15 +435,22 @@ Automatically assigns IP configuration to network devices, eliminating manual co
 
 #### DORA Process
 
-```mermaid
+```mermaid title="DHCP DORA Process" type="diagram"
 sequenceDiagram
-    participant Client
-    participant DHCPServer
+    participant Client as DHCP Client<br/>(New Device)
+    participant Server as DHCP Server<br/>(192.168.1.1)
 
-    Client->>DHCPServer: DHCP Discover (broadcast)
-    DHCPServer->>Client: DHCP Offer
-    Client->>DHCPServer: DHCP Request
-    DHCPServer->>Client: DHCP Acknowledge
+    Note over Client,Server: 1. DISCOVER Phase
+    Client->>Server: DHCP Discover (Broadcast)<br/>Source: 0.0.0.0<br/>Destination: 255.255.255.255
+
+    Note over Client,Server: 2. OFFER Phase
+    Server->>Client: DHCP Offer<br/>Offered IP: 192.168.1.100<br/>Lease Time: 24 hours
+
+    Note over Client,Server: 3. REQUEST Phase
+    Client->>Server: DHCP Request<br/>Requesting: 192.168.1.100<br/>Server ID: 192.168.1.1
+
+    Note over Client,Server: 4. ACKNOWLEDGE Phase
+    Server->>Client: DHCP ACK<br/>Confirmed: 192.168.1.100<br/>Gateway: 192.168.1.1<br/>DNS: 8.8.8.8
 ```
 
 #### DHCP Configuration Elements
@@ -413,7 +491,7 @@ Process of redirecting external requests to internal private network hosts.
 
 ### Linux
 
-#### History \& Philosophy
+#### History & Philosophy
 
 - **Created**: 1991 by Linus Torvalds
 - **License**: GPL (General Public License)
@@ -437,7 +515,7 @@ The **shell** is the interface between user and kernel:
 - **Types**: Bash, Zsh, Fish, etc.
 - **Function**: Command interpreter and programming environment
 
-#### Linux Distributions \& Package Managers
+#### Linux Distributions & Package Managers
 
 ##### Debian-Based Distributions
 
@@ -572,7 +650,7 @@ The top-level directory containing all other directories.
 
 ---
 
-## Domain \& DNS Concepts
+## Domain & DNS Concepts
 
 ### Domain Name System (DNS)
 
@@ -582,11 +660,49 @@ Translates human-readable domain names to IP addresses and vice versa.
 
 #### DNS Hierarchy
 
-```mermaid
+```mermaid title="DNS Hierarchy Structure" type="diagram"
 graph TD
-    A[Root Servers (.)] --> B[TLD Servers (.com, .org, .net)]
-    B --> C[Authoritative Servers (example.com)]
-    C --> D[Local DNS (ISP/Org)]
+    A["Root Servers<br/>(.)<br/>13 Root Servers Worldwide"] --> B["Top-Level Domain Servers<br/>(.com, .org, .net, .edu, .gov)"]
+    A --> C["Country Code TLD<br/>(.uk, .de, .jp, .ca)"]
+
+    B --> D["Authoritative Name Servers<br/>(example.com zone)"]
+    C --> E["Country-specific Domains<br/>(example.co.uk)"]
+
+    D --> F["Subdomains<br/>(www.example.com)<br/>(mail.example.com)"]
+    E --> F
+
+    G["Local DNS Resolver<br/>(ISP or Organization)<br/>8.8.8.8, 1.1.1.1"] --> A
+
+    H["Client Device<br/>(Your Computer)"] --> G
+
+    style A fill:#ff9999
+    style B fill:#99ccff
+    style C fill:#99ccff
+    style D fill:#99ff99
+    style E fill:#99ff99
+    style F fill:#ffff99
+    style G fill:#ffcc99
+    style H fill:#cccccc
+```
+
+#### DNS Query Process
+
+```mermaid title="DNS Resolution Process" type="diagram"
+sequenceDiagram
+    participant Client as Client Device
+    participant Local as Local DNS Resolver<br/>(ISP)
+    participant Root as Root Server
+    participant TLD as .com TLD Server
+    participant Auth as Authoritative Server<br/>(example.com)
+
+    Client->>Local: Query: www.example.com
+    Local->>Root: Query: www.example.com
+    Root->>Local: Referral: .com TLD servers
+    Local->>TLD: Query: www.example.com
+    TLD->>Local: Referral: example.com NS
+    Local->>Auth: Query: www.example.com
+    Auth->>Local: Answer: 192.168.1.100
+    Local->>Client: Answer: 192.168.1.100
 ```
 
 #### DNS Record Types
@@ -627,7 +743,7 @@ graph TD
 
 ---
 
-## IP Configuration Rules \& Best Practices
+## IP Configuration Rules & Best Practices
 
 ### IP Assignment Rules
 
@@ -652,7 +768,7 @@ graph TD
 - **Windows**: ipconfig, ping, tracert, nslookup
 - **Linux**: ifconfig/ip, ping, traceroute, dig
 
-### Cable Standards \& Pinouts
+### Cable Standards & Pinouts
 
 #### Ethernet Cable Categories
 
@@ -678,7 +794,78 @@ graph TD
 
 ---
 
-## Study Resources \& Practical Exercises
+## Alternative Visualization Methods
+
+### 1. ASCII Art Diagrams
+
+For simple text-based representations that work in any environment:
+
+```
+DNS Hierarchy (ASCII):
+                    [Root Servers (.)]
+                           |
+        +------------------+------------------+
+        |                  |                  |
+    [.com TLD]         [.org TLD]         [.net TLD]
+        |                  |                  |
+   [example.com]      [nonprofit.org]   [network.net]
+        |
+   [www.example.com]
+```
+
+### 2. Table-Based Representations
+
+For structured data that's easy to read:
+
+| DNS Level     | Example         | Responsibility      |
+| ------------- | --------------- | ------------------- |
+| Root          | .               | Global coordination |
+| TLD           | .com            | Top-level domains   |
+| Authoritative | example.com     | Domain-specific     |
+| Subdomain     | www.example.com | Host-specific       |
+
+### 3. Flowchart Alternatives
+
+Using simple text-based flowcharts:
+
+```
+DHCP Process Flow:
+Client Boot → DISCOVER → Server OFFER → Client REQUEST → Server ACK → IP Assigned
+```
+
+### 4. Mind Map Style
+
+For conceptual understanding:
+
+```
+Network Topologies
+├── Star
+│   ├── Advantages: Easy troubleshooting
+│   └── Disadvantages: Single point of failure
+├── Bus
+│   ├── Advantages: Cost-effective
+│   └── Disadvantages: Difficult troubleshooting
+├── Ring
+│   ├── Advantages: Predictable performance
+│   └── Disadvantages: One failure affects all
+└── Mesh
+    ├── Advantages: High redundancy
+    └── Disadvantages: Expensive
+```
+
+### 5. Interactive Learning Tools
+
+Recommended external tools for better visualization:
+
+- **Packet Tracer**: Cisco's network simulation tool
+- **GNS3**: Advanced network emulator
+- **Draw.io**: Free online diagramming tool
+- **Lucidchart**: Professional network diagrams
+- **Visio**: Microsoft's diagramming software
+
+---
+
+## Study Resources & Practical Exercises
 
 ### Key Topics for Review
 
@@ -696,23 +883,29 @@ graph TD
 ### Practical Exercises
 
 1. **Network Testing**:
+
    - Configure static IPs on same network
    - Test connectivity with ping
    - Use traceroute/tracert to trace paths
+
 2. **Subnetting Practice**:
+
    - Use subnet calculators
    - Practice VLSM scenarios
    - Calculate network/broadcast addresses
+
 3. **Server Configuration**:
+
    - Set up DHCP server
    - Configure DNS forwarding
    - Practice domain joining
+
 4. **Troubleshooting**:
    - Identify network connectivity issues
    - Use network diagnostic tools
    - Analyze network traffic
 
-### Useful Tools \& Utilities
+### Useful Tools & Utilities
 
 - **Windows**: ncpa.cpl, compmgmt.msc, services.msc
 - **Network Tools**: Wireshark, Nmap, PuTTY
@@ -735,5 +928,3 @@ graph TD
 **TCP/IP**: Transmission Control Protocol/Internet Protocol
 **VLAN**: Virtual Local Area Network
 **VPN**: Virtual Private Network
-
----
