@@ -107,4 +107,4 @@ SELECT * FROM products WHERE category = 'Gifts' AND released = 1
 ```
 
 - To solve the lab, perform a SQL injection attack that causes the application to display one or
-  more unreleased products.
+  more unreleased products. **LAB 01**: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data.
