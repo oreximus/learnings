@@ -45,6 +45,8 @@
 
 ![dns_img10](../../../assets/images/dns_img10.png)
 
+![dns_img11](../../../assets/images/dns_img11.png)
+
 **For checking the AXFR Zone Transferring through Wireshark**:
 
 **filter**:
