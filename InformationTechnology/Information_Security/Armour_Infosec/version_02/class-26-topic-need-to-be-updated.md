@@ -89,3 +89,6 @@ ifconfig | awk 'BEGIN {print "----------IFCONFIG--------"}/inet /{print $2} END 
     - `Users`: Read & Execute List Folder Contents, Read
     - `Authenticated Users`: Modify, Read and Execute
     - `Users`: Read and Execute Only (No modification power)
+
+
+**NTFS Permissions vs. Share Permissions**:
