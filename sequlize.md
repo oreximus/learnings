@@ -1,1 +1,0 @@
-# Sequilize Notes
