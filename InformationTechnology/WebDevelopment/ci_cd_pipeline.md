@@ -1,5 +1,5 @@
-# Notes for simple and easy to implement production level CI/CD pipeline setup for hosting a nextjs frontend from github to aws instance
+# Notes
 
-**source**: perplexity.ai
+## Setting up CI/CD pipeline from Github to and AWS EC2 instance:
 
--
+### AWS IAM access for Github Actions securely and with least privilige.
