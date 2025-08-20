@@ -7,3 +7,11 @@
 ```
 
 ```
+
+## checking logs:
+
+- for checking cron jobs real-time logs:
+
+```
+sudo journalctl -u cron -f\n
+```
