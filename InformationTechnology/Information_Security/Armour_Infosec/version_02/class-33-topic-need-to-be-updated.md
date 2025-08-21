@@ -82,3 +82,11 @@ UUID=66c1b829-889b-763f-9815-66836d15ee8d defaults 0 0
 ```
 
 > After performing persistent extending swap, remember to reboot.
+
+# Class 02
+
+## Topic: Proxies
+
+- Intermediate system between server and client, mainly used for sharing the
+  internet in back in time around 1996, it's used to share the public internet
+  inside a LAN to the multiple devices.
