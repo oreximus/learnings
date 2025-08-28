@@ -92,3 +92,33 @@ mdadm --detail /dev/md0
 ```
 mdadm --stop /dev/your-raid-partition
 ```
+
+# Class 02
+
+## Version: CCProxy
+
+- Supports HTTP,HTTPS,FTP,Gopher,SOCKS,Telnet protocols.
+
+#### CCProxy configurations:
+
+- you can setup the custom username and password for the
+  particular PC/Client (identified by its IP) in the CCProxy
+  to access the proxy service.
+
+- you can retreive details of the system for providing the
+  access in the CCProxy software, by entering its pc-name,
+  IP and mac-address.
+
+- Restricting the user for accessing larger amount of websites
+  and online connection by providing limited, 3-way handshakes or
+  connection estabilishment.
+
+- Restricting the user by internet speed.
+
+- Limiting the user for certain upload size at that time.
+
+- Restricting user to use of the provided protocols.
+
+- you can create the black list and the allow list for making
+  sure the defined access of the websites and contents to the
+  users.
