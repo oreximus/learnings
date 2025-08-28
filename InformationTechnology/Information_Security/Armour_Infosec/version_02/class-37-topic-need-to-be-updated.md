@@ -122,3 +122,12 @@ mdadm --stop /dev/your-raid-partition
 - you can create the black list and the allow list for making
   sure the defined access of the websites and contents to the
   users.
+
+- website filter, works on the HTTP protocol. You can block
+  loading particular files and document types from here.
+
+- time shedule for internet to kept working or not.
+
+- restricting the data usage more than particular amount.
+
+- Try setting Admin password in CCProxy
