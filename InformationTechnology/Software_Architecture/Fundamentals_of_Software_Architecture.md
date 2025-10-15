@@ -49,4 +49,26 @@
   books were written.
 
 - When studying architecture, readers must keep in mind that, like
-  much art, it can only be understood in context. Many of the decisions
+  much art, it can only be understood in context. Many of the
+  decisions architects made were based on realities of the environment
+  they found themselves in.
+
+- For example, on the of the major goals of late 20th-century
+  architeture included making the most expensive, one of the mojor
+  shared resources, because all the infrastructure at the time was
+  expensive and commercial: operating systems, application servers,
+  database servers, and so on.
+
+- Imagine stroling into a 2002 data center and telling the head of
+  operation "Hey I have a greate idea for a revolutionary style of
+  architecture, where each service runs on its own isolated machinery
+  with its own dedicated database (describing what we now know as
+  microservices)."
+
+- So, that means I'll eed 50 licenses for Windows, another 30
+  application server licenses, and at least 50 database server licenses."
+
+- In 2002, trying to build an architecture like microservices would
+  be inconceivably expensive. Yet, with the advent of open source
+  during the intervening years, coupled with updated engineering
+  practices via the DevOps revolution.
