@@ -62,11 +62,10 @@ forecast views - monthly forecast - annual goal
 
 settings - you can select chart type, etc...
 
-Chart  
- - x, y axis - group - calculation function
+Chart
+
+- x, y axis - group - calculation function
 
 Goal Tracing - you can add additional views. - blank view to completly assignment
 
 Pipeline - you can drag-n-drop the progress to levels
-
-## Organizing Stuffs
