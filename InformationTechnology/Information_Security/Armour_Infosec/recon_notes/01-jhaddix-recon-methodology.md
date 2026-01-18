@@ -1,4 +1,6 @@
-# Notes
+# The Bug Hunter’s Methodology Jason Haddix Notes!
+
+**source**: https://www.youtube.com/watch?v=gIz_yn0Uvb8&list=PLh--xwfc2oZoYOev46lNMSVniNyr4OEHO
 
 ![Pasted image 20260119043921.png](assets/Pasted%20image%2020260119043921.png)
 
