@@ -1,7 +1,7 @@
 # Notes
 ![[Pasted image 20260119043921.png]]
 
-![[Pasted image 20260119043959.png]]
+![Pasted image 20260119043959.png]
 
 - Jason usually color code according to where he is in the recon process:
   - orange: currently working on
