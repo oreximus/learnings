@@ -1,4 +1,5 @@
 # Notes
+
 ![[Pasted image 20260119043921.png]]
 
 ![[Pasted image 20260119043959.png]]
