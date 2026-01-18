@@ -1,8 +1,8 @@
 # Notes
 
-![[Pasted image 20260119043921.png]]
+![Pasted image 20260119043921.png](assets/Pasted%20image%2020260119043921.png)
 
-![[Pasted image 20260119043959.png]]
+![Pasted image 20260119043959.png](assets/Pasted%20image%2020260119043959.png)
 
 - Jason usually color code according to where he is in the recon process:
   - orange: currently working on
@@ -13,7 +13,7 @@
 - Wide Recon is the art of discovering as many assets related to a target
   as possible. Make sure your scope permits testing these sites: 1. Scope Domains 2. Acquisitions 3. ASN Enumeration 4. Reverse WHOIS 5. Subdomain Enumeration 6. Port Analysis 7. Other: - Vulns: - Subdomain Takeover - Buckets - Github leaks - Automation/Helper - Interlace - Screenshotting - Frameworks
 
-![[Pasted image 20260119044029.png]]
+![Pasted image 20260119044029.png](assets/Pasted%20image%2020260119044029.png)
 
 ## Finding Seeds/Roots
 
@@ -21,25 +21,26 @@
 
 **Scope Domains (Bugcrowd)**:
 
-![[Pasted image 20260119044101.png]]
+![Pasted image 20260119044101.png](assets/Pasted%20image%2020260119044101.png)
 
 > Verizon Media: really supports bug hunting related things a lot. Worth checking
 > out for the beginners.
-![[Pasted image 20260119044120.png]]
+> ![Pasted image 20260119044120.png](assets/Pasted%20image%2020260119044120.png)
 
 ### Acquisitions (Crunchbase)
 
 - Using the crunchbase which is a business intelligence portal.
 
-![[Pasted image 20260119044143.png]]
+![Pasted image 20260119044143.png](assets/Pasted%20image%2020260119044143.png)
 
-![[Pasted image 20260119044203.png]]
+![Pasted image 20260119044203.png](assets/Pasted%20image%2020260119044203.png)
 
 > Understand what is okay and what is not okay to hack!
 
 ### ASN Enumeration (bgp.he.net)
 
-![[Pasted image 20260119044238.png]]
+![Pasted image 20260119044238.png](assets/Pasted%20image%2020260119044238.png)
+
 - Autonomous System Numbers are given to large enough networks. These
   ASN's will help us track down some semblance of an entity's IT
   infrastructure. The most reliable way to get these is manually through
@@ -58,7 +59,7 @@
 
 ### ASN Enumeration (cmd line)
 
-![[Pasted image 20260119044319.png]]
+![Pasted image 20260119044319.png](assets/Pasted%20image%2020260119044319.png)
 
 > jhaddix suggests two tools for ASN enumeration:
 
@@ -74,7 +75,7 @@ bgp.he.net and asnlookup.com 2. anslookup: by Yassine Aboukir which utilizes the
 
 ### ASN Enumeration (with Amass)
 
-![[Pasted image 20260119044344.png]]
+![Pasted image 20260119044344.png](assets/Pasted%20image%2020260119044344.png)
 
 - for discovering more seed domains we want to scan the whole ASN with a port
   scanner and return any root domains we see in SSL certificates, etc.
@@ -93,7 +94,7 @@ amass intel -asn <asn-number>
 
 ### Reverse WHOIS (with Whoxy.com)
 
-![[Pasted image 20260119044412.png]]
+![Pasted image 20260119044412.png](assets/Pasted%20image%2020260119044412.png)
 
 - Every website has some registeration info on file with the registrars. Two
   key pieces of data we can use are Organization name and any emails in the
@@ -112,7 +113,7 @@ amass intel -asn <asn-number>
 
 ### Reverse WHOIS (with DOMLink)
 
-![[Pasted image 20260119044443.png]]
+![Pasted image 20260119044443.png](assets/Pasted%20image%2020260119044443.png)
 
 - DOMLink is a tool written by Vincent Yiu (@vysecurity) which will recursively query
   the WHOXY WHOIS API. It will start by querying our targets WHOIS record, then analyze
@@ -122,7 +123,7 @@ amass intel -asn <asn-number>
 
 ### Ad/Analytics Relationships (builtwith.com)
 
-![[Pasted image 20260119044529.png]]
+![Pasted image 20260119044529.png](assets/Pasted%20image%2020260119044529.png)
 
 - You can also glean related domains and subdomains by looking at a target's ad/analytics
   tracker codes. Many sites use the same codes across all their domains. Google analytics and
@@ -140,7 +141,7 @@ img
 
 - for command-line information
 
-![[Pasted image 20260119044550.png]]
+![Pasted image 20260119044550.png](assets/Pasted%20image%2020260119044550.png)
 
 ### Google-Fu
 
@@ -151,11 +152,11 @@ img
 
 - from a main target to glean related hosts on Google.
 
-![[Pasted image 20260119044621.png]]
+![Pasted image 20260119044621.png](assets/Pasted%20image%2020260119044621.png)
 
 ### Shodan
 
-![[Pasted image 20260119044703.png]]
+![Pasted image 20260119044703.png](assets/Pasted%20image%2020260119044703.png)
 
 - Shodan is a tool that continuously spiders infrastructure on the internet. It is much
   more verbose than regular spiders. It captures `response data`, `cert data`, `stack profiling
@@ -166,7 +167,7 @@ data`, and more. It requires registeration.
 
 ## Finding Subdomains
 
-![[Pasted image 20260119044718.png]]
+![Pasted image 20260119044718.png](assets/Pasted%20image%2020260119044718.png)
 
 ### Subdomain Enumeration:
 
@@ -195,7 +196,7 @@ Things to setup:
 
 ### Linked Discovery (with Burp Suite Pro)
 
-![[Pasted image 20260119044808.png]]
+![Pasted image 20260119044808.png](assets/Pasted%20image%2020260119044808.png)
 
 - setting up a rule from the `target` tab.
   - then `scope` tab.
@@ -208,9 +209,9 @@ Things to setup:
 - Selecting all of the filtered links and spider them via burpsuite.
   - and everything in the white are the new stuffs.
 
-![[Pasted image 20260119044825.png]]
+![Pasted image 20260119044825.png](assets/Pasted%20image%2020260119044825.png)
 
-![[Pasted image 20260119044845.png]]
+![Pasted image 20260119044845.png](assets/Pasted%20image%2020260119044845.png)
 
 - Exporting the fetched data/information from the burpsuite:
   - Select all hosts in the site tree
@@ -219,7 +220,8 @@ Things to setup:
   - Save report as an html file
   - Copy the hosts from the "Target" section
 
-![[Pasted image 20260119044904.png]]
+![Pasted image 20260119044904.png](assets/Pasted%20image%2020260119044904.png)
+
 ### Linked Discovery (with GoSpider or hakrawler)
 
 - Linked discovery really just counts on using a spider recursively.
@@ -242,7 +244,7 @@ Things to setup:
 _If just looking for subdomains ***subscraper*** by Cillian-Collins
 might be better because it has recursion_.
 
-![[Pasted image 20260119045054.png]]
+![Pasted image 20260119045054.png](assets/Pasted%20image%2020260119045054.png)
 
 ### Subdomain Scraping
 
@@ -276,4 +278,4 @@ might be better because it has recursion_.
 
 - New sources are coming out all the time so the tools must evolve constantly.
 
-![[Pasted image 20260119045010.png]]
+![Pasted image 20260119045010.png](assets/Pasted%20image%2020260119045010.png)
