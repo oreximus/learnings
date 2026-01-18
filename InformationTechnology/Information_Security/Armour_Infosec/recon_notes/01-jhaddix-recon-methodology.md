@@ -1,4 +1,7 @@
 # Notes
+![[Pasted image 20260119043921.png]]
+
+![[Pasted image 20260119043959.png]]
 
 - Jason usually color code according to where he is in the recon process:
   - orange: currently working on
@@ -9,27 +12,33 @@
 - Wide Recon is the art of discovering as many assets related to a target
   as possible. Make sure your scope permits testing these sites: 1. Scope Domains 2. Acquisitions 3. ASN Enumeration 4. Reverse WHOIS 5. Subdomain Enumeration 6. Port Analysis 7. Other: - Vulns: - Subdomain Takeover - Buckets - Github leaks - Automation/Helper - Interlace - Screenshotting - Frameworks
 
+![[Pasted image 20260119044029.png]]
+
 ## Finding Seeds/Roots
 
 ### Checking the Scope Domains:
 
 **Scope Domains (Bugcrowd)**:
 
-img
+![[Pasted image 20260119044101.png]]
 
 > Verizon Media: really supports bug hunting related things a lot. Worth checking
 > out for the beginners.
+![[Pasted image 20260119044120.png]]
 
 ### Acquisitions (Crunchbase)
 
 - Using the crunchbase which is a business intelligence portal.
 
-img
+![[Pasted image 20260119044143.png]]
+
+![[Pasted image 20260119044203.png]]
 
 > Understand what is okay and what is not okay to hack!
 
 ### ASN Enumeration (bgp.he.net)
 
+![[Pasted image 20260119044238.png]]
 - Autonomous System Numbers are given to large enough networks. These
   ASN's will help us track down some semblance of an entity's IT
   infrastructure. The most reliable way to get these is manually through
@@ -48,6 +57,8 @@ img
 
 ### ASN Enumeration (cmd line)
 
+![[Pasted image 20260119044319.png]]
+
 > jhaddix suggests two tools for ASN enumeration:
 
     1. metabigor: by j3ssiejjj which will fetch ASN data from a keyword from
@@ -61,6 +72,8 @@ bgp.he.net and asnlookup.com 2. anslookup: by Yassine Aboukir which utilizes the
 > So make sure that data is related to what you're looking for.
 
 ### ASN Enumeration (with Amass)
+
+![[Pasted image 20260119044344.png]]
 
 - for discovering more seed domains we want to scan the whole ASN with a port
   scanner and return any root domains we see in SSL certificates, etc.
@@ -79,6 +92,8 @@ amass intel -asn <asn-number>
 
 ### Reverse WHOIS (with Whoxy.com)
 
+![[Pasted image 20260119044412.png]]
+
 - Every website has some registeration info on file with the registrars. Two
   key pieces of data we can use are Organization name and any emails in the
   WHOIS data. To do this you need access to a large WHOIS database. WHOXY.com
@@ -96,6 +111,8 @@ amass intel -asn <asn-number>
 
 ### Reverse WHOIS (with DOMLink)
 
+![[Pasted image 20260119044443.png]]
+
 - DOMLink is a tool written by Vincent Yiu (@vysecurity) which will recursively query
   the WHOXY WHOIS API. It will start by querying our targets WHOIS record, then analyze
   all the data and look for the other records which contain the organization name or are
@@ -103,6 +120,8 @@ amass intel -asn <asn-number>
   records of match.
 
 ### Ad/Analytics Relationships (builtwith.com)
+
+![[Pasted image 20260119044529.png]]
 
 - You can also glean related domains and subdomains by looking at a target's ad/analytics
   tracker codes. Many sites use the same codes across all their domains. Google analytics and
@@ -120,7 +139,7 @@ img
 
 - for command-line information
 
-img
+![[Pasted image 20260119044550.png]]
 
 ### Google-Fu
 
@@ -131,9 +150,11 @@ img
 
 - from a main target to glean related hosts on Google.
 
-img
+![[Pasted image 20260119044621.png]]
 
 ### Shodan
+
+![[Pasted image 20260119044703.png]]
 
 - Shodan is a tool that continuously spiders infrastructure on the internet. It is much
   more verbose than regular spiders. It captures `response data`, `cert data`, `stack profiling
@@ -144,7 +165,7 @@ data`, and more. It requires registeration.
 
 ## Finding Subdomains
 
-img
+![[Pasted image 20260119044718.png]]
 
 ### Subdomain Enumeration:
 
@@ -173,6 +194,8 @@ Things to setup:
 
 ### Linked Discovery (with Burp Suite Pro)
 
+![[Pasted image 20260119044808.png]]
+
 - setting up a rule from the `target` tab.
   - then `scope` tab.
     - use advanced scope control (in host or IP range)
@@ -184,7 +207,9 @@ Things to setup:
 - Selecting all of the filtered links and spider them via burpsuite.
   - and everything in the white are the new stuffs.
 
-img
+![[Pasted image 20260119044825.png]]
+
+![[Pasted image 20260119044845.png]]
 
 - Exporting the fetched data/information from the burpsuite:
   - Select all hosts in the site tree
@@ -193,8 +218,7 @@ img
   - Save report as an html file
   - Copy the hosts from the "Target" section
 
-img
-
+![[Pasted image 20260119044904.png]]
 ### Linked Discovery (with GoSpider or hakrawler)
 
 - Linked discovery really just counts on using a spider recursively.
@@ -217,7 +241,7 @@ img
 _If just looking for subdomains ***subscraper*** by Cillian-Collins
 might be better because it has recursion_.
 
-img
+![[Pasted image 20260119045054.png]]
 
 ### Subdomain Scraping
 
@@ -251,4 +275,4 @@ img
 
 - New sources are coming out all the time so the tools must evolve constantly.
 
-img
+![[Pasted image 20260119045010.png]]

@@ -1,0 +1,202 @@
+{
+  "main": {
+    "id": "35c6dc8f8bbe127c",
+    "type": "split",
+    "children": [
+      {
+        "id": "e1d2e240c3eb2d18",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fbb178e9bb7e3176",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "InformationTechnology/Information_Security/Armour_Infosec/recon_notes/01-jhaddix-recon-methodology.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "01-jhaddix-recon-methodology"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "dfe18deed37a6807",
+    "type": "split",
+    "children": [
+      {
+        "id": "e74f2da8e0318ba9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "969ee9cd5ac983d0",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "aaa102ef5ef79a57",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "d8c4f8b653e053ad",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "de85600819067bf1",
+    "type": "split",
+    "children": [
+      {
+        "id": "f68d97f05be08e38",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a9af49c3609cb312",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "InformationTechnology/Information_Security/Armour_Infosec/recon_notes/01-jhaddix-recon-methodology.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 01-jhaddix-recon-methodology"
+            }
+          },
+          {
+            "id": "3228bd00af38920e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "InformationTechnology/Information_Security/Armour_Infosec/recon_notes/01-jhaddix-recon-methodology.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 01-jhaddix-recon-methodology"
+            }
+          },
+          {
+            "id": "cdb7e645f924fffc",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "f1d376ca7796048f",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "77001079187fb364",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "InformationTechnology/Information_Security/Armour_Infosec/recon_notes/01-jhaddix-recon-methodology.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 01-jhaddix-recon-methodology"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "fbb178e9bb7e3176",
+  "lastOpenFiles": [
+    "InformationTechnology/Information_Security/Armour_Infosec/recon_notes/assets/Pasted image 20260119045054.png",
+    "InformationTechnology/Information_Security/Armour_Infosec/recon_notes/assets/Pasted image 20260119045010.png",
+    "InformationTechnology/Information_Security/Armour_Infosec/recon_notes/assets/Pasted image 20260119044904.png",
+    "InformationTechnology/Information_Security/Armour_Infosec/recon_notes/assets/Pasted image 20260119044845.png",
+    "InformationTechnology/Information_Security/Armour_Infosec/recon_notes/assets/Pasted image 20260119044825.png",
+    "InformationTechnology/Information_Security/Armour_Infosec/recon_notes/assets/Pasted image 20260119044808.png",
+    "InformationTechnology/Information_Security/Armour_Infosec/recon_notes/assets/Pasted image 20260119044718.png",
+    "InformationTechnology/Information_Security/Armour_Infosec/recon_notes/assets/Pasted image 20260119044703.png",
+    "InformationTechnology/Information_Security/Armour_Infosec/recon_notes/assets/Pasted image 20260119044621.png",
+    "InformationTechnology/Information_Security/Armour_Infosec/recon_notes/assets/Pasted image 20260119044550.png",
+    "InformationTechnology/Information_Security/Armour_Infosec/recon_notes/assets/Pasted image 20260119044529.png",
+    "InformationTechnology/Information_Security/Armour_Infosec/recon_notes/assets"
+  ]
+}
