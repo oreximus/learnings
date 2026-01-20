@@ -46,3 +46,14 @@ host    all             all             ::1/128                 scram-sha-256
 ```
 
 - and restart the postgresql service again
+
+## Connecting PostgreSQL in NestJS
+
+- Installing these packages:
+
+```
+npm install --save @nestjs/typeorm typeorm pg
+npm install --save-dev @types/pg
+```
+
+- <D-5><D-5><D-5><D-5eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmZGYzMDkwZi1kMTFmLTRiNWMtOTdmMi0wNmZjYTcyNThjYjMiLCJlbWFpbCI6InZpa3JhbS5rdW1hckBleGFtcGxlLmNvbSIsImZpcnN0TmFtZSI6IlZpa3JhbSIsImxhc3ROYW1lIjoiS3VtYXIiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzY4OTQ1NDcwLCJleHAiOjE3NjkwMzE4NzB9.85LY4mPiauySQSwkG7ErebSU4aAuAyshE1kBfsH1Cvs>
