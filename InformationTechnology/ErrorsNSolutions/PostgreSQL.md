@@ -2,7 +2,7 @@
 
 ## Changing or Resetting the the PostgreSQL password in linux:
 
-- in your linux, edit file: /etc/postgresql/<version>/main/pg_hba.conf
+- in your linux, edit file: `/etc/postgresql/<version>/main/pg_hba.conf`
 
 - change the values to something like this:
 
@@ -36,7 +36,7 @@ ALTER USER postgres WITH PASSWORD 'your_new_password';
 
 - exit the psql shell by `\q`
 
-- revert the changes in the /etc/postgresql/<version>/main/pg_hba.conf file to:
+- revert the changes in the `/etc/postgresql/<version>/main/pg_hba.conf` file to:
 
 ```
 # IPv4 local connections:
