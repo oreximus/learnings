@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "InformationTechnology/Information_Security/Armour_Infosec/recon_notes/01-jhaddix-recon-methodology.md",
+                "file": "InformationTechnology/Information_Security/CTFs/HTB/Cap.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01-jhaddix-recon-methodology"
+              "title": "Cap"
             }
           }
         ]
@@ -186,6 +186,12 @@
   },
   "active": "fbb178e9bb7e3176",
   "lastOpenFiles": [
+    "InformationTechnology/Information_Security/CTFs/HTB/assets/Pasted image 20260203201640.png",
+    "InformationTechnology/Information_Security/CTFs/HTB/assets",
+    "InformationTechnology/Information_Security/Armour_Infosec/recon_notes/01-jhaddix-recon-methodology.md",
+    "InformationTechnology/Information_Security/CTFs/HTB/Cap.md",
+    "InformationTechnology/Information_Security/CTFs/HTB",
+    "InformationTechnology/Information_Security/Untitled",
     "InformationTechnology/ErrorsNSolutions/PostgreSQL.md",
     "InformationTechnology/Information_Security/Armour_Infosec/recon_notes/assets/Pasted image 20260119045850.png",
     "InformationTechnology/Information_Security/Armour_Infosec/recon_notes/assets/Pasted image 20260119045054.png",
