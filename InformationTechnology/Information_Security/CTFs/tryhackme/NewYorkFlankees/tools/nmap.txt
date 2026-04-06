@@ -1,0 +1,24 @@
+# Nmap 7.98 scan initiated Mon Apr  6 17:04:21 2026 as: nmap -sV -sC -vv -oN tools/nmap.txt 10.49.144.35
+Nmap scan report for 10.49.144.35
+Host is up, received conn-refused (0.047s latency).
+Scanned at 2026-04-06 17:04:22 IST for 10s
+Not shown: 998 closed tcp ports (conn-refused)
+PORT     STATE SERVICE REASON  VERSION
+22/tcp   open  ssh     syn-ack OpenSSH 8.2p1 Ubuntu 4ubuntu0.12 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 d9:ec:ac:55:f4:37:b4:b1:48:73:d5:58:e1:ef:22:b3 (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC9f8tDsMl53Ju5Jrdn4KV+kQbl6Q0nKDj8CMSLnRl/OFe7U/+PU/kNcNg3vmv6yxYt+LTe49a6SJ7sT7uIhykzTDVkRd7SFOQft0NGVv/IpVg2ca4ejxLMltw2hu31cH9ISQF/RqGM1LggBxY/Tl1yizudfU3TgAeZLuQOlNy4PqgAaHxC9smfu9BSSQwMWIkK72H/jZuW5HsCl3J0pAk15P2uR0rBft/DwwXyaVIo/hDvl8KRGLREoeHkF5qlx0UOlmMVvzzEOdgA2N/LnoO3hTM/x/UTgiks/lnRvG9NmtEdzqGb7vwchXXZTRXY7TGthOXGYBil420Rt/jpJuk0c9/r5Cg45VHBhzJf5oQTNf7VuZr+JoRdsJhThvGc8Y45/us1Z6IqmDRgMDNhW3QGJC7IEpeVTbRS51lhaJbrrpMBTVhZ4tC7idodzBZiCaWAJchKyvlZNX4hP6noa0slPrgxKx3w7vNCaYuvV6Bd3oXpG2aRIXpQIa5AP99ZzZM=
+|   256 a7:1b:3f:be:23:c8:c8:d1:b8:a7:5b:de:64:da:83:12 (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJF7nB3oi/85T8qigm5mfNG8V2fhF+chkdXdijjxpsS9TELrJqHTBoPc82v+3uPzP17phX0CJVoSqhxDgvSUWYY=
+|   256 d5:63:2e:77:e2:8b:dc:69:c4:89:d6:0b:9f:68:98:dc (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHPPdFKdu6swvCahWp6HbmtRAuSJ5o5bosv6XZpRYrK6
+8080/tcp open  http    syn-ack Octoshape P2P streaming web service
+|_http-favicon: Unknown favicon MD5: 6FD74A43E6C5F7502642326FAB0B3E69
+|_http-title: Hello world!
+| http-methods: 
+|_  Supported Methods: GET
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Apr  6 17:04:32 2026 -- 1 IP address (1 host up) scanned in 11.38 seconds
