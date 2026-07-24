@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "e1d2e240c3eb2d18",
+        "id": "67079169ed1e5ba9",
         "type": "tabs",
         "children": [
           {
-            "id": "fbb178e9bb7e3176",
+            "id": "2810aa859daa4a79",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "InformationTechnology/Programming/typescript_handbook.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "typescript_handbook"
+              "title": "New tab"
             }
           }
         ]
