@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "67079169ed1e5ba9",
+        "id": "1bc66d7d974b9f2f",
         "type": "tabs",
         "children": [
           {
-            "id": "2810aa859daa4a79",
+            "id": "0318410dc150475f",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -180,8 +180,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "969ee9cd5ac983d0",
+  "active": "0318410dc150475f",
   "lastOpenFiles": [
+    "InformationTechnology/Programming/typescript_handbook.md",
     "InformationTechnology/Information_Security/CTFs/HTB/Cap.md",
     "InformationTechnology/Information_Security/CTFs/HTB/assets/Pasted image 20260203201640.png",
     "InformationTechnology/Information_Security/CTFs/HTB/assets",
