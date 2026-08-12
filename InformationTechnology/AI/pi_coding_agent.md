@@ -5,6 +5,8 @@
 **Sources**:
 1. https://www.reddit.com/r/PiCodingAgent/comments/1t41thp/my_powerful_pi_agent_setup/
 2. https://explainx.ai/blog/pi-minimal-agent-harness-mario-zechner-guide-2026
+3. https://claude.ai/share/c4ac2b83-3183-4719-b9a6-b90df1e5cc8a
+4. https://github.com/elpapi42/pi-observational-memory/blob/master/README.md
 
 ## Notes from the source #1:
 
@@ -20,6 +22,33 @@ forever without maxing out the context window and keep the agent focused.
     - This combined with the rich context window of the pi-fork extension creates a rich
     re-callable memory system that stays relevant no matter how many weeks you have been
     using the same session nor the compactions it have withstand.
+    - Useful commands, once it's running: **FROM SOURCE #3 AND #4**:
+        - `Memory counts, drift, pool pressure, worker state, last errors`:
+        ```
+        /om:status
+        ```
+        - Shows + copies current visible memory
+        ```
+        om:view
+        ```
+        - Full memory state (visible memory can be empty before the first V3 compaction
+        -- use this to check what's actually recorded)
+        ```
+        om:view full
+        ```
+        - Pulls original source evidence for a specific observation/reflection id
+        ```
+        recall <id>
+        ```
+        
+        > One important note: you're mid-upgrade territory
+        - **V3 rewrite** that is not backward-compatible with 
+        V2. If you (or a prior config) used V2 settings, they'll be silently ignored
+        (V3 falls back to defaults, not an error) - so check your settings against the
+        migration table in the doc (e.g. `observationThresholdTokens` -> `observeAfterTokens`,
+        -> `compactionModel` -> `model`, etc.), and start a fresh Pi session after upgrading,
+        since existing sessions may still be showing old V2-era compaction text until a new V3
+        compaction runs.
 
 - [pi-minimal-subagent](https://github.com/elpapi42/pi-minimal-subagent): we use this to enable 2 subagents: the ***"advisor"*** (concept copied from claude
 code) and the ***"reviewer"***.
