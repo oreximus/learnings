@@ -37,3 +37,32 @@ myself. I'm looking forward to switching to [cymbal](https://github.com/1broseid
 
 > Overall this is the personal agent setup never forgets and can be useful for weeks
 before the context window gets maxed out.
+
+## Notes from the source #2:
+
+### Pi in harness terms
+
+- Our `agent harness guide` defines six components every serious agent system
+implements:
+    1. `Task definition` - what success looks like.
+    2. `Context / memory manager` - what the model sees each turn.
+    3. `Tool execution layer` - files, shell, APIs
+    4. `Loop controller` - when to call the model again
+    5. `Verification layer` - when the task is actually done
+    6. `Failure handler` - exits, escalation, partial results
+
+
+- Mapping Pi to your first custom harness:
+    - Agent harness guide sequence is: `define success` -> `write verification` -> `simplest`
+    `loop` -> `hard exit` -> `context` -> `failures` -> `instrument` -> Pi gives you steps 3-6 as
+    infrastructure on day one. You still supply **step 1-2** (***task + verification***).
+
+### AGENTS.md and SYSTEM.md
+
+- `AGENTS.md` - project instructions loaded at startup from `~/.pi/agent`, parent
+directories, and the current working directory. Same pattrern as Claude Code's
+project memory and the community `AGENTS.md` standard discussed in
+`memory.md persistence`.
+
+- `SYSTEM.md` - replace or append to PI's default system prompt `per project`. This
+is harness-level prompt control without forking the binary.
