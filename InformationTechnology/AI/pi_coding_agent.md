@@ -3,9 +3,10 @@
 **Date: 2026-08-13**
 
 **Sources**:
-- https://www.reddit.com/r/PiCodingAgent/comments/1t41thp/my_powerful_pi_agent_setup/
+1. https://www.reddit.com/r/PiCodingAgent/comments/1t41thp/my_powerful_pi_agent_setup/
+2. https://explainx.ai/blog/pi-minimal-agent-harness-mario-zechner-guide-2026
 
-## Notes
+## Notes from the source #1:
 
 - [pi-fork](https://github.com/elpapi42/pi-fork): a basic and minimalist subagents extension.
 **This brings a single thing to the table**. great context
