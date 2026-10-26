@@ -1,5 +1,8 @@
 # Multiculturism - what I'm understanding:
 
+**Date**: 26-10-2026
+**Source**: [perplexity_search](https://www.perplexity.ai/search/5e4a17b5-3380-4032-bb9f-86b3894f3893)
+
 1. A society where multiple cultures coexists.
 2. A political arguments that says multiples cultures deserves respect and recognition.
 3. State measures such as minority-language rights, religious exemptions, affirmative action, or cultural self-government.
